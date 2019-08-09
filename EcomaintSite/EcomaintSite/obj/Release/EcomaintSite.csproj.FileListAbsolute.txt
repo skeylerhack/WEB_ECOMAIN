@@ -1,0 +1,515 @@
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.rsp
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.rsp
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.AppContext.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Collections.Immutable.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Console.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.Process.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Compression.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Pipes.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.AccessControl.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Claims.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Principal.Windows.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Threading.Thread.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.ValueTuple.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.rsp
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.pdb
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Agent.Intercept.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Web.Infrastructure.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Owin.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.pdb
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll.config
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csprojAssemblyReference.cache
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CoreCompileInputs.cache
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CopyComplete
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.dll
+D:\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.pdb
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.rsp
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.rsp
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.AppContext.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Collections.Immutable.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Console.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.Process.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Compression.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Pipes.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.AccessControl.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Claims.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Principal.Windows.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Threading.Thread.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.ValueTuple.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.rsp
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.pdb
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Agent.Intercept.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Web.Infrastructure.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Owin.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationBlocks.Data.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.pdb
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll.config
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csprojAssemblyReference.cache
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CoreCompileInputs.cache
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CopyComplete
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.dll
+D:\webBAMBOO\web ecomain\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.pdb
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.rsp
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.rsp
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.AppContext.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Collections.Immutable.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Console.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.Process.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Compression.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Pipes.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.AccessControl.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Claims.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Principal.Windows.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Threading.Thread.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.ValueTuple.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.rsp
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.pdb
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Agent.Intercept.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Web.Infrastructure.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Owin.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationBlocks.Data.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.pdb
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll.config
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csprojAssemblyReference.cache
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CoreCompileInputs.cache
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CopyComplete
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.dll
+D:\các version của web\20190302\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.pdb
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csc.rsp
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.exe.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\csi.rsp
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.AppContext.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Collections.Immutable.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Console.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.Process.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Compression.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.IO.Pipes.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.AccessControl.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Claims.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Threading.Thread.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.ValueTuple.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.exe.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\vbc.rsp
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\roslyn\VBCSCompiler.exe.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EcomaintSite.pdb
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Web.Infrastructure.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Owin.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationBlocks.Data.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.pdb
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Model.Data.dll.config
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\Ninject.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csprojAssemblyReference.cache
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CoreCompileInputs.cache
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CopyComplete
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.dll
+D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.pdb
