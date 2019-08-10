@@ -86,11 +86,46 @@ namespace Model.Repository
                 listParameter.Add(new SqlParameter("@MS_CONG_NHAN", mscn));
                 listParameter.Add(new SqlParameter("@MS_MAY", msmay));
                 list = DBUtils.ExecuteSPList<MoningtoringViewModel>("GetGIAM_SAT_TINH_TRANG_WEB",listParameter,AppName.Model1);
-
             }
             catch (Exception){ }
             return list;
         }
+
+
+        public IEnumerable<MoningtoringViewModel.ThongSoGiamSat> GetThongSoGSTT(int stt, int dat, string msmay, int loaits)
+        {
+            List<MoningtoringViewModel.ThongSoGiamSat> list = null;
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+                listParameter.Add(new SqlParameter("@STT", stt));
+                listParameter.Add(new SqlParameter("@DAT", dat));
+                listParameter.Add(new SqlParameter("@MS_MAY", msmay));
+                listParameter.Add(new SqlParameter("@LOAI_TS", loaits));
+                list = DBUtils.ExecuteSPList<MoningtoringViewModel.ThongSoGiamSat>("GetGIAM_SAT_TINH_TRANG_TSs_DAT", listParameter, AppName.Model1);
+            }
+            catch (Exception) { }
+            return list;
+        }
+
+
+        public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt,string msmay,string msbp,string msts, int loai)
+        {
+            List<MoningtoringViewModel.ThongSoGiamSat.GiaTri> list = null;
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+                listParameter.Add(new SqlParameter("@STT", stt));
+                listParameter.Add(new SqlParameter("@MS_MAY", msmay));
+                listParameter.Add(new SqlParameter("@MS_BO_PHAN", msbp));
+                listParameter.Add(new SqlParameter("@MS_TS_GSTT", msts));
+                listParameter.Add(new SqlParameter("@LOAI", loai));
+                list = DBUtils.ExecuteSPList<MoningtoringViewModel.ThongSoGiamSat.GiaTri>("GetGIAM_SAT_TINH_TRANG_TS_DT", listParameter, AppName.Model1);
+            }
+            catch (Exception) { }
+            return list;
+        }
+
 
         private bool disposed = false;
         protected void Dispose(bool disposing)

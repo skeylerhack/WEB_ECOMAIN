@@ -14,5 +14,8 @@ namespace Model.Interface
         IEnumerable<DeviceObjForDropdown> CheckTheParametersDue();
         IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue,string dngay,int msloaicv);
         IEnumerable<MoningtoringViewModel> GetGiamSatTinhTrang(DateTime tungay, DateTime denngay, string mscn, string msmay);
+        IEnumerable<MoningtoringViewModel.ThongSoGiamSat> GetThongSoGSTT(int stt, int dat, string msmay, int loaits);
+        IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt, string msmay, string msbp, string msts, int loai);
+
     }
 }

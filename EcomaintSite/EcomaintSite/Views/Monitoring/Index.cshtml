@@ -64,7 +64,30 @@
     td .btn {
         font-size: 17px;
     }
+
+
+
+    #tbSparePartSelected > tbody > tr > td {
+        word-break: break-all;
+    }
+
+    #tbWO > tbody > tr > td {
+        word-break: break-all;
+    }
+
+
+    td.details {
+        color: #2366dd;
+        font-style: italic;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    tr.selected > td.details {
+        color: #323b49;
+    }
 </style>
+
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
@@ -135,16 +158,16 @@
                         </button>
                     </div>*@
                 <ul id="myTabs" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tabMonitoring" aria-controls="tabMonitoring" role="tab" data-toggle="tab">Giám sát</a></li>
-                    <li role="presentation"><a href="#tabThongSoDT" aria-controls="tabThongSoDT" role="tab" data-toggle="tab">định tính</a></li>
-                    <li role="presentation"><a href="#tabThongSoDL" aria-controls="tabThongSoDL" role="tab" data-toggle="tab" @*data-lang="tabThongSoDL"*@>định lượng</a></li>
+                    <li role="presentation" class="active"><a href="#tabMonitoring" data-val="0" aria-controls="tabMonitoring" role="tab" data-toggle="tab">Giám sát</a></li>
+                    <li role="presentation"><a href="#tabThongSoDT" data-val="1" aria-controls="tabThongSoDT" role="tab" data-toggle="tab">định tính</a></li>
+                    <li role="presentation"><a href="#tabThongSoDL" data-val="2" aria-controls="tabThongSoDL" role="tab" data-toggle="tab" @*data-lang="tabThongSoDL"*@>định lượng</a></li>
                 </ul>
+
                 <h6 style="margin: 20px 0 0 0;"></h6>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     @*tab giám sát tình trạng*@
                     <div role="tabpanel" class="tab-pane active" id="tabMonitoring">
-
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
@@ -186,46 +209,24 @@
                             </div>
                         </div>
                     </div>
-
                     @*tab định tính*@
                     <div role="tabpanel" class="tab-pane" id="tabThongSoDT">
-
-
-                        @*thêm định tính*@
-                        @*<div class=" row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="radio">
-                                    <label><input type="radio" name="optradio" value="0">Xem tất cả</label>
-                                </div>
-                                <div class="radio">
-                                    <label><input type="radio" name="optradio" value="1" checked>Xem thông số đến hạn giám sát</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                    <div class="form-group">
-                                        <label data-lang="lblTungay">Từ ngày</label>
-                                        <input class="form-control" type="text" id="fromDate" data-type="datepicker" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
-                                    </div>
-                                </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                <div class="form-group">
-                                    <label>Loại công việc</label>
-                                    @Html.DropDownList("cbbLoaiCV", ViewBag.LoaiCV as SelectList, new { name = "cbbLoaiCV", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 <div class="form-group">
                                     <div class="table-responsive" style="overflow: auto">
-                                        <table id="tbQualityParameter" class="table table-bordered table-condensed display">
+                                        <table id="tbthongsodinhtinh" class="table table-bordered table-condensed display">
                                             <thead>
                                                 <tr>
-                                                    <th class="">Group </th>
-                                                    <th style="width:120px" data-lang="Choose">Chọn</th>
-                                                    <th data-lang="TEN_GIA_TRI">Giá trị</th>
-                                                    <th data-lang="Note">Ghi chú</th>
+                                                    <th hidden>STT</th>
+                                                    <th>Mã tài sản </th>
+                                                    <th>Tên tài sản</th>
+                                                    <th hidden>Mã bộ phận </th>
+                                                    <th>Tên bộ phận</th>
+                                                    <th hidden>Mã thông số </th>
+                                                    <th>Thông số GS</th>
+                                                    <th>TG TT</th>
+                                                    <th>TG KH</th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -233,29 +234,92 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>*@
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <div class="table-responsive" style="overflow: auto; margin-top:7px;">
+                                        <table id="tbgiatri" class="table table-bordered table-condensed display">
+                                            <thead>
+                                                <tr>
+                                                    <th>Giá trị </th>
+                                                    <th>Ghi chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            @*thêm định tính*@
+                            @*<div class=" row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="radio">
+                                            <label><input type="radio" name="optradio" value="0">Xem tất cả</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="optradio" value="1" checked>Xem thông số đến hạn giám sát</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                            <div class="form-group">
+                                                <label data-lang="lblTungay">Từ ngày</label>
+                                                <input class="form-control" type="text" id="fromDate" data-type="datepicker" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
+                                            </div>
+                                        </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <div class="form-group">
+                                            <label>Loại công việc</label>
+                                            @Html.DropDownList("cbbLoaiCV", ViewBag.LoaiCV as SelectList, new { name = "cbbLoaiCV", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="table-responsive" style="overflow: auto">
+                                                <table id="tbQualityParameter" class="table table-bordered table-condensed display">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="">Group </th>
+                                                            <th style="width:120px" data-lang="Choose">Chọn</th>
+                                                            <th data-lang="TEN_GIA_TRI">Giá trị</th>
+                                                            <th data-lang="Note">Ghi chú</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                        </div>
                     </div>
                     @*tab thông số định lượng*@
                     <div role="tabpanel" class="tab-pane" id="tabThongSoDL">
                         @*<div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <div class="table-responsive" style="overflow: auto">
-                                        <table id="tbQuantityParameter" class="table table-bordered table-condensed ">
-                                            <thead>
-                                                <tr>
-                                                    <th class="">Group</th>
-                                                    <th data-lang="TEN_GIA_TRI">Giá trị</th>
-                                                    <th style="width:80px" data-lang="IN">IN</th>
-                                                    <th data-lang="Note">Ghi chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="table-responsive" style="overflow: auto">
+                                            <table id="tbQuantityParameter" class="table table-bordered table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="">Group</th>
+                                                        <th data-lang="TEN_GIA_TRI">Giá trị</th>
+                                                        <th style="width:80px" data-lang="IN">IN</th>
+                                                        <th data-lang="Note">Ghi chú</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>*@
+                            </div>*@
                     </div>
                 </div>
             </div>
@@ -322,5 +386,8 @@
         var urlConditionMonitoringParameterSave = '@Url.Action("Save", "Monitoring")'
         var urlCheckTheParametersDue = '@Url.Action("CheckTheParametersDue", "Monitoring")'
         var urlGetGiamSatTinhTrang = '@Url.Action("FilterData", "Monitoring")'
+        var urlGetThongSoGiamSatTinhTrang = '@Url.Action("GetThongSo", "Monitoring")'
+        var urlGetGiaTri = '@Url.Action("GetGiaTri", "Monitoring")'
+
         require(['MonitoringController'])
 </script>

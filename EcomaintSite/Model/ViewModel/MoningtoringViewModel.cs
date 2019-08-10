@@ -16,5 +16,31 @@ namespace Model.Data
         public string MS_MAY { get; set; }
         public string TEN_MAY { get; set; }
         public string NHAN_XET { get; set; }
+        public List<ThongSoGiamSat> DSThongSoGiamSat { get; set; }
+
+        public class ThongSoGiamSat
+        {
+            public int STT { get; set; }
+            public string MS_MAY { get; set; }
+            public string TEN_MAY { get; set; }
+            public string MS_BO_PHAN { get; set; }
+            public string TEN_BO_PHAN { get; set; }
+            public string MS_TS_GSTT { get; set; }
+            public string TEN_TS_GSTT { get; set; }
+            public string TG_TT { get; set; }
+            public string THOI_GIAN { get; set; }
+            public List<GiaTri> DSGiaTri { get; set; }
+
+        public class GiaTri
+            {
+                public int STT { get; set; }
+                public string MS_MAY { get; set; }
+                public string MS_BO_PHAN { get; set; }
+                public string MS_TS_GSTT { get; set; }
+                public int STT_GT { get; set; }
+                public string TEN_GIA_TRI { get; set; }
+                public string GHI_CHU { get; set; }
+            }
+        }
     }
 }

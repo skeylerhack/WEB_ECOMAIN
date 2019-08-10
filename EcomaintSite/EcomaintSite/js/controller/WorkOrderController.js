@@ -168,7 +168,7 @@
                     }).fail(function (response) {
                         Loading.fn.Hide()
                         Alert.fn.Show('Please choose datetime approx 1 years')
-                    });;
+                    });
                 },
                 GetMachineParts: function () {
                     method.GetMaintenanceTypeByDevice();
@@ -778,13 +778,12 @@
                         if (data.length > 0) {
                             var length = data.length;
                             for (i = 0; i < length; i++) {
-
                                 tableBody.append('<tr data-componentid=' + data[i].ComponentID + '  data-workid=' + data[i].WorkID + ' ><td>' + data[i].ComponentID + '</td><td style="width: 350px;">' + data[i].Description + '</td><td style="width: 250px;">' + data[i].ActualTime + '</td></tr>');
                             }
                             $('#tbWorkForWO tbody tr:first-child').addClass('selected')
                             var componentID = vars.$tbWorkBody.find('tr:first-child').attr('data-componentid');
                             var workID = vars.$tbWorkBody.find('tr:first-child').attr('data-workid');
-                            $scope.fn.GetSparePartByWorkOrder(workOrderID, componentID, workID)
+                            $scope.fn.GetSparePartByWorkOrder(workOrderID, componentID, workID);
                         }
                         if (flag == true) {
                             window.setTimeout(function () { vars.$tabWorkDetail.tab('show') }, 500);
