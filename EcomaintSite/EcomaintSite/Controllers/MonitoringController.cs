@@ -41,16 +41,15 @@ namespace EcomaintSite.Controllers
             ViewBag.link = 0;
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
-
-
             ViewBag.NhanVien = Combobox().NhanVienKT(User.Identity.GetUserName());
-
             return View(deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
             {
                 ID = x.ID,
                 Name = x.Name
             }).ToList());
         }
+
+
 
         [Authorize]
         public ActionResult Show(string msnx, string msmay, string tngay, string dngay)
@@ -64,6 +63,18 @@ namespace EcomaintSite.Controllers
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.NhanVien = Combobox().NhanVienKT(User.Identity.GetUserName());
             return View("~/Views/Monitoring/Index.cshtml", deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
+            {
+                ID = x.ID,
+                Name = x.Name
+            }).ToList());
+        }
+
+        public ActionResult InitMonitoring()
+        {
+            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
+            ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
+            ViewBag.NhanVien = Combobox().NhanVienKT(User.Identity.Name);
+            return View("~/Views/Monitoring/_ThemGiamSatTinhTrang.cshtml", deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
             {
                 ID = x.ID,
                 Name = x.Name

@@ -54,6 +54,7 @@
         'OrgUnitController': baseUrl + 'controller/OrgUnitController',
         'ApproveRequestsController': baseUrl + 'controller/ApproveRequestsController',
         'MonitoringController': baseUrl + 'controller/MonitoringController',
+        'InitMonitoringController': baseUrl + 'controller/InitMonitoringController',
         'MasterPlansController': baseUrl + 'controller/MasterPlansController',
         'WorkOrderController': baseUrl + 'controller/WorkOrderController',
         'AddRequestController': baseUrl + 'controller/AddRequestController',
@@ -122,11 +123,16 @@
             exports: 'angular',
             deps: ['angular']
         },
+
         'ApproveRequestsController': {
             exports: 'angular',
             deps: ['angular']
         },
         'MonitoringController': {
+            exports: 'angular',
+            deps: ['angular', 'select2']
+        },
+        'InitMonitoringController': {
             exports: 'angular',
             deps: ['angular', 'select2']
         },

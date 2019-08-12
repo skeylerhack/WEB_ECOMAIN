@@ -301,12 +301,12 @@
                     }
                     else {
                         _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 });
             }

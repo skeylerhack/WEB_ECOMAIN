@@ -252,6 +252,8 @@
     <Content Include="img\up-small.png" />
     <Content Include="img\up.png" />
     <Content Include="img\user-avatar.jpg" />
+    <Content Include="js\controller\InitMonitoringController - Copy.js" />
+    <Content Include="js\controller\InitMonitoringController.js" />
     <Content Include="js\controller\MonitoringController.js" />
     <Content Include="js\controller\MyEcomainController - Copy.js" />
     <Content Include="js\controller\MyEcomainController.js" />
@@ -375,6 +377,7 @@
     <Content Include="Views\ReceiptRequest\Index.cshtml" />
     <Content Include="Views\MyEcomain\Index.cshtml" />
     <Content Include="Views\MyEcomain\Index - Copy.cshtml" />
+    <Content Include="Views\Monitoring\_ThemGiamSatTinhTrang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
