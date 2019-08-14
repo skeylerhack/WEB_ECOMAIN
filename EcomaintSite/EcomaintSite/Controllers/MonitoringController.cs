@@ -69,8 +69,7 @@ namespace EcomaintSite.Controllers
             }).ToList());
         }
 
-
-        public ActionResult InitMonitoring(string msmay,string msnv,string ngay, string gio)
+        public ActionResult InitMonitoring()
         {
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);

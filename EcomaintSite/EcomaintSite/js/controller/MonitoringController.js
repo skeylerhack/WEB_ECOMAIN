@@ -33,7 +33,7 @@
             var vars = {}
             var bindVariables = function () {
                 return {
-
+                   
                     $tbGiamSatTinhTrang: $('#tbGiamSatTinhTrang'),
                     $tbGiamSatTinhTrangBody: $('#tbGiamSatTinhTrang tbody'),
                     $tableGiamSatTinhTrang: 'undefined',
@@ -234,6 +234,7 @@
                         });
                     }
                 },
+
             }
             var method
             $scope.fn = {
@@ -265,7 +266,7 @@
                         {
                             theme: "classic"
                         });
-                    $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
+                   $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
                     vars.$txtDevice.on('keypress', function (e) {
                         if (e.which === 13) {
                             Loading.fn.Show()
@@ -283,7 +284,7 @@
                                 var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                                 method.LoadThongSoGiamSat(STT);
                             }
-
+                         
                         }
                     });
                 },
@@ -291,14 +292,6 @@
                     window.setTimeout(function () { vars.$tabDinhTinh.tab('show') }, 500);
                     method.LoadThongSoGiamSat(STT);
                 },
-                SuaGS: function () {
-                    var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id')
-                    if (typeof id == 'undefined') {
-                        Alert.fn.Show("Chọn giám sát cần sửa", Alert.Type.warning);
-                        return false;
-                    }
-                    window.location.href = urlAddGiamSatTinhTrang + '?them=0';
-                }
             }
         })
         app.init = function () {
