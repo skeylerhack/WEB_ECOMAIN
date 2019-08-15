@@ -97,6 +97,8 @@
     </div>
 </div>
 <div ng-controller="InitMonitoringController" ng-init="fn.Init()">
+    <input type="hidden" id="stt" name="stt" value="@ViewBag.STT">
+
     <div class="row">
         <div class="col-lg-12">
             <div class="card-box">
@@ -111,10 +113,25 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label data-lang="lblDevice">Thiết bị</label>
-                            <div class="input-group">
-                                <input class="form-control" type="text" id="txtDevice" />
-                                <a class="input-group-addon" ng-click="fn.ShowEquipForm();" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                            </div>
+
+                            @if (ViewBag.STT == "-1")
+                            {
+                                <div class="input-group">
+                                    <input class="form-control" type="text" id="txtDevice" />
+                                    <a class="input-group-addon" ng-click="fn.ShowEquipForm();" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <input type="hidden" id="msphieu" name="msphieu" value="@ViewBag.MSPhieu">
+                                @Html.DropDownList("cbbThietBi", ViewBag.May as SelectList, new { name = "cbbThietBi", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
+                            }
+
+
+
+
+
+
                         </div>
                     </div>
 
@@ -176,10 +193,10 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="radio">
-                                    <label><input type="radio" name="optradio" value="0">Xem tất cả</label>
+                                    <label><input type="radio" name="optradio" value="0" checked>Xem tất cả</label>
                                 </div>
                                 <div class="radio">
-                                    <label><input type="radio" name="optradio" value="1" checked>Xem thông số đến hạn giám sát</label>
+                                    <label><input type="radio" name="optradio" value="1">Xem thông số đến hạn giám sát</label>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">

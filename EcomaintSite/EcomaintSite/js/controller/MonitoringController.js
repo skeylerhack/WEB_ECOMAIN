@@ -26,7 +26,7 @@
                         "id": "btnSuags",
                         "icon": "<i class='fa fa-pencil'></i>",
                         "lang": "btnEdit",
-                        "func": "fn.Edit"
+                        "func": "fn.SuaGS"
                     }
 
                 ]
@@ -208,7 +208,8 @@
                     //var requestID = vars.$tbRequest.find('tr[class$="selected"]').attr('data-id');
                     //var detailID = vars.$tbRequestDetailBody.find('tr[class$="selected"]').attr('data-detailid');
                     //var deviceID = vars.$tbRequestDetailBody.find('tr[class$="selected"] td').attr('data-deviceid');
-                    method.LoadGiaTri(11);
+                    var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
+                    method.LoadGiaTri(STT);
                     return false;
                 },
                 //GetGiaTri(int stt, string msmay, string msbp, string msts, int loai);
@@ -222,7 +223,7 @@
                         tableBody.append('<tr><td colspan="2">Không có dữ liệu</td></tr>');
                     }
                     else {
-                        $.post(urlGetGiaTri, { stt: STT, msmay: msmay, msbp: msbp, msts: msts, loai: 1 }, function (data) {
+                        $.post(urlGetGiaTri, { stt: STT, msmay: msmay, msbp: msbp, msts: msts, loai: $('input[name = "optradio"]:checked').val() }, function (data) {
                             var i;
                             tableBody.empty();
                             if (data.length == 0) { tableBody.append('<tr><td colspan="2">Không có dữ liệu</td></tr>'); }
@@ -292,6 +293,16 @@
                     window.setTimeout(function () { vars.$tabDinhTinh.tab('show') }, 500);
                     method.LoadThongSoGiamSat(STT);
                 },
+                SuaGS: function () {
+                    var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id')
+                    var may = $('#tbGiamSatTinhTrang tr[class$="selected"]').find("td").eq(4).text();
+                    var sophieu = $('#tbGiamSatTinhTrang tr[class$="selected"]').find("td").eq(0).text();
+                    if (typeof id == 'undefined') {
+                        Alert.fn.Show(Messenger.msgChonYCCanSua, Alert.Type.warning);
+                        return false;
+                    }
+                    window.location.href = urlAddGiamSatTinhTrang + '?stt=' + id + '&msmay= ' + may + '&msphieu='+sophieu;
+                }
             }
         })
         app.init = function () {

@@ -85,6 +85,7 @@ namespace Model.Combobox
         }
         public SelectList NhanVienKT(string Username)
         {
+            if (Username == "") Username = "Admin";
             UserRepository us = new UserRepository();
             string s = us.GetUserByID(Username).StaffID;
             DataTable tb = new DataTable();
@@ -116,6 +117,8 @@ namespace Model.Combobox
              });
             return new SelectList(listItem, "Value", "Text", null);
         }
+
+
 
         private bool disposed = false;
         protected void Dispose(bool disposing)

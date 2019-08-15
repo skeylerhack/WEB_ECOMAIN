@@ -415,7 +415,7 @@
                         });
                     }
 
-                    $.post(urlConditionMonitoringParameterSave, { data: JSON.stringify(lstParameter), mscn: $("#cbbNhanVien").val() }, function (data) {
+                    $.post(urlConditionMonitoringParameterSave, { data: JSON.stringify(lstParameter), mscn: $("#cbbNhanVien").val(), stt: $('#stt').val(), ngaykt: $('#ngaykt').val() }, function (data) {
                         if (data == "success") {
                             $('#tbQuantityParameter').dataTable().fnDestroy();
                             $('#tbQualityParameter').dataTable().fnDestroy();

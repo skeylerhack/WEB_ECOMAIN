@@ -69,7 +69,35 @@ namespace EcomaintSite.Controllers
             }).ToList());
         }
 
-        public ActionResult InitMonitoring()
+        public ActionResult InitMonitoring(string stt, string msmay,string msphieu,string denngay)
+        {
+            if(!string.IsNullOrEmpty(stt))
+            {
+                //sửa
+                List<string> lstmay = msmay.Split(',').ToList();
+                List<SelectListItem> resulst = Combobox().GetCbbMay(User.Identity.Name,0,0).ToList();
+                var kq = resulst.Where(p =>lstmay.Where(y=>y.Trim().Equals(p.Value)).Any()).ToList();
+                ViewBag.May = new SelectList(kq, "Value", "Text", null);
+                ViewBag.MSPhieu = msphieu;
+            }
+            else
+            {
+                //thêm
+                stt = "-1";
+                ViewBag.May = null;
+                //ViewBag.msphieu = monitoringRepository.CreateSoPhieu(Convert.ToDateTime(denngay, new System.Globalization.CultureInfo("vi-vn")));
+            }
+            ViewBag.STT = stt;
+            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
+            ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
+            ViewBag.NhanVien = Combobox().NhanVienKT(User.Identity.Name);
+            return View("~/Views/Monitoring/_ThemGiamSatTinhTrang.cshtml", deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
+            {
+                ID = x.ID,
+                Name = x.Name
+            }).ToList());
+        }
+        public ActionResult InitMonitoringEdit(int stt,string msmay)
         {
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
@@ -176,7 +204,7 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult Save(string data, string mscn)
+        public JsonResult Save(string data, string mscn,string stt,string ngaykt)
         {
             try
             {
@@ -193,7 +221,8 @@ namespace EcomaintSite.Controllers
                     FromHour = DateTime.Now,
                     Username = User.Identity.GetUserName(),
                     StaffID = mscn,
-                    MonitoringOfQuantitative = null
+                    MonitoringOfQuantitative = null,
+                    votes = monitoringRepository.CreateSoPhieu(Convert.ToDateTime(ngaykt, new System.Globalization.CultureInfo("vi-vn")))
                 };
                 var lst = lstParameter.GroupBy(x => new { x.ComponentID, x.DeviceID, x.MonitoringParamsID }).Select(x => new MonitoringParametersByDevice
                 {

@@ -78,15 +78,21 @@ namespace EcomaintSite.Controllers
         }
         public JsonResult GeMyecomain(string fromDate, string toDate, string ms_nx, string may, string giadoan)
         {
-            var lst = MyEcomain().GetMyEcomain(User.Identity.GetUserName(), SessionVariable.TypeLanguage, Convert.ToDateTime(fromDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToDateTime(toDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), ms_nx, may, Convert.ToInt32(giadoan)).Select(x => new
+            try
             {
-                MS_MAY = x.MS_MAY,
-                TEN_MAY = x.TEN_MAY,
-                PBT = x.PBT,
-                GSTT = x.GSTT
-            });
-            return Json(lst, JsonRequestBehavior.AllowGet);
-
+                var lst = MyEcomain().GetMyEcomain(User.Identity.GetUserName(), SessionVariable.TypeLanguage, Convert.ToDateTime(fromDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToDateTime(toDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), ms_nx, may, Convert.ToInt32(giadoan)).Select(x => new
+                {
+                    MS_MAY = x.MS_MAY,
+                    TEN_MAY = x.TEN_MAY,
+                    PBT = x.PBT,
+                    GSTT = x.GSTT
+                });
+                return Json(lst, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
         }
 
         public ActionResult ShowPBT(string id)

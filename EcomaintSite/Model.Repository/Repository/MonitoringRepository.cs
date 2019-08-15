@@ -1,4 +1,5 @@
 ﻿using Biz.Lib.Helpers;
+using Microsoft.ApplicationBlocks.Data;
 using Model.Data;
 using Model.Interface;
 using System;
@@ -108,6 +109,11 @@ namespace Model.Repository
             return list;
         }
 
+        public string CreateSoPhieu(DateTime date)
+        {
+            string s = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString,System.Data.CommandType.Text, "select dbo.AUTO_CREATE_SO_PHIEU_GSTT('" + date.Date.ToString("MM/dd/yyyy") + "')"));
+            return s;
+        }
 
         public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt,string msmay,string msbp,string msts, int loai)
         {
