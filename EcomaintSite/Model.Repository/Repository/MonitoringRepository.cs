@@ -59,7 +59,7 @@ namespace Model.Repository
 
         public void Delete(int ID) => db.Monitoring.Remove(db.Monitoring.SingleOrDefault(x => x.ID == ID));
 
-        public IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue, string dngay, int msloaicv)
+        public IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue, string dngay, int msloaicv,int stt)
         {
             List<MonitoringParametersByDevice> list = null;
             try
@@ -69,6 +69,7 @@ namespace Model.Repository
                 listParameter.Add(new SqlParameter("@tungay", dngay));
                 listParameter.Add(new SqlParameter("@ms_loaicv", msloaicv));
                 listParameter.Add(new SqlParameter("@isDue", isDue));
+                listParameter.Add(new SqlParameter("@stt",stt));
                 list = DBUtils.ExecuteSPList<MonitoringParametersByDevice>("GetMonitoringParametersByDevice", listParameter, AppName.Model1);
             }
             catch (Exception ex)

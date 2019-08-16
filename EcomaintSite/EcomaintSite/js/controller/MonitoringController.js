@@ -252,11 +252,6 @@
                         var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                         method.LoadThongSoGiamSat(STT);
                     });
-                    $("#cbbLoaiCV").change(function () {
-                        if (method.KiemTraChonMay() !== false) {
-                            //method.LoadGrid();
-                        }
-                    });
                     if ($('#link').val() === '1') {
                         $("#cbbDiaDiem").val($('#nx').val());
                         $("#txtDevice").val($('#may').val());
@@ -294,14 +289,14 @@
                     method.LoadThongSoGiamSat(STT);
                 },
                 SuaGS: function () {
-                    var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id')
+                    var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id');
                     var may = $('#tbGiamSatTinhTrang tr[class$="selected"]').find("td").eq(4).text();
                     var sophieu = $('#tbGiamSatTinhTrang tr[class$="selected"]').find("td").eq(0).text();
                     if (typeof id == 'undefined') {
                         Alert.fn.Show(Messenger.msgChonYCCanSua, Alert.Type.warning);
                         return false;
                     }
-                    window.location.href = urlAddGiamSatTinhTrang + '?stt=' + id + '&msmay= ' + may + '&msphieu='+sophieu;
+                    window.location.href = urlAddGiamSatTinhTrang + '?stt=' + id + '&msmay= ' + may + '&msphieu=' + sophieu;
                 }
             }
         })

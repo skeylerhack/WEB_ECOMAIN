@@ -69,7 +69,7 @@ namespace EcomaintSite.Controllers
             }).ToList());
         }
 
-        public ActionResult InitMonitoring(string stt, string msmay,string msphieu,string denngay)
+        public ActionResult InitMonitoring(string stt, string msmay,string msphieu)
         {
             if(!string.IsNullOrEmpty(stt))
             {
@@ -178,11 +178,11 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult GetMonitoringParameters(string id, string due, string todate, string mslcv)
+        public JsonResult GetMonitoringParameters(string id, string due, string todate, string mslcv,string stt)
         {
             try
             {
-                return Json(monitoringRepository.GetMonitoringParametersByDevice(id, Convert.ToInt32(due), Convert.ToDateTime(todate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToInt32(mslcv)), JsonRequestBehavior.AllowGet);
+                return Json(monitoringRepository.GetMonitoringParametersByDevice(id, Convert.ToInt32(due), Convert.ToDateTime(todate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToInt32(mslcv),Convert.ToInt32(stt)), JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -236,7 +236,6 @@ namespace EcomaintSite.Controllers
                     TypeOfParam = x.First().TypeOfParam,
                     ID = x.First().ID
                 });
-
                 lst.ToList().ForEach(x =>
                 {
                     lstQuantitative.Add(new MonitoringOfQuantitative
@@ -266,8 +265,7 @@ namespace EcomaintSite.Controllers
                         });
                     }
                 });
-
-                monitoringUnitOfWork.MonitoringRepository.Add(obj);
+                monitoringUnitOfWork.MonitoringRepository.Add(obj);//add giám sát tình trạng
                 monitoringUnitOfWork.MonitoringOfQuantitativeRepository.AddRange(lstQuantitative);
                 monitoringUnitOfWork.MonitoringOfQualitativeRepository.AddRange(lstQualitative);
                 monitoringUnitOfWork.Save();

@@ -12,7 +12,7 @@ namespace Model.Interface
         void Delete(int ID);
         IEnumerable<MonitoringParametersByDevice> GetParameterInfo(int ID);
         IEnumerable<DeviceObjForDropdown> CheckTheParametersDue();
-        IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue,string dngay,int msloaicv);
+        IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue,string dngay,int msloaicv,int stt);
         IEnumerable<MoningtoringViewModel> GetGiamSatTinhTrang(DateTime tungay, DateTime denngay, string mscn, string msmay);
         IEnumerable<MoningtoringViewModel.ThongSoGiamSat> GetThongSoGSTT(int stt, int dat, string msmay, int loaits);
         IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt, string msmay, string msbp, string msts, int loai);

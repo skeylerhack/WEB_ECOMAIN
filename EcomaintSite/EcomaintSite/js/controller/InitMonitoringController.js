@@ -75,7 +75,7 @@
             }
             var fnPrivate = {
                 LoadGrid: function (id, action) {
-                    $.post(urlConditionMonitoringParameterGet, { id: id, due: $('input[name = "optradio"]:checked').val(), todate: $('#fromDate').val(), mslcv: $('#cbbLoaiCV').val() }, function (data) {
+                    $.post(urlConditionMonitoringParameterGet, { id: id, due: $('input[name = "optradio"]:checked').val(), todate: $('#fromDate').val(), mslcv: $('#cbbLoaiCV').val(), stt: $('#stt').val() }, function (data) {
                         if ($.fn.DataTable.isDataTable('#tbQuantityParameter')) {
                             $('#tbQuantityParameter').dataTable().fnDestroy();
                         }
@@ -88,7 +88,12 @@
                             var i = 0;
                             for (i = 0; i < data.length; i++) {
                                 if (data[i].TypeOfParam === true) {
-                                    vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox" /><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></tr>')
+                                    if (data[i].Measurement == 1) {
+                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox" checked/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></tr>')
+                                    }
+                                    else {
+                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox"/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></tr>')
+                                    }
                                 }
                                 else {
                                     vars.$tbQuantityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '-' + data[i].MonitoringParamsName + ' (' + data[i].TEN_DV_DO + ')</td><td style="padding-left: 20px;">' + data[i].ValueParamName.split('!')[0] + '</td><td style="width:110px" ><input onkeyup="this.setAttribute(\'value\', this.value);" value="" class="form-control" type="text" data-range=\'' + data[i].ValueParamName.split('!')[1] + '\' style="width: 100%" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" /></td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></td></tr>')
@@ -209,7 +214,7 @@
                             //if (action == 'button') {
                             //    $('#myModal').appendTo("body").modal('show')
                             //}
-                            Alert.fn.Show(Messenger.msgKhongCoDuLieu, Alert.Type.warning)
+                            Alert.fn.Show(Messenger.msgKhongCoDuLieu, Alert.Type.warning);
                         }
                     });
                 },
@@ -298,6 +303,27 @@
                         {
                             theme: "classic"
                         });
+
+                    if ($('#stt').val() != "-1") {
+                        $('#cbbDiaDiem').attr("disabled", true);
+                        method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                        $("#cbbLoaiCV").change(function () {
+                            Loading.fn.Show();
+                            method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                        });
+                        $("#cbbThietBi").change(function () {
+                            Loading.fn.Show()
+                            method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                        });
+                    }
+                    else {
+                        $("#cbbLoaiCV").change(function () {
+                            if (method.KiemTraChonMay() !== false) {
+                                Loading.fn.Show()
+                                method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                            }
+                        });
+                    }
                     vars.$equipDatatables = $("#tbEquip").DataTable();
                     vars.$equipDatatablesTmp = vars.$equipDatatables.rows().data();
                     vars.$tbEquipBody.on('doubletap', 'tr', method.GetConditionMonitoringByDevice)
@@ -349,7 +375,7 @@
                     });
                     vars.$tbQualityParameterBody.on('click', 'td:first-child', method.ToggleCheckboxesOnTable);
                     vars.$tbQuantityParameterBody.on("focusout", "input[type=text]", method.DetectInputValueNumber);
-                   $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
+                    $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
                     vars.$txtDevice.on('keypress', function (e) {
                         if (e.which === 13) {
                             Loading.fn.Show()
@@ -401,7 +427,7 @@
                     }
                     var cur_length = lstParameter.length;
                     if (vars.$qualityParamsDatatables.$('input[type=checkbox]:checked').length > 0) {
-                        vars.$qualityParamsDatatables.$('input[type=checkbox]:checked').each(function (i, obj) {
+                        vars.$qualityParamsDatatables.$('input[type=checkbox]:checked').each(function (i, obj) {//lay nhung dong duoc check
                             var j = i + cur_length;
                             lstParameter[j] = new Object();
                             lstParameter[j].DeviceID = vars.$txtDevice.val();
@@ -410,7 +436,7 @@
                             lstParameter[j].TypeOfParam = 1;
                             lstParameter[j].ID = 1;
                             lstParameter[j].ValueParamID = $(obj).attr('data-id')
-                            lstParameter[j].Measurement = 0;
+                            lstParameter[j].Measurement = 1;
                             lstParameter[j].Note = $(obj).closest('tr').find('textarea').val()
                         });
                     }
@@ -469,7 +495,6 @@
                     var rows = $('#tbQualityParameter').DataTable().rows().nodes();
                     $("input[type=checkbox]", rows).prop('checked', false);
                 },
-
                 ShowEquipForm: function () {
                     $.post(urlCheckTheParametersDue, { msnx: $("#cbbDiaDiem").val() }, function (data) {
                         if (data.length > 0) {
