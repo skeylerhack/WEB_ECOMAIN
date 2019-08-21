@@ -35,9 +35,12 @@ namespace Model.Repository
                     db.Entry(obj).Property(ep.Name).IsModified = true;
             }
         }
-
-        public void Delete(int monitoringID) =>
-            db.MonitoringOfQuantitative.Remove(db.MonitoringOfQuantitative.SingleOrDefault(x => x.MonitoringID == monitoringID));
+        public void Delete(int monitoringID)
+        {
+           var resulst =  db.MonitoringOfQuantitative.Where(x => x.MonitoringID == monitoringID).ToList();
+            db.MonitoringOfQuantitative.RemoveRange(resulst);
+        }
+            
 
         public void SaveChanges() => db.SaveChanges();
 

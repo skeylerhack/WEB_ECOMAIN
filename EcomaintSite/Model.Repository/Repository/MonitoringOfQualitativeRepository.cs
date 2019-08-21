@@ -35,7 +35,7 @@ namespace Model.Repository
 
         }
 
-        public void Delete(int ID) => db.MonitoringOfQualitative.Remove(db.MonitoringOfQualitative.SingleOrDefault(x => x.MonitoringID == ID));        
+        public void Delete(int ID) => db.MonitoringOfQualitative.RemoveRange(db.MonitoringOfQualitative.Where(x => x.MonitoringID == ID));        
 
         public void SaveChanges() => db.SaveChanges();
 

@@ -87,12 +87,21 @@
                         if (data.length > 0) {
                             var i = 0;
                             for (i = 0; i < data.length; i++) {
+                                var ghichu = '';
+                                if (data[i].Note === null) {
+                                    ghichu = "";
+                                }
+                                else {
+                                    ghichu = data[i].Note;
+                                }
+
                                 if (data[i].TypeOfParam === true) {
+
                                     if (data[i].Measurement == 1) {
-                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox" checked/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></tr>')
+                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox" checked/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + ghichu + '</textarea></tr>')
                                     }
                                     else {
-                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox"/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + data[i].Note + '</textarea></tr>')
+                                        vars.$tbQualityParameterBody.append('<tr><td >(' + data[i].ComponentID + ') ' + data[i].ComponentName + '- (' + data[i].MonitoringParamsName + ')</td><td class="dt-body-center" data-toggle="buttons" style="width:120px" data-pass="' + data[i].Pass + '"><label class="btn"><input class="form-control" data-id="' + data[i].ValueParamID + '" data-msbophan="' + data[i].ComponentID + '" data-msthongso="' + data[i].MonitoringParamsID + '" type="checkbox"/><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i></label><td>' + data[i].ValueParamName + '</td><td><textarea class="form-control" id="txtGhiChu">' + ghichu + '</textarea></tr>')
                                     }
                                 }
                                 else {
@@ -430,7 +439,12 @@
                         vars.$qualityParamsDatatables.$('input[type=checkbox]:checked').each(function (i, obj) {//lay nhung dong duoc check
                             var j = i + cur_length;
                             lstParameter[j] = new Object();
-                            lstParameter[j].DeviceID = vars.$txtDevice.val();
+                            if ($('#stt').val() === '-1') {
+                                lstParameter[j].DeviceID = vars.$txtDevice.val();
+                            }
+                            else {
+                                lstParameter[j].DeviceID = $('#cbbThietBi').val();
+                            }
                             lstParameter[j].MonitoringParamsID = $(obj).attr('data-msthongso');
                             lstParameter[j].ComponentID = $(obj).attr('data-msbophan');
                             lstParameter[j].TypeOfParam = 1;
@@ -445,15 +459,15 @@
                         if (data == "success") {
                             $('#tbQuantityParameter').dataTable().fnDestroy();
                             $('#tbQualityParameter').dataTable().fnDestroy();
-                            $('#tbQualityParameter tbody').empty()
-                            $('#tbQuantityParameter tbody').empty()
+                            $('#tbQualityParameter tbody').empty();
+                            $('#tbQuantityParameter tbody').empty();
                             Loading.fn.Hide();
-                            Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success)
-                            vars.$txtDevice.val('')
+                            //Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success);
+                            window.location.href = urlGetGiamSatTinhTrang;
                         }
                         else {
                             Loading.fn.Hide();
-                            Alert.fn.Show(Messenger.msgGhiKhongThanhCong, Alert.Type.error)
+                            Alert.fn.Show(Messenger.msgGhiKhongThanhCong, Alert.Type.error);
                         }
                     });
                 },

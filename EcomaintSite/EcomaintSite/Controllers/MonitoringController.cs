@@ -213,6 +213,7 @@ namespace EcomaintSite.Controllers
                 List<MonitoringOfQualitative> lstQualitative = new List<MonitoringOfQualitative>();
                 Monitoring obj = new Monitoring
                 {
+                    ID = Convert.ToInt32(stt),
                     Comment = "",
                     Staff = null,
                     ToHour = DateTime.Now,
@@ -265,7 +266,18 @@ namespace EcomaintSite.Controllers
                         });
                     }
                 });
-                monitoringUnitOfWork.MonitoringRepository.Add(obj);//add giám sát tình trạng
+                if(stt =="-1")
+                {//thêm
+                    monitoringUnitOfWork.MonitoringRepository.Add(obj);//add giám sát tình trạng
+
+                }
+                else
+                {//sữa
+                    monitoringUnitOfWork.MonitoringRepository.Edit(obj);
+                    monitoringUnitOfWork.MonitoringOfQuantitativeRepository.Delete(Convert.ToInt32(stt));
+                    monitoringUnitOfWork.MonitoringOfQualitativeRepository.Delete(Convert.ToInt32(stt));
+                    monitoringUnitOfWork.Save();
+                }
                 monitoringUnitOfWork.MonitoringOfQuantitativeRepository.AddRange(lstQuantitative);
                 monitoringUnitOfWork.MonitoringOfQualitativeRepository.AddRange(lstQualitative);
                 monitoringUnitOfWork.Save();
