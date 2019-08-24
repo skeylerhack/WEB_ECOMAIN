@@ -19,14 +19,15 @@
                     {
                         "id": "btnThemgs",
                         "icon": "<i class='fa fa-plus'></i>",
-                        "lang": "btnThem",
+                        "lang": "btnThemgs",
                         "url": urlAddGiamSatTinhTrang //set tên hàm tương ứng
                     },
                     {
                         "id": "btnSuags",
+                        "url": "#",
                         "icon": "<i class='fa fa-pencil'></i>",
-                        "lang": "btnEdit",
-                        "func": "fn.SuaGS"
+                        "lang": "btnSuags",
+                        "func": "fn.SuaGS()"
                     }
 
                 ]
@@ -262,15 +263,15 @@
                         {
                             theme: "classic"
                         });
-                   $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
-                    vars.$txtDevice.on('keypress', function (e) {
-                        if (e.which === 13) {
-                            Loading.fn.Show()
-                            window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
-                        }
-                    });
+                   //$('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
+                   // vars.$txtDevice.on('keypress', function (e) {
+                   //     if (e.which === 13) {
+                   //         Loading.fn.Show()
+                   //         window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
+                   //     }
+                   // });
                     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                        var target = $(e.target).attr("data-val") // activated tab
+                        var target = $(e.target).attr("data-val"); // activated tab
                         if (vars.$tableGiamSatTinhTrang.rows().count() == 0) {
                             Alert.fn.Show("Chưa chọn giám sát", Alert.Type.warning)
                             return;
@@ -297,6 +298,29 @@
                         return false;
                     }
                     window.location.href = urlAddGiamSatTinhTrang + '?stt=' + id + '&msmay= ' + may + '&msphieu=' + sophieu;
+                },
+                XoaGS: function () {
+                    var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id');
+                    if (typeof id == 'undefined') {
+                        Alert.fn.Show("Bạn cần chọn giám sác tình trạng trước khi xóa!", Alert.Type.warning);
+                        return false;
+                    }
+                    Alert.fn.ShowConfirm("Bạn có muốn giám sát tình trạng này không này không ? ", Alert.Type.info, "Xóa", function (result) {
+                        if (result === true) {
+                            $.post(urlXoaGiamSatTinhTrang, { id: id }, function (data) {
+                                if (data == "success") {
+                                    $('#tbGiamSatTinhTrang tr[class$="selected"]').remove();
+                                    Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success, Messenger.msgInfo)
+
+                                }
+                                else {
+                            Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success, Messenger.msgInfo)
+
+                                }
+                            });
+                            return false;
+                        }
+                    });
                 }
             }
         })

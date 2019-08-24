@@ -17,11 +17,10 @@
                         "icon": "<i class='fa fa-angle-double-up'></i>"
                     },
                     {
-                        "id": "btnSubmit",
+                        "id": "btndow",
                         "url": '#',
-                        "icon": "<i class='fa fa-floppy-o'></i>",
-                        "lang": "btnGhi",
-                        "func": "fn.Submit()"
+                        "icon": "<i class='fa fa-angle-double-down'></i>",
+                        "lang": "btnHide"
                     },
                     {
                         "id": "btnbochon",
@@ -37,16 +36,23 @@
                         "lang": "btnchondat",
                         "func": "fn.chondat()"
                     },
-
                     {
                         "id": "btnchonkhongdat",
                         "url": '#',
                         "icon": "<i class='fa  fa-check-square'></i>",
                         "lang": "btnchonkhongdat",
                         "func": "fn.chonkhongdat()"
-                    }
-
+                    },
+                    {
+                        "id": "btnGhi",
+                        "url": '#',
+                        "icon": "<i class='fa fa-floppy-o'></i>",
+                        "lang": "btnGhi",
+                        "func": "fn.Ghi()"
+                    },
                 ]
+
+          
             var vars = {}
             var bindVariables = function () {
                 return {
@@ -247,21 +253,18 @@
                     var $checkbox = $(this).find(':checkbox');
                     $checkbox.prop('checked', !$checkbox.prop('checked'))
                     if ($checkbox.is(':checked')) {
-                        $checkbox.closest('td').addClass("checked")
-                        var root = $(this).parent().attr('data-root')
-                        var dat = $(this).attr('data-pass')
-                        $('#tbQualityParameter tr[data-root=' + root + '] td[class$=checked]').each(function (i, obj) {
-                            if ($(obj).attr('data-pass') !== dat) {
-                                $('#tbQualityParameter tr[data-root=' + root + '] td[class$=checked]').removeClass('checked')
-                                $('#tbQualityParameter tr[data-root=' + root + '] input[type=checkbox]').prop('checked', false)
-                                $checkbox.prop('checked', true)
-                                $checkbox.closest('td').addClass("checked")
-                                return false;
-                            }
-                        })
+                        $checkbox.closest('td').addClass("checked");
+                        var root = $(this).parent().attr('data-root');
+                        var dat = $(this).attr('data-pass');//dat
+                        if (dat == 1) {
+                            $('#tbQualityParameter tr[data-root=' + root + '] td[data-pass ="0"] input[type=checkbox]').prop('checked', false);
+                        }
+                        else {
+                            $('#tbQualityParameter tr[data-root=' + root + '] td[data-pass ="1"] input[type=checkbox]').prop('checked', false);
+                        }
                     }
                     else {
-                        $(this).parent().removeClass("checked")
+                        $(this).parent().removeClass("checked");
                     }
                 },
                 DetectInputValueNumber: function () {
@@ -312,7 +315,6 @@
                         {
                             theme: "classic"
                         });
-
                     if ($('#stt').val() != "-1") {
                         $('#cbbDiaDiem').attr("disabled", true);
                         method.LoadGrid($('#cbbThietBi').val(), 'keypress');
@@ -333,6 +335,29 @@
                             }
                         });
                     }
+                    $('input[type=radio][name=optradio]').change(function () {
+                        if ($('#stt').val() != "-1") {
+                            $('#cbbDiaDiem').attr("disabled", true);
+                            method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                            $("#cbbLoaiCV").change(function () {
+                                Loading.fn.Show();
+                                method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                            });
+                            $("#cbbThietBi").change(function () {
+                                Loading.fn.Show()
+                                method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                            });
+                        }
+                        else {
+                            $("#cbbLoaiCV").change(function () {
+                                if (method.KiemTraChonMay() !== false) {
+                                    Loading.fn.Show()
+                                    method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                                }
+                            });
+                        }
+                    });
+
                     vars.$equipDatatables = $("#tbEquip").DataTable();
                     vars.$equipDatatablesTmp = vars.$equipDatatables.rows().data();
                     vars.$tbEquipBody.on('doubletap', 'tr', method.GetConditionMonitoringByDevice)
@@ -392,7 +417,7 @@
                         }
                     });
                 },
-                Submit: function () {
+                Ghi: function () {
                     if (!$.fn.DataTable.isDataTable('#tbQuantityParameter')) {
                         Alert.fn.Show(Messenger.msgDuLieuRong, Alert.Type.warning);
                         return;
@@ -454,8 +479,7 @@
                             lstParameter[j].Note = $(obj).closest('tr').find('textarea').val()
                         });
                     }
-
-                    $.post(urlConditionMonitoringParameterSave, { data: JSON.stringify(lstParameter), mscn: $("#cbbNhanVien").val(), stt: $('#stt').val(), ngaykt: $('#ngaykt').val() }, function (data) {
+                    $.post(urlConditionMonitoringParameterSave, { data: JSON.stringify(lstParameter), mscn: $("#cbbNhanVien").val(), stt: $('#stt').val(), ngaykt: $('#ngaykt').val(), giokt: $('#giokt').val() }, function (data) {
                         if (data == "success") {
                             $('#tbQuantityParameter').dataTable().fnDestroy();
                             $('#tbQualityParameter').dataTable().fnDestroy();

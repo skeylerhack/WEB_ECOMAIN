@@ -115,6 +115,22 @@ namespace Model.Repository
             string s = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString,System.Data.CommandType.Text, "select dbo.AUTO_CREATE_SO_PHIEU_GSTT('" + date.Date.ToString("MM/dd/yyyy") + "')"));
             return s;
         }
+        public int XoaGiamSatTinhTrang(int ID)
+        {
+            int ResponseCode = 0;
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+                listParameter.Add(new SqlParameter("@ID", ID));
+                
+                SqlHelper.ExecuteNonQuery(db.Database.Connection.ConnectionString, "spXoaGiamSatTinhTrang",ID, "-1", "-1", "-1", -1, -1, 1);
+                ResponseCode = 1;
+            }
+            catch (Exception)
+            {
+            }
+            return ResponseCode;
+        }
 
         public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt,string msmay,string msbp,string msts, int loai)
         {

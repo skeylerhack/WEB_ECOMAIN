@@ -204,7 +204,7 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult Save(string data, string mscn,string stt,string ngaykt)
+        public JsonResult Save(string data, string mscn,string stt,string ngaykt,string giokt)
         {
             try
             {
@@ -217,9 +217,11 @@ namespace EcomaintSite.Controllers
                     Comment = "",
                     Staff = null,
                     ToHour = DateTime.Now,
-                    DateChecked = DateTime.Now.Date,
+                    //DateChecked = DateTime.Now.Date,
+                    DateChecked = Convert.ToDateTime(ngaykt, new CultureInfo("vi-vn")),
                     HourOfRuntime = null,
-                    FromHour = DateTime.Now,
+                    //FromHour = DateTime.Now,
+                    FromHour = Convert.ToDateTime(giokt, new CultureInfo("vi-vn")),
                     Username = User.Identity.GetUserName(),
                     StaffID = mscn,
                     MonitoringOfQuantitative = null,
@@ -288,5 +290,17 @@ namespace EcomaintSite.Controllers
                 return Json("error: " + ex.InnerException.Message, JsonRequestBehavior.AllowGet);
             }
         }
+        public JsonResult XoaGiamSatTinhTrang(int id)
+        {
+            if (monitoringRepository.XoaGiamSatTinhTrang(id) == 1)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("failure", JsonRequestBehavior.AllowGet);
+            }
+        }
+
     }
 }
