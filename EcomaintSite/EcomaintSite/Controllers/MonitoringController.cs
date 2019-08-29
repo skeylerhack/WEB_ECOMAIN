@@ -57,6 +57,7 @@ namespace EcomaintSite.Controllers
             ViewBag.link = 1;
             ViewBag.nx = msnx;
             ViewBag.may = msmay;
+            ViewBag.tngay = Convert.ToDateTime(tngay, new CultureInfo("vi-vn")).ToString("dd/MM/yyyy");
             ViewBag.dngay = Convert.ToDateTime(dngay, new CultureInfo("vi-vn")).ToString("dd/MM/yyyy");
 
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);

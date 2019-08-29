@@ -256,7 +256,8 @@
                     if ($('#link').val() === '1') {
                         $("#cbbDiaDiem").val($('#nx').val());
                         $("#txtDevice").val($('#may').val());
-                        $("#fromDate").val($('#dngay').val());
+                        $("#fromDate").val($('#tngay').val());
+                        $("#toDate").val($('#dngay').val());
                         //method.LoadGrid();
                     }
                     $(".select2").select2(

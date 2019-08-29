@@ -228,16 +228,16 @@
                 function timer() {
                     diff = duration - (((Date.now() - start) / request) | 0);
                     if (diff <= 0 && _IDLE == true) {
-                        _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //_IDLE = false;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 };
-                idleButtonIntervalID = setInterval(timer, request);
+                //idleButtonIntervalID = setInterval(timer, request);
             }
             var SessInterval = function () {
                 var now = new Date();
@@ -267,13 +267,13 @@
                             diff = now - sessLastActivity;
                             diffMins = (diff / request / 60);
                             if (diffMins > sessExpirationMinutes) {
-                                _IDLE = false;
-                                $.removeCookie("_IDLE", '/')
-                                $.cookie("_IDLE", _IDLE, {
-                                    expires: 0.2,
-                                    path: '/'
-                                });
-                                window.location.href = URLLogOut;
+                                //_IDLE = false;
+                                //$.removeCookie("_IDLE", '/')
+                                //$.cookie("_IDLE", _IDLE, {
+                                //    expires: 0.2,
+                                //    path: '/'
+                                //});
+                                //window.location.href = URLLogOut;
                             }
                             else {
                                 fn.InitSession();
@@ -282,13 +282,13 @@
                             clearInterval(idleButtonIntervalID)
                         }
                         else {
-                            _IDLE = false;
-                            $.removeCookie("_IDLE", '/')
-                            $.cookie("_IDLE", _IDLE, {
-                                expires: 0.2,
-                                path: '/'
-                            });
-                            window.location.href = URLLogOut;
+                            //_IDLE = false;
+                            //$.removeCookie("_IDLE", '/')
+                            //$.cookie("_IDLE", _IDLE, {
+                            //    expires: 0.2,
+                            //    path: '/'
+                            //});
+                            //window.location.href = URLLogOut;
                         }
                     });
                 }
@@ -300,7 +300,7 @@
                         $('#userOnline').text(data);
                     }
                     else {
-                        _IDLE = false;
+                        //_IDLE = false;
                         //$.removeCookie("_IDLE", '/')
                         //$.cookie("_IDLE", _IDLE, {
                         //    expires: 0.2,
@@ -314,7 +314,7 @@
                 fn: {
                     Init: function () {
                         sessLastActivity = new Date();
-                        SessSetInterval();
+                        //SessSetInterval();
                         $(document).bind('keypress.session', function (ed, e) {
                             SessKeyPressed(ed, e);
                         });

@@ -486,7 +486,6 @@
                             $('#tbQualityParameter tbody').empty();
                             $('#tbQuantityParameter tbody').empty();
                             Loading.fn.Hide();
-                            //Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success);
                             window.location.href = urlGetGiamSatTinhTrang;
                         }
                         else {
