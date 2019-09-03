@@ -130,6 +130,7 @@
                 },
                 LoadThongSoGiamSat: function (STT) {
                     //public JsonResult GetThongSo(int stt, int dat, string msmay, int loaits)
+                    //method.KiemTraChonMay();
                     $.post(urlGetThongSoGiamSatTinhTrang, { stt: STT, dat: $('input[name = "optradio"]:checked').val(), msmay: "-1", loaits: 1 },
                         function (data) {
                             if ($.fn.DataTable.isDataTable('#tbthongsodinhtinh')) {
@@ -206,6 +207,7 @@
                         });
                 },
                 TableThongSo_RowChanged: function () {
+                    alert("sự kiện vào tab");
                     //var requestID = vars.$tbRequest.find('tr[class$="selected"]').attr('data-id');
                     //var detailID = vars.$tbRequestDetailBody.find('tr[class$="selected"]').attr('data-detailid');
                     //var deviceID = vars.$tbRequestDetailBody.find('tr[class$="selected"] td').attr('data-deviceid');
@@ -236,7 +238,14 @@
                         });
                     }
                 },
-
+                KiemTraChonMay: function () {
+                    if ($('#link').val() === '1') {
+                        alert("SUA");
+                    }
+                    else {
+                        alert("THEM");
+                    }
+                }
             }
             var method
             $scope.fn = {
@@ -264,13 +273,13 @@
                         {
                             theme: "classic"
                         });
-                   //$('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
-                   // vars.$txtDevice.on('keypress', function (e) {
-                   //     if (e.which === 13) {
-                   //         Loading.fn.Show()
-                   //         window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
-                   //     }
-                   // });
+                   $('#tbthongsodinhtinh').on('click', 'tr', /*method.TableThongSo_RowChanged*/ alert('vào'));
+                    vars.$txtDevice.on('keypress', function (e) {
+                        if (e.which === 13) {
+                            Loading.fn.Show()
+                            window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
+                        }
+                    });
                     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         var target = $(e.target).attr("data-val"); // activated tab
                         if (vars.$tableGiamSatTinhTrang.rows().count() == 0) {
