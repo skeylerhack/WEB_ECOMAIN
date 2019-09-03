@@ -207,10 +207,6 @@
                         });
                 },
                 TableThongSo_RowChanged: function () {
-                    alert("sự kiện vào tab");
-                    //var requestID = vars.$tbRequest.find('tr[class$="selected"]').attr('data-id');
-                    //var detailID = vars.$tbRequestDetailBody.find('tr[class$="selected"]').attr('data-detailid');
-                    //var deviceID = vars.$tbRequestDetailBody.find('tr[class$="selected"] td').attr('data-deviceid');
                     var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                     method.LoadGiaTri(STT);
                     return false;
@@ -273,13 +269,14 @@
                         {
                             theme: "classic"
                         });
-                   $('#tbthongsodinhtinh').on('click', 'tr', /*method.TableThongSo_RowChanged*/ alert('vào'));
-                    vars.$txtDevice.on('keypress', function (e) {
-                        if (e.which === 13) {
-                            Loading.fn.Show()
-                            window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
-                        }
-                    });
+                    //click vào table thông số định tính thì load chi tiết
+                   $('#tbthongsodinhtinh').on('click', 'tr',method.TableThongSo_RowChanged);
+                    //vars.$txtDevice.on('keypress', function (e) {
+                    //    if (e.which === 13) {
+                    //        Loading.fn.Show()
+                    //        window.setTimeout(function () { method.LoadGrid(vars.$txtDevice.val(), 'keypress'); }, 500);
+                    //    }
+                    //});
                     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         var target = $(e.target).attr("data-val"); // activated tab
                         if (vars.$tableGiamSatTinhTrang.rows().count() == 0) {

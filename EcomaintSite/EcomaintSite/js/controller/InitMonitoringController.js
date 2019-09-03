@@ -323,6 +323,7 @@
                     Main.fn.InitButtonFloat(buttonFloat)
                     method = fnPrivate
                     vars = bindVariables();
+                    $('#fromDate').attr("disabled", true);
                     $(".select2").select2(
                         {
                             theme: "classic"
@@ -339,7 +340,7 @@
                     }
                     else {
                         $("#cbbLoaiCV").change(function () {
-                                method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                            method.LoadGrid(vars.$txtDevice.val(), 'keypress');
                         });
                     }
                     $('input[type=radio][name=optradio]').change(function () {
@@ -352,8 +353,7 @@
                         if (this.value == 0) {
                             $('#fromDate').attr("disabled", true);
                         }
-                        else
-                        {
+                        else {
                             $('#fromDate').attr("disabled", false);
                         }
                     });
@@ -363,13 +363,20 @@
                         $("#cbbLoaiCV").change(function () {
                             method.LoadGrid($('#cbbThietBi').val(), 'keypress');
                         });
+                        Main.fn.InitDateTimePickerChanged([$('#fromDate')], method.LoadGrid($('#cbbThietBi').val(), 'keypress'));
+                        $('#fromDate').on('dp.change', function(){
+                            method.LoadGrid($('#cbbThietBi').val(), 'keypress');
+                        });
                         $("#cbbThietBi").change(function () {
                             method.LoadGrid($('#cbbThietBi').val(), 'keypress');
                         });
                     }
                     else {
                         $("#cbbLoaiCV").change(function () {
-                                method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                            method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                        });
+                        $('#fromDate').on('dp.change', function () {
+                            method.LoadGrid(vars.$txtDevice.val(), 'keypress');
                         });
                     }
 
