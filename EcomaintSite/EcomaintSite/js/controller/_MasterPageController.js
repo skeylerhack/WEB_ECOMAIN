@@ -195,6 +195,81 @@
                     for (var i = 0; i < length; i++) {
                         $(lst[i]).on('dp.change', method);
                     }
+                },
+                ScanBarCode: function (buttonscan, importfile, savedata) {
+                    function uploadImgDisplay(curFile) {
+                        // img URL
+                        var fileURL = window.URL.createObjectURL(curFile);
+                        // revoke object
+                        $('#fileImg').onload = function () {
+                            window.URL.revokeObjectURL(fileURL);
+                        };
+                        // display image
+                        $('#dlgFirst').css('display', 'none');
+                        $('#fileImg').attr('src', fileURL);
+                        $('#dlgReading').css('display', 'block');
+                        // upload image
+                        var fd = new FormData();
+                        fd.append('image', curFile);
+                        fd.append('barcodeFormat', 503317503);
+                        $.ajax({
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            url: urlReadbarcode,
+                            success: function (resulst) {
+                                if (resulst !== "error") {
+                                    var exists = false;
+                                    $('#cbbThietBi option').each(function () {
+                                        if (this.value == resulst) {
+                                            exists = true;
+                                            return false;
+                                        }
+                                    });
+                                    if (exists == true) {
+                                        savedata.val(resulst).change();
+                                    }
+                                    else {
+                                        Module.Alert.fn.Show('Không tồn tại mã hày or bạn không có quyền để dùng mã này!', Module.Alert.Type.warning);
+                                    }
+                                }
+                                else {
+                                    Module.Alert.fn.Show('Quéc không thành công,Xin vui lòng thử lại!', Module.Alert.Type.warning);
+                                }
+                            },
+                            error: function (response) {
+                                Module.Alert.fn.Show('Không tìm thấy', Module.Alert.Type.warning);
+                            }
+                        });
+                    }
+                    buttonscan.click(function () {
+                        importfile.click();
+                    });
+
+                    importfile.change(function () {
+                        // is file choosed 
+                        if (!this.files.length) {
+                            return;
+                        }
+                        // is image
+                        var file = this.files[0];
+                        this.value = '';
+                        switch (file.type) {
+                            case 'image/bmp':
+                            case 'image/jpeg':
+                            case 'image/jpg':
+                            case 'image/png':
+                            case 'image/gif':
+                                break;
+                            default:
+                                {
+                                    alert('The uploaded file is not supported.');
+                                    return;
+                                }
+                        }
+                        uploadImgDisplay(file);
+                    });
                 }
             }
             return { fn }

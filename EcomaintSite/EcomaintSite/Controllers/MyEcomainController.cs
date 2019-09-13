@@ -1,16 +1,24 @@
-﻿using Microsoft.AspNet.Identity;
+﻿//using Dynamsoft.Barcode;
+using Microsoft.AspNet.Identity;
 using Model.Combobox;
 using Model.Data;
 using Model.Interface;
 using Model.Interface.IRepository;
 using Model.Repository;
 using Model.Repository.Repository;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using IronBarCode;
+using Dynamsoft.Barcode;
+using BarcodeReader = IronBarCode.BarcodeReader;
 
 namespace EcomaintSite.Controllers
 {
@@ -37,7 +45,7 @@ namespace EcomaintSite.Controllers
         }
         private void Loadcombo(string user)
         {
-            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(user, SessionVariable.TypeLanguage,1);
+            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.HeThong = Combobox().GetCbbHeThong(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.LoaiMay = Combobox().GetCbbLoaiMay(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.May = Combobox().GetCbbMay(user, SessionVariable.TypeLanguage, 1);
@@ -107,7 +115,32 @@ namespace EcomaintSite.Controllers
             string nx = Request["nhaxuong"];
             string tungay = Request["fromday"];
             string dengnay = Request["today"];
-            return RedirectToAction("Show", "Monitoring", new { msnx = nx, msmay = id,tngay = tungay ,dngay = dengnay });
+            return RedirectToAction("Show", "Monitoring", new { msnx = nx, msmay = id, tngay = tungay, dngay = dengnay });
+        }
+        [HttpPost]
+        public JsonResult ProcessRequest()
+        {
+            HttpRequest request = System.Web.HttpContext.Current.Request;
+            try
+            {
+                HttpPostedFile imgBinary = request.Files["image"];
+                int barcodeFormat = int.Parse(request["barcodeFormat"]);
+                if (imgBinary == null)
+                {
+                    throw new Exception("Post data is null.");
+                }
+                Stream iStream = imgBinary.InputStream;
+                BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode(iStream);
+                if (Result != null)
+                {
+                    string s = Result.Text;
+                }
+                return Json(Result.Text, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

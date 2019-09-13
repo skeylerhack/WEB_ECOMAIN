@@ -117,9 +117,6 @@ namespace Model.Combobox
              });
             return new SelectList(listItem, "Value", "Text", null);
         }
-
-
-
         private bool disposed = false;
         protected void Dispose(bool disposing)
         {

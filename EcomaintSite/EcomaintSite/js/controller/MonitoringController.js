@@ -34,7 +34,7 @@
             var vars = {}
             var bindVariables = function () {
                 return {
-                   
+
                     $tbGiamSatTinhTrang: $('#tbGiamSatTinhTrang'),
                     $tbGiamSatTinhTrangBody: $('#tbGiamSatTinhTrang tbody'),
                     $tableGiamSatTinhTrang: 'undefined',
@@ -128,9 +128,7 @@
                             vars.$tbGiamSatTinhTrangBody.find('tr:first-child').addClass('selected');
                         });
                 },
-                LoadThongSoGiamSat: function (STT) {
-                    //public JsonResult GetThongSo(int stt, int dat, string msmay, int loaits)
-                    //method.KiemTraChonMay();
+                LoadThongSoDT: function (STT) {
                     $.post(urlGetThongSoGiamSatTinhTrang, { stt: STT, dat: $('input[name = "optradio"]:checked').val(), msmay: "-1", loaits: 1 },
                         function (data) {
                             if ($.fn.DataTable.isDataTable('#tbthongsodinhtinh')) {
@@ -206,6 +204,88 @@
                             method.TableThongSo_RowChanged();
                         });
                 },
+                LoadThongSoDL: function (STT) {
+                    $.post(urlGetThongSoGiamSatTinhTrang, { stt: STT, dat: "1", msmay: "-1", loaits: 0 },
+                        function (data) {
+                            if ($.fn.DataTable.isDataTable('#tbthongsodinhluong')) {
+                                $('#tbthongsodinhluong').dataTable().fnDestroy();
+                            }
+                            $('#tbthongsodinhluong').DataTable({
+                                data: data,
+                                columns: [
+                                    { data: 'STT' },
+                                    { data: 'MS_MAY' },
+                                    { data: 'TEN_MAY' },
+                                    { data: 'MS_BO_PHAN' },
+                                    { data: 'TEN_BO_PHAN' },
+                                    { data: 'MS_TS_GSTT' },
+                                    { data: 'TEN_TS_GSTT' },
+                                    { data: 'GIA_TRI_DO' },
+                                    { data: 'TEN_GT' },
+                                    { data: 'TEN_DV_DO' },
+                                    { data: 'TG_TT' },
+                                    { data: 'THOI_GIAN' }
+                                ],
+                                "columnDefs": [
+                                    {
+                                        "targets": [0],
+                                        "visible": false,
+                                        "searchable": false
+                                    },
+                                    {
+                                        "targets": [3],
+                                        "visible": false
+                                    },
+                                    {
+                                        "targets": [5],
+                                        "visible": false
+                                    },
+                                    { 'width': '110px', 'targets': 1 },
+                                    { 'width': '30%', 'targets': 2 },
+                                    { 'width': '30%', 'targets': 4 },
+                                    { 'width': '30%', 'targets': 6 },
+                                    { 'width': '10%', 'targets': 7 },
+                                    { 'width': '10%', 'targets': 8 },
+                                    { 'width': '10%', 'targets': 9 },
+                                    { 'width': '10%', 'targets': 10 },
+                                    { 'width': '10%', 'targets': 11 }
+
+                                ],
+                                "language":
+                                {
+                                    "processing": "<div class='overlay custom-loader-background'><i class='fa fa-cog fa-spin custom-loader-color'></i></div>",
+                                    "sSearch": "<span data-lang='lblSearch'>" + (global.TypeLanguage == 0 ? "Tìm " : "Search") + "</span> ",
+                                    "info": "",
+                                    "zeroRecords": "<span data-lang='lblFilterInfo'>" + (global.TypeLanguage == 0 ? "Không tìm thấy" : "No matching records found") + "</span>",
+                                    "lengthMenu": "<span data-lang='lblShow'></span> _MENU_ <span data-lang='lblEntries'></span>",
+                                    "infoEmpty": "",
+                                    "infoFiltered": "",
+                                    "paginate": {
+                                        "first": "<<",
+                                        "last": ">>",
+                                        "next": ">",
+                                        "previous": "<"
+                                    },
+                                    "emptyTable": "<span data-lang='lblEmpty'>" + (global.TypeLanguage == 0 ? "Không có dữ liệu" : "No data available in table") + "</span>",
+                                },
+                                bLengthChange: false,
+                                scrollY: 350,
+                                "searching": false,
+                                scrollX: true,
+                                'createdRow': function (row, data, dataIndex) {
+                                    if (data.hasOwnProperty("STT")) {
+                                        $(row).attr('data-id', data.STT);
+                                        $(row).attr('data-msmay', data.MS_MAY);
+                                        $(row).attr('data-msbp', data.MS_BO_PHAN);
+                                        $(row).attr('data-msts', data.MS_TS_GSTT);
+                                    }
+                                }
+                            });
+                            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw(false);
+                            $('#tbthongsodinhluong').find('tr:first-child').addClass('selected');
+                            method.TableThongSo_RowChanged();
+                        });
+                },
                 TableThongSo_RowChanged: function () {
                     var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                     method.LoadGiaTri(STT);
@@ -256,7 +336,7 @@
                     Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')], method.LoadGiamSatTinhTrang);
                     $('input[type=radio][name=optradio]').change(function () {
                         var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
-                        method.LoadThongSoGiamSat(STT);
+                        method.LoadThongSoDT(STT);
                     });
                     if ($('#link').val() === '1') {
                         $("#cbbDiaDiem").val($('#nx').val());
@@ -270,7 +350,7 @@
                             theme: "classic"
                         });
                     //click vào table thông số định tính thì load chi tiết
-                   $('#tbthongsodinhtinh').on('click', 'tr',method.TableThongSo_RowChanged);
+                    $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
                     //vars.$txtDevice.on('keypress', function (e) {
                     //    if (e.which === 13) {
                     //        Loading.fn.Show()
@@ -280,21 +360,24 @@
                     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         var target = $(e.target).attr("data-val"); // activated tab
                         if (vars.$tableGiamSatTinhTrang.rows().count() == 0) {
-                            Alert.fn.Show("Chưa chọn giám sát", Alert.Type.warning)
+                            Alert.fn.Show("Chưa chọn giám sát", Alert.Type.warning);
                             return;
                         }
                         else {
+                            var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                             if (target == 1) {
-                                var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
-                                method.LoadThongSoGiamSat(STT);
+                                Fmethod.LoadThongSoDT(STT);
                             }
-                         
+                            else {
+                                method.LoadThongSoDL(STT);
+                            }
+
                         }
                     });
                 },
                 LinkChiTietGiamSat: function (STT) {
                     window.setTimeout(function () { vars.$tabDinhTinh.tab('show') }, 500);
-                    method.LoadThongSoGiamSat(STT);
+                    method.LoadThongSoDT(STT);
                 },
                 SuaGS: function () {
                     var id = $('#tbGiamSatTinhTrang tr[class$="selected"]').attr('data-id');
@@ -318,11 +401,9 @@
                                 if (data == "success") {
                                     $('#tbGiamSatTinhTrang tr[class$="selected"]').remove();
                                     Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success, Messenger.msgInfo)
-
                                 }
                                 else {
-                            Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success, Messenger.msgInfo)
-
+                                    Alert.fn.Show(Messenger.msgGhiThanhCong, Alert.Type.success, Messenger.msgInfo)
                                 }
                             });
                             return false;

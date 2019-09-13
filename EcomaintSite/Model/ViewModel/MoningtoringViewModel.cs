@@ -29,6 +29,11 @@ namespace Model.Data
             public string TEN_TS_GSTT { get; set; }
             public string TG_TT { get; set; }
             public string THOI_GIAN { get; set; }
+            public double GIA_TRI_DO { get; set; }
+            public string TEN_GT { get; set; }
+            public string TEN_DV_DO { get; set; }
+            public int MS_TT { get; set; }
+            public string CT_CVIEC { get; set; }
             public List<GiaTri> DSGiaTri { get; set; }
 
         public class GiaTri

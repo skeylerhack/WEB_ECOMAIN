@@ -898,6 +898,9 @@ D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\De
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CopyComplete
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.dll
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.pdb
+E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
+E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
 E:\WEB\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
 E:\WEB\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
@@ -962,7 +965,6 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.dll
-E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.dll
@@ -980,7 +982,6 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\Owin.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
-E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
@@ -1018,7 +1019,6 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
-E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
