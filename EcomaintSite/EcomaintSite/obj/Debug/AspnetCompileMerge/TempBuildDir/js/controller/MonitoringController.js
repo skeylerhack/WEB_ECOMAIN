@@ -360,18 +360,17 @@
                     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         var target = $(e.target).attr("data-val"); // activated tab
                         if (vars.$tableGiamSatTinhTrang.rows().count() == 0) {
-                            Alert.fn.Show("Chưa chọn giám sát", Alert.Type.warning)
+                            Alert.fn.Show("Chưa chọn giám sát", Alert.Type.warning);
                             return;
                         }
                         else {
                             var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                             if (target == 1) {
-                                Fmethod.LoadThongSoDT(STT);
+                                method.LoadThongSoDT(STT);
                             }
                             else {
                                 method.LoadThongSoDL(STT);
                             }
-
                         }
                     });
                 },

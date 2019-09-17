@@ -219,12 +219,24 @@
                             contentType: false,
                             url: urlReadbarcode,
                             success: function (resulst) {
+                                alert(resulst);
                                 if (resulst !== "error") {
-                                    alert(resulst);
-                                    savedata.val(resulst).change();
+                                    var exists = false;
+                                    $('#cbbThietBi option').each(function () {
+                                        if (this.value == resulst) {
+                                            exists = true;
+                                            return false;
+                                        }
+                                    });
+                                    if (exists == true) {
+                                        savedata.val(resulst).change();
+                                    }
+                                    else {
+                                        Module.Alert.fn.Show('Không tồn tại mã này or bạn không có quyền để dùng mã này!', Module.Alert.Type.warning);
+                                    }
                                 }
                                 else {
-                                    Module.Alert.fn.Show('Quéc không thành công,Xin vui lòng thử lại!', Module.Alert.Type.warning);
+                                    Module.Alert.fn.Show('Quét không thành công,Xin vui lòng thử lại!', Module.Alert.Type.warning);
                                 }
                             },
                             error: function (response) {

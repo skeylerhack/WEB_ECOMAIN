@@ -59,11 +59,11 @@ namespace EcomaintSite.Controllers
             ViewBag.may = msmay;
             ViewBag.tngay = Convert.ToDateTime(tngay, new CultureInfo("vi-vn")).ToString("dd/MM/yyyy");
             ViewBag.dngay = Convert.ToDateTime(dngay, new CultureInfo("vi-vn")).ToString("dd/MM/yyyy");
-
+            ViewBag.STT = "-1";
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.NhanVien = Combobox().NhanVienKT(User.Identity.GetUserName());
-            return View("~/Views/Monitoring/Index.cshtml", deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
+            return View("~/Views/Monitoring/_ThemGiamSatTinhTrang.cshtml", deviceRepository.ListAll().Select(x => new DeviceObjForDropdown
             {
                 ID = x.ID,
                 Name = x.Name

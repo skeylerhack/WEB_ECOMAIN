@@ -378,6 +378,9 @@
                         $('#fromDate').on('dp.change', function () {
                             method.LoadGrid(vars.$txtDevice.val(), 'keypress');
                         });
+                        if ($("#txtDevice").val() !== "") {
+                            method.LoadGrid(vars.$txtDevice.val(), 'keypress');
+                        }
                     }
 
 

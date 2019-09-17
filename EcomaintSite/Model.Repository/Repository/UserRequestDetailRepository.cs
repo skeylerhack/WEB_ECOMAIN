@@ -78,8 +78,6 @@ namespace Model.Repository
                   });
             return new SelectList(listItem, "Value", "Text", null);
         }
-
-
         public void SaveRequestInfomation(UserRequestDetail requestInfo) => db.UserRequestDetail.Add(requestInfo);
 
         public void SaveChanges() => db.SaveChanges();

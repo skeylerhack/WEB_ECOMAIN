@@ -108,15 +108,13 @@
                             @Html.DropDownList("cbbDiaDiem", ViewBag.NhaXuong as SelectList, new { name = "cbbDiaDiem", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label data-lang="lblDevice">Thiết bị</label>
-
                             @if (ViewBag.STT == "-1")
                             {
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="txtDevice" />
+                                    <input class="form-control" type="text" id="txtDevice"value="@ViewBag.may"/>
                                     <a class="input-group-addon" ng-click="fn.ShowEquipForm();" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                                 </div>
                             }
@@ -125,10 +123,8 @@
                                 <input type="hidden" id="msphieu" name="msphieu" value="@ViewBag.MSPhieu">
                                 @Html.DropDownList("cbbThietBi", ViewBag.May as SelectList, new { name = "cbbThietBi", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
                             }
-
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label>Nhân viên kiểm tra</label>

@@ -466,7 +466,7 @@
                         $.post(urlGetGiaTri, { stt: STT, msmay: msmay, msbp: msbp, msts: msts, loai: 1 }, function (data) {
                             var i;
                             tableBody.empty();
-                            if (data.length == 0) { tableBody.append('<tr><td colspan="2">Không có dữ liệu</td></tr>'); }
+                            if (data.length == 0) { tableBody.append('<tr><td colspan="3">Không có dữ liệu</td></tr>'); }
                             else {
                                 for (i = 0; i < data.length; i++) {
                                     tableBody.append('<tr><td>' + data[i].TEN_GIA_TRI + '</td><td >' + data[i].GHI_CHU + '</td></tr>');
