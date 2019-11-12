@@ -974,7 +974,6 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Web.Infrastructure.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Model.Data.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
-E:\WEB\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Ninject.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Owin.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
@@ -987,6 +986,8 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.dll
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.dll
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.presentation.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationBlocks.Data.dll
 E:\WEB\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
 E:\WEB\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
@@ -1010,7 +1011,6 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
-E:\WEB\EcomaintSite\EcomaintSite\bin\Newtonsoft.Json.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\Ninject.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
@@ -1022,6 +1022,10 @@ E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
 E:\WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.pdb
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.xml
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.presentation.pdb
+E:\WEB\EcomaintSite\EcomaintSite\bin\zxing.presentation.xml
 E:\WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csprojAssemblyReference.cache
 E:\WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CoreCompileInputs.cache
 E:\WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CopyComplete

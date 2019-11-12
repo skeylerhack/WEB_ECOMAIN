@@ -1,16 +1,27 @@
-﻿using Microsoft.AspNet.Identity;
+﻿//using Dynamsoft.Barcode;
+using Microsoft.AspNet.Identity;
 using Model.Combobox;
 using Model.Data;
 using Model.Interface;
 using Model.Interface.IRepository;
 using Model.Repository;
 using Model.Repository.Repository;
+//using Newtonsoft.Json;
+//using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+//using IronBarCode;
+//using Dynamsoft.Barcode;
+//using BarcodeReader = IronBarCode.BarcodeReader;
+using System.Drawing;
+using ZXing;
+using System.ComponentModel;
 
 namespace EcomaintSite.Controllers
 {
@@ -37,7 +48,7 @@ namespace EcomaintSite.Controllers
         }
         private void Loadcombo(string user)
         {
-            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(user, SessionVariable.TypeLanguage,1);
+            ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.HeThong = Combobox().GetCbbHeThong(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.LoaiMay = Combobox().GetCbbLoaiMay(user, SessionVariable.TypeLanguage, 1);
             //ViewBag.May = Combobox().GetCbbMay(user, SessionVariable.TypeLanguage, 1);
@@ -107,7 +118,85 @@ namespace EcomaintSite.Controllers
             string nx = Request["nhaxuong"];
             string tungay = Request["fromday"];
             string dengnay = Request["today"];
-            return RedirectToAction("Show", "Monitoring", new { msnx = nx, msmay = id,tngay = tungay ,dngay = dengnay });
+            return RedirectToAction("Show", "Monitoring", new { msnx = nx, msmay = id, tngay = tungay, dngay = dengnay });
+        }
+        [HttpPost]
+        public JsonResult ProcessRequest()
+        {
+            HttpRequest request = System.Web.HttpContext.Current.Request;
+            HttpPostedFile imgBinary = request.Files["image"];
+            try
+            {
+                Stream iStream = imgBinary.InputStream;
+                byte[] bytes = new byte[iStream.Length];
+                iStream.Seek(0, SeekOrigin.Begin);
+                iStream.Read(bytes, 0, bytes.Length);
+                TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+                Bitmap bitmap = (Bitmap)tc.ConvertFrom(bytes);
+
+                BarcodeReader reder = new BarcodeReader();
+                var resulst = reder.Decode(bitmap);
+                if (resulst != null)
+                {
+                    string s = resulst.Text;
+                }
+                return Json(resulst.Text, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message.ToString(), JsonRequestBehavior.AllowGet);
+            }
+
+            //HttpRequest request = System.Web.HttpContext.Current.Request;
+            //bool isSuccess = false;
+            //Exception readBarcodeException = null;
+            //TextResult[] results = null;
+            //TimeSpan tsDecode = TimeSpan.Zero;
+            //try
+            //{
+            //    // 1. Get Base64 Stream
+            //    System.Web.HttpContext.Current.Request.InputStream.Position = 0;
+            //    string jsonString;
+            //    using (StreamReader streamReader = new StreamReader(request.InputStream))
+            //    {
+            //        jsonString = streamReader.ReadToEnd();
+            //    }
+
+            //    HttpPostedFile imgBinary = request.Files["image"];
+            //    int barcodeFormat = int.Parse(request["barcodeFormat"]);
+            //    if (imgBinary == null)
+            //    {
+            //        throw new Exception("Post data is null.");
+            //    }
+            //    // 2. load settings
+            //    Dynamsoft.Barcode.BarcodeReader barcodeReader = new Dynamsoft.Barcode.BarcodeReader();
+            //    barcodeReader.ProductKeys = System.Web.Configuration.WebConfigurationManager.AppSettings["barcodeReaderKey"];
+
+            //    PublicRuntimeSettings settings = barcodeReader.GetRuntimeSettings();
+            //    settings.BarcodeFormatIds = barcodeFormat;
+            //    barcodeReader.UpdateRuntimeSettings(settings);
+
+            //    // 3. read and get result
+            //    Stream iStream = imgBinary.InputStream;
+            //    byte[] bytes = new byte[iStream.Length];
+            //    iStream.Seek(0, SeekOrigin.Begin);
+            //    iStream.Read(bytes, 0, bytes.Length);
+            //    DateTime tDecodeBegin = DateTime.Now;
+            //    results = barcodeReader.DecodeFileInMemory(bytes, "");
+            //    tsDecode = DateTime.Now - tDecodeBegin;
+            //    isSuccess = true;
+
+            //    BarcodeResult Result = IronBarCode.BarcodeReader.QuicklyReadOneBarcode(iStream, BarcodeEncoding.Code39, true);
+            //    if (Result != null)
+            //    {
+            //        string s = Result.Text;
+            //    }
+            //    return Json(Result.Text, JsonRequestBehavior.AllowGet);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Json("error", JsonRequestBehavior.AllowGet);
+            //}
         }
     }
 }

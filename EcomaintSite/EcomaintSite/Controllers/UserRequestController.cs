@@ -107,7 +107,6 @@ namespace EcomaintSite.Controllers
                 TEN_LOAI_YEU_CAU_BT = x.TEN_LOAI_YEU_CAU_BT
             }).ToList();
            return Json(lst, JsonRequestBehavior.AllowGet);
-
         }
 
         [Authorize]
