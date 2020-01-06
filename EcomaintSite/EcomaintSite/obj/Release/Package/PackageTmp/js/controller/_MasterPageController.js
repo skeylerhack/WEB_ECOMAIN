@@ -195,6 +195,88 @@
                     for (var i = 0; i < length; i++) {
                         $(lst[i]).on('dp.change', method);
                     }
+                },
+                ScanBarCode: function (buttonscan, importfile, savedata, listdata) {
+                    function uploadImgDisplay(curFile) {
+                        // img URL
+                        var fileURL = window.URL.createObjectURL(curFile);
+                        // revoke object
+                        $('#fileImg').onload = function () {
+                            window.URL.revokeObjectURL(fileURL);
+                        };
+                        // display image
+                        $('#dlgFirst').css('display', 'none');
+                        $('#fileImg').attr('src', fileURL);
+                        $('#dlgReading').css('display', 'block');
+                        // upload image
+                        var fd = new FormData();
+                        fd.append('image', curFile);
+                        fd.append('barcodeFormat', 503317503);
+                        $.ajax({
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            url: urlReadbarcode,
+                            success: function (resulst) {
+                                if (resulst !== "error") {
+                                    var exists = false;
+                                    if (listdata !== null) {
+                                        $(listdata).each(function () {
+                                        //listdata.each(function () {
+                                            if (this.value == resulst.trim()) {
+                                                exists = true;
+                                                return false;
+                                            }
+                                        });
+                                        if (exists == true) {
+                                            savedata.val(resulst.trim()).change();
+                                        }
+                                        else {
+                                            Module.Alert.fn.Show('Không tồn tại mã này or bạn không có quyền để dùng mã này!', Module.Alert.Type.warning);
+                                            //savedata.append(new Option(resulst.trim(), resulst.trim()));
+                                        }
+                                    }
+                                    else {
+                                        savedata.val(resulst.trim()).change();
+                                    }
+                                }
+                                else {
+                                    Module.Alert.fn.Show('Quét không thành công,Xin vui lòng thử lại!', Module.Alert.Type.warning);
+                                }
+                            },
+                            error: function (response) {
+                                Module.Alert.fn.Show('Không tìm thấy', Module.Alert.Type.warning);
+                            }
+                        });
+                    }
+                    buttonscan.click(function () {
+                        importfile.click();
+                    });
+
+                    importfile.change(function () {
+                        // is file choosed 
+                        if (!this.files.length) {
+                            return;
+                        }
+                        // is image
+                        var file = this.files[0];
+                        this.value = '';
+                        switch (file.type) {
+                            case 'image/bmp':
+                            case 'image/jpeg':
+                            case 'image/jpg':
+                            case 'image/png':
+                            case 'image/gif':
+                                break;
+                            default:
+                                {
+                                    alert('The uploaded file is not supported.');
+                                    return;
+                                }
+                        }
+                        uploadImgDisplay(file);
+                    });
                 }
             }
             return { fn }
@@ -228,16 +310,16 @@
                 function timer() {
                     diff = duration - (((Date.now() - start) / request) | 0);
                     if (diff <= 0 && _IDLE == true) {
-                        _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //_IDLE = false;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 };
-                idleButtonIntervalID = setInterval(timer, request);
+                //idleButtonIntervalID = setInterval(timer, request);
             }
             var SessInterval = function () {
                 var now = new Date();
@@ -267,13 +349,13 @@
                             diff = now - sessLastActivity;
                             diffMins = (diff / request / 60);
                             if (diffMins > sessExpirationMinutes) {
-                                _IDLE = false;
-                                $.removeCookie("_IDLE", '/')
-                                $.cookie("_IDLE", _IDLE, {
-                                    expires: 0.2,
-                                    path: '/'
-                                });
-                                window.location.href = URLLogOut;
+                                //_IDLE = false;
+                                //$.removeCookie("_IDLE", '/')
+                                //$.cookie("_IDLE", _IDLE, {
+                                //    expires: 0.2,
+                                //    path: '/'
+                                //});
+                                //window.location.href = URLLogOut;
                             }
                             else {
                                 fn.InitSession();
@@ -282,13 +364,13 @@
                             clearInterval(idleButtonIntervalID)
                         }
                         else {
-                            _IDLE = false;
-                            $.removeCookie("_IDLE", '/')
-                            $.cookie("_IDLE", _IDLE, {
-                                expires: 0.2,
-                                path: '/'
-                            });
-                            window.location.href = URLLogOut;
+                            //_IDLE = false;
+                            //$.removeCookie("_IDLE", '/')
+                            //$.cookie("_IDLE", _IDLE, {
+                            //    expires: 0.2,
+                            //    path: '/'
+                            //});
+                            //window.location.href = URLLogOut;
                         }
                     });
                 }
@@ -300,13 +382,13 @@
                         $('#userOnline').text(data);
                     }
                     else {
-                        _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //_IDLE = false;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 });
             }
@@ -314,7 +396,7 @@
                 fn: {
                     Init: function () {
                         sessLastActivity = new Date();
-                        SessSetInterval();
+                        //SessSetInterval();
                         $(document).bind('keypress.session', function (ed, e) {
                             SessKeyPressed(ed, e);
                         });
@@ -334,9 +416,6 @@
                 error: 'error',
             }
             var fn = {
-                /**
-                * Show alert
-                */
                 Show: function (message, type = Type.error, title = '') {
                     swal({
                         title: title,
@@ -344,9 +423,6 @@
                         type: type
                     }).catch(swal.noop);
                 },
-                /**
-                * Show confirm alert
-                */
                 ShowConfirm: function (message, type = Type.error, title = '', callback) {
                     swal({
                         title: title,
@@ -391,26 +467,12 @@
         */
         Convert: (function () {
             var fn = {
-                /**
-                 * Rounding (0.3355, 2) => return 0.34
-                 */
                 Round: function (number, n) {
                     return parseFloat(Math.round(number * Math.pow(10, n)) / Math.pow(10, n)).toFixed(n)
                 },
-                /**
-                 * Include 0 into time string (5) => return 05
-                 */
                 Time: function (num) {
                     return (num >= 0 && num < 10) ? ("0" + num) : (num + "");
                 },
-                /**
-                * Convert timestamp to format
-                * @returns {
-                * time: HH:mm
-                * vi-vn: dd/MM/yyyy
-                * system: MM/dd/yyyy
-                * }
-                */
                 DateTime: function (date, format) {
                     var today = new Date(date);
                     if (today == 'Invalid Date') {
@@ -443,18 +505,18 @@
                         return mm + '/' + dd + '/' + yyyy;
                     }
                     else {
-                        var hours = today.getHours();
-                        var minutes = today.getMinutes();
-                        minutes = minutes < 10 ? '0' + minutes : minutes;
-                        var strTime = hours + ':' + minutes;
-                        return dd + '/' + mm + '/' + yyyy + ' ' + strTime;
+                        //var hours = today.getHours();
+                        //var minutes = today.getMinutes();
+                        //minutes = minutes < 10 ? '0' + minutes : minutes;
+                        //var strTime = hours + ':' + minutes;
+                        //return dd + '/' + mm + '/' + yyyy + ' ' + strTime;
                     }
                 },
-                /**
-                * Remove diacritics (accents) from a string
-                * @param str: A á ấ ă ằ Ặ
-                * @return => a a a a a a
-                */
+                ///**
+                //* Remove diacritics (accents) from a string
+                //* @param str: A á ấ ă ằ Ặ
+                //* @return => a a a a a a
+                //*/
                 RemoveVietnameseRemark: function (str) {
                     str = str.toLowerCase();
                     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -475,9 +537,6 @@
         BuildTreeView: (function () {
             var arrNodes = new Array()
             var enterCount = 0;
-            /**
-            * Make a TreeView after build data
-            */
             var BindingDataToTreeView = function (rootNode, source) {
                 var length = source.length;
                 for (var i = 0; i < length; i++) {
@@ -493,9 +552,6 @@
                     }
                 }
             }
-            /**
-            * Searching nodes in treeview
-            */
             var SearchingNodesInTreeview = function (rootNode, input) {
                 $(input).on('keydown', function (e) {
                     if (e.keyCode == 13) {
@@ -537,11 +593,6 @@
                 });
             }
             var fn = {
-                /**
-                * Build data for treeview
-                *
-                * Structs for JSON data - return { id , parentid, text }
-                */
                 BuildDataSourceForTreeView: function (rootNode, data) {
                     var source = [];
                     var items = [];
@@ -553,7 +604,7 @@
                         var parentid = item["parentid"];
                         var id = item["id"];
                         if (items[parentid]) {
-                            var item = { id: id, parentid: parentid, label: label, item: item };
+                            item = { id: id, parentid: parentid, label: label, item: item };
                             if (!items[parentid].items) {
                                 items[parentid].items = [];
                             }
@@ -586,10 +637,6 @@
         */
         Theme: (function () {
             var fn = {
-                /**
-                * Change theme from menu
-                * @param style: default - dark - light
-                */
                 ManualChangeTheme: function (style) {
                     $('a[data-style]').removeClass('active');
                     if (style === 'default') {
@@ -627,10 +674,6 @@
         * Initializing Languages
         */
         Languages: (function () {
-            /**
-            * Apply language for page
-            * @param obj: array
-            */
             var FillLanguagesIntoPage = function (obj) {
                 $.post(URLLanguages, { data: obj.data, form: obj.form, type: obj.type }, function (data) {
                     if (data.length > 0) {
@@ -689,10 +732,6 @@
                 });
             }
             var fn = {
-                /**
-                * Change language from menu
-                * @param type: 0 - vn | 1 - us
-                */
                 ManualChangeLanguage: function (type) {
                     global.TypeLanguage = type;
                     //Module.Loading.fn.Show();
@@ -706,9 +745,6 @@
                         path: '/'
                     });
                 },
-                /**
-                * Auto change language after postback
-                */
                 AutoChangeLanguage: function () {
                     if (global.CurrentNamePage == '') {
                         Module.Loading.fn.Hide();

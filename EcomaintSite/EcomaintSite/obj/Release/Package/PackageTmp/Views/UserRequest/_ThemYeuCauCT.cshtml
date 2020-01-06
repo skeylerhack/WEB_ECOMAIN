@@ -11,6 +11,7 @@
                         <div class="form-group">
                             <label data-lang="lblDevice">Máy</label>
                             @Html.DropDownList("cboDevice", ViewBag.cboDevice as SelectList, new { data_live_search = "true", data_slide = "both", @class = "selectpicker form-control" })
+                            <a class="input-group-addon" id="ReadBtn" href="#"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span></a>
                         </div>
                     </div>
                     <div class="col-lg-12 col-sm-12">

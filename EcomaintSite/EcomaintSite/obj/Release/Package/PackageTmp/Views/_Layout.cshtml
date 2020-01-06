@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using Model.Data.ViewModel;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ecomaint Site</title>
     <link rel="shortcut icon" href="~/img/settings.ico" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
@@ -173,7 +175,7 @@
                         <span class="flag-icon flag-icon-us flag-icon-squared hidden"></span>
                     </div>
                     <div style="float:left; margin-left:5px">Database: <span id="DatabaseName">@(Session["DatabaseName"])</span></div>
-                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline"></span></div>
+                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline">@Commons.lic/@Commons.licCom</span></div>
                 </footer>
             </div>
             @Html.Partial("~/Views/_PartialModalDetails.cshtml")

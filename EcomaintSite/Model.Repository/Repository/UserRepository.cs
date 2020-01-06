@@ -37,6 +37,22 @@ namespace Model.Repository
                 return "Admin";
             }
         }
+
+        public int SoLuongLogin()
+        {
+            try
+            {
+                return db.WebUserLogin.Count();
+
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+
+
         private bool disposed = false;
 
         protected void Dispose(bool disposing)

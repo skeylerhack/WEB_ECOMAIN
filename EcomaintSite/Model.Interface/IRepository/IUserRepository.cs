@@ -9,6 +9,7 @@ namespace Model.Interface
         User GetUserActiveByID(string username);
 
         string GetPhongBan(int msTo);
+        int SoLuongLogin();
         IEnumerable<User> ListAll();
         //string GetPhongBan(string username);
     }

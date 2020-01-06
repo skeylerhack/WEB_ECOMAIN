@@ -22,21 +22,21 @@
                     "id": "btnAdd",
                     "url": "#",
                     "icon": "<i class='fa fa-plus-circle'></i>",
-                    "lang": "btnAdd",
+                    "lang": "btnThem",
                     "func": "fn.Add"
                 },
                 {
                     "id": "btnEdit",
                     "url": "#",
                     "icon": "<i class='fa fa-pencil'></i>",
-                    "lang": "btnEdit",
+                    "lang": "btnSua",
                     "func": "fn.Edit"
                 },
                 {
                     "id": "btnRemove",
                     "url": "#",
                     "icon": "<i class='fa fa-trash'></i>",
-                    "lang": "btnRemove",
+                    "lang": "btnXoa",
                     "func": "fn.Remove"
                 }
             ]

@@ -21,19 +21,20 @@
                     "url": urlAddRequest,
                     "icon": "<i class='fa fa-plus'></i>",
                     "lang": "btnThem"
+                    
                 },
                 //them bo phan
-                {
-                    "id": "btnAdd",
-                    "url": "#",
-                    "icon": "<i class='fa fa-plus-circle'></i>",
-                    "lang": "btnThem",
-                    "func": "fn.thembophan"
-                },
+                //{
+                //    "id": "btnAdd",
+                //    "url": "#",
+                //    "icon": "<i class='fa fa-plus-circle'></i>",
+                //    "lang": "btnThem",
+                //    "func": "fn.thembophan"
+                //},
                 {
                     "id": "btnSua",
                     "url": "#",
-                    "icon": "<i class='fa fa-refresh'></i>",
+                    "icon": "<i class='fa fa-pencil'></i>",
                     "lang": "btnSua",
                     "func": "fn.Sua"
                 },
@@ -242,7 +243,7 @@
                             "emptyTable": "<span data-lang='lblEmpty'>" + (global.TypeLanguage == 0 ? "Không có dữ liệu" : "No data available in table") + "</span>",
                         }
                     });
-                    
+                    $('.select2-container--classic').select2({ theme: "classic" });
                     vars.$tbRequestBody.on('dblclick', 'tr', method.TableYeuCau_RowChanged);
                     vars.$tbRequestBody.on('doubletap', 'tr', method.TableYeuCau_RowChanged);
                     vars.$tabRequestDetail.click(method.TableYCChiTiet_ValueChanged);

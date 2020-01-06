@@ -1,4 +1,5 @@
-﻿using Model.Interface;
+﻿using Microsoft.AspNet.Identity;
+using Model.Interface;
 using Model.Repository;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace EcomaintSite.Controllers
 
         public ActionResult Index() => View();
 
-        public ActionResult GetMenu(string name) => PartialView("~/Views/_PartialMenu.cshtml", menu.ListAll());
+        public ActionResult GetMenu(string name)
+        {
+            return PartialView("~/Views/_PartialMenu.cshtml", menu.ListAll(User.Identity.GetUserName()));
+        }
+        public JsonResult GetChildMenu(int ID) => Json(menu.GetChildMenuID(ID, User.Identity.GetUserName()), JsonRequestBehavior.AllowGet);
 
-        public JsonResult GetChildMenu(int ID) => Json(menu.GetChildMenuID(ID), JsonRequestBehavior.AllowGet);
-
-        public JsonResult GetAllChildMenu(string menuID) => Json(menu.GetAllChildMenuID(menuID), JsonRequestBehavior.AllowGet);
+        public JsonResult GetAllChildMenu(string menuID) => Json(menu.GetAllChildMenuID(menuID, User.Identity.GetUserName()), JsonRequestBehavior.AllowGet);
         
     }
 }

@@ -1207,7 +1207,8 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
       $element.html(locals.$template);
 
-      var link = $compile($element.contents());
+        var link =
+            ($element.contents());
 
       if (current.controller) {
         locals.$scope = scope;

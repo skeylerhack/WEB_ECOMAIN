@@ -14,10 +14,9 @@ namespace Model.Data
             {
                 string databaseName = databaseName = HttpContext.Current.Request.Cookies["DatabaseName"].Value;
                 string connectionString = this.Database.Connection.ConnectionString;
-                connectionString = connectionString.Replace(connectionString.Substring(connectionString.IndexOf("Database"), connectionString.IndexOf("User") - connectionString.IndexOf("Database")), "Database=" + databaseName + ";");
                 if (databaseName != this.Database.Connection.Database)
                 {
-                    this.Database.Connection.ConnectionString = connectionString;
+                    connectionString = connectionString.Replace(connectionString.Substring(connectionString.IndexOf("Database"), connectionString.IndexOf("User") - connectionString.IndexOf("Database")), "Database=" + databaseName + ";");
                 }
             }
             catch (Exception ex) { }

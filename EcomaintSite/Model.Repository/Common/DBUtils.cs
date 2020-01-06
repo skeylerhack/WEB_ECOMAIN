@@ -7,13 +7,17 @@ using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
 using System.Reflection;
+using Model.Data;
+
 namespace Biz.Lib.Helpers
 {
     public class DBUtils
     {
-        public static string BizConnectionString(AppName appName, bool isEncrypted = true)
+        public static string BizConnectionString()
         {
             string _connectionString = string.Empty;
+            Model1 db = new Model1();
+
             //switch (appName)
             //{
             //    case AppName.BizAuthentication:
@@ -22,8 +26,7 @@ namespace Biz.Lib.Helpers
             //}
             //if (isEncrypted)
             //    _connectionString = Cryptography.DecryptBase64(_connectionString);
-            _connectionString = ConfigurationManager.ConnectionStrings["Model1"].ConnectionString;
-            return _connectionString;
+            return _connectionString = db.Database.Connection.ConnectionString;
         }
 
         public static DataSet ExecDataSetSP(string pSPName, List<SqlParameter> pParams, AppName appName)
@@ -31,7 +34,7 @@ namespace Biz.Lib.Helpers
             DataSet ds = new DataSet();
             try
             {
-                SqlConnection conn = new SqlConnection(BizConnectionString(appName));
+                SqlConnection conn = new SqlConnection(BizConnectionString());
                 
                 SqlCommand cmd = new SqlCommand(pSPName, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -84,7 +87,7 @@ namespace Biz.Lib.Helpers
             object result = 0;
             try
             {
-                SqlConnection conn = new SqlConnection(BizConnectionString(appName));
+                SqlConnection conn = new SqlConnection(BizConnectionString());
                 SqlCommand cmd = new SqlCommand(pSPName, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 300; //seconds
@@ -140,7 +143,7 @@ namespace Biz.Lib.Helpers
             List<object> result = new List<object>();
             try
             {
-                SqlConnection conn = new SqlConnection(BizConnectionString(appName));
+                SqlConnection conn = new SqlConnection(BizConnectionString());
                 SqlCommand cmd = new SqlCommand(pSPName, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 300; //seconds
@@ -222,7 +225,6 @@ namespace Biz.Lib.Helpers
                 throw ex;
             }
         }
-
         public static List<T> ExecuteSPList<T>(string pSPName, List<SqlParameter> pParameters, AppName appName) where T : new()
         {
             try
@@ -253,7 +255,6 @@ namespace Biz.Lib.Helpers
                 throw ex;
             }
         }
-
         public static List<T> ConvertTo<T>(DataTable datatable) where T : new()
         {
             List<T> Temp = new List<T>();
@@ -330,7 +331,6 @@ namespace Biz.Lib.Helpers
                 return obj;
             }
         }
-
         protected static T getObjectOra<T>(DataRow row, List<string> columnsName) where T : new()
         {
             T obj = new T();

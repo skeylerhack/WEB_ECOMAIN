@@ -38,25 +38,25 @@ namespace EcomaintSite
 
 
             /*-- GIÁM SÁT TÌNH TRẠNG --*/
-            routes.MapRoute(
-            name: "get-parameter-info",
-            url: "get-parameter-info",
-            defaults: new { controller = "Monitoring", action = "GetParameterInfo", id = UrlParameter.Optional });
+            //routes.MapRoute(
+            //name: "get-parameter-info",
+            //url: "get-parameter-info",
+            //defaults: new { controller = "Monitoring", action = "GetParameterInfo", id = UrlParameter.Optional });
 
-            routes.MapRoute(
-            name: "monitoring-due-checked",
-            url: "monitoring/due-checked",
-            defaults: new { controller = "Monitoring", action = "CheckTheParametersDue", id = UrlParameter.Optional });
+            //routes.MapRoute(
+            //name: "monitoring-due-checked",
+            //url: "monitoring/due-checked",
+            //defaults: new { controller = "Monitoring", action = "CheckTheParametersDue", id = UrlParameter.Optional });
 
-            routes.MapRoute(
-            name: "list-of-monitoring",
-            url: "list-of-monitoring",
-            defaults: new { controller = "Monitoring", action = "List", id = UrlParameter.Optional });
+            //routes.MapRoute(
+            //name: "list-of-monitoring",
+            //url: "list-of-monitoring",
+            //defaults: new { controller = "Monitoring", action = "List", id = UrlParameter.Optional });
 
-            routes.MapRoute(
-            name: "monitoring-save",
-            url: "monitoring/save",
-            defaults: new { controller = "Monitoring", action = "Save", id = UrlParameter.Optional });
+            //routes.MapRoute(
+            //name: "monitoring-save",
+            //url: "monitoring/save",
+            //defaults: new { controller = "Monitoring", action = "Save", id = UrlParameter.Optional });
 
             routes.MapRoute(
             name: "monitoring",

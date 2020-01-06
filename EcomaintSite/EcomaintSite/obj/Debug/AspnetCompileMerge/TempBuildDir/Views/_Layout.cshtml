@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using Model.Data.ViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ecomaint Site</title>
     <link rel="shortcut icon" href="~/img/settings.ico" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
-
+    <link href="~/Content/browser/jquery-ui.css" rel="Stylesheet" type="text/css" />
     <link href="~/Content/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap/bootstrap-flat.min.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap/bootstrap-select.min.css" rel="stylesheet" />
@@ -28,18 +27,14 @@
     <link href="~/Content/autocomplete.css" rel="stylesheet" />
     <link href="~/Content/loading-sap.css" rel="stylesheet" />
     <link href="~/Content/scrollbar.css" rel="stylesheet" />
-    <link href="http://fonts.googleapis.com/css?family=Muli:400,400i,600,600i&amp;subset=vietnamese" rel="stylesheet">
+    <link href="~/Content/browser/googleapis.css" rel="stylesheet">
 
     <link href="~/Content/loadingPage.css" rel="stylesheet" />
 
     <!--Button float  -->
     <link href="~/Content/plugins/kc.fab.css" rel="stylesheet" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    @*<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>*@
-    <link href="http://code.highcharts.com/css/highcharts.css" rel="stylesheet" />
+    <link href="~/Content/browser/highcharts.css" rel="stylesheet" />
 
     <link href="~/Content/flags.css" rel="stylesheet" />
 
@@ -52,9 +47,9 @@
     <link href="~/Content/plugins/datatables/customdatatables.css" rel="stylesheet" />
     <link href="~/Content/layout.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap/bootstrap-select2.css" rel="stylesheet" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/js/plugins/jquery/jquery-3.2.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="~/js/browser/select2.min.js"></script>
 
 
     <script>
@@ -174,7 +169,7 @@
                         <span class="flag-icon flag-icon-us flag-icon-squared hidden"></span>
                     </div>
                     <div style="float:left; margin-left:5px">Database: <span id="DatabaseName">@(Session["DatabaseName"])</span></div>
-                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline"></span></div>
+                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline"> @Commons.lic/@Commons.licCom</span></div>
                 </footer>
             </div>
             @Html.Partial("~/Views/_PartialModalDetails.cshtml")

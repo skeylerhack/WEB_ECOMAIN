@@ -4,9 +4,12 @@ using Microsoft.Owin.Security;
 using Model.Data;
 using System.Web;
 using System.Web.Mvc;
-using Model.Repository;
+using Model.Data.ViewModel;
 using System;
 using Model.Interface;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 
 namespace EcomaintSite.Controllers
 {
@@ -20,6 +23,42 @@ namespace EcomaintSite.Controllers
             userRepository = _user;
             webRepository = _web;
             dataRepository = _data;
+        }
+        public bool CheckService()
+        {
+            string sConnect = new Model1().Database.Connection.ConnectionString;
+            string sIP = sConnect.Split(';')[0].Substring(7).Split('\\')[0];
+            try
+            {
+                var client = new UdpClient();
+                client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 10000);
+                IPEndPoint ep = new IPEndPoint(IPAddress.Parse(sIP), 65000);
+                // endpoint where server is listening
+                client.Connect(ep);
+                // send data
+                byte[] buffer = Encoding.ASCII.GetBytes("LICW");
+                client.Send(buffer, buffer.Length);
+                // then receive data
+                var rev = client.Receive(ref ep);
+                string sStr = Encoding.ASCII.GetString(rev);
+                string[] sArr = null;
+                sArr = sStr.Split('!');
+                try
+                {
+                    //lấy số lượng của user hiện tại
+                    Commons.lic = userRepository.SoLuongLogin() + 1;
+                    Commons.licCom = int.Parse(sArr[3]);
+                }
+                catch (Exception ex)
+                {
+                }
+                client.Close();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
         [AllowAnonymous]
         public ActionResult Login(string ReturnURL, string error = "")
@@ -38,13 +77,14 @@ namespace EcomaintSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string ReturnURL, string error = "")
         {
+            CheckService();
             string s = Request.Form["Password"];
             // HttpCookie db = Response.Cookies["DatabaseName"];
             HttpCookie us = Response.Cookies["Username"];
             HttpCookie pass = Response.Cookies["Password"];
             try
             {
-               // db.Expires = DateTime.Now.AddDays(-1D);
+                // db.Expires = DateTime.Now.AddDays(-1D);
                 us.Expires = DateTime.Now.AddDays(-1D);
                 pass.Expires = DateTime.Now.AddDays(-1D);
             }
@@ -58,12 +98,10 @@ namespace EcomaintSite.Controllers
                 //db.Value = model.DatabaseName;
                 //db.Expires = DateTime.Now.AddDays(15);
                 //Response.Cookies.Add(db);
-
                 us = new HttpCookie("Username");
                 us.Value = model.Username;
                 us.Expires = DateTime.Now.AddDays(15);
                 Response.Cookies.Add(us);
-
                 pass = new HttpCookie("Password");
                 pass.Value = model.Password;
                 pass.Expires = DateTime.Now.AddDays(15);
@@ -75,7 +113,10 @@ namespace EcomaintSite.Controllers
                 us.Expires = DateTime.Now.AddDays(-1D);
                 pass.Expires = DateTime.Now.AddDays(-1D);
             }
-
+            if (Commons.licCom == 0)
+            {
+                return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Không thể kết nói tới server vui lòng liên hệ lại admin!" });
+            }
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "" });
@@ -85,25 +126,22 @@ namespace EcomaintSite.Controllers
             {
                 return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Vui lòng nhập thông tin đăng nhập" });
             }
-
-            //System.Collections.Generic.List<string> d = (System.Collections.Generic.List<string>)HttpContext.Application["UsersLoggedIn"];
-            //if (d != null)
-            //{
-            //    lock (d)
-            //    {
-            //        if (User.Identity.IsAuthenticated == false)//neu la rong
-            //        {
-            //            if (d.Contains(model.Username.ToLower()))
-            //            {
-            //                return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "User đang đăng nhập" });
-            //            }
-            //            if (d.Count > 2)
-            //            {
-            //                return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Vượt quá số lượng người dùng" });                          
-            //            }
-            //        }
-            //    }
-            //}
+            //kiểm tra user đăng nhập đã tồn tại hay chưa
+            System.Collections.Generic.List<string> d = (System.Collections.Generic.List<string>)HttpContext.Application["UsersLoggedIn"];
+            if (d != null)
+            {
+                lock (d)
+                {
+                    if (d.Contains(model.Username.ToLower()))
+                    {
+                        return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "User đang đăng nhập" });
+                    }
+                    if (d.Count > Commons.licCom)
+                    {
+                        return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Vượt quá số lượng người dùng" });
+                    }
+                }
+            }
             return CheckRegistryAndSync(model, ReturnURL);
         }
         [HttpPost]
@@ -112,10 +150,13 @@ namespace EcomaintSite.Controllers
         protected ActionResult CheckRegistryAndSync(LoginViewModel model, string ReturnURL)
         {
             try
-            {             
+            {
                 SessionVariable.DatabaseName = model.DatabaseName;
                 var userDB = userRepository.GetUserActiveByID(model.Username);
                 ApplicationUser user = null;
+
+
+
                 if (userDB == null)
                 {
                     return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Tài khoản chưa đăng ký hoặc đang deactive. (liên hệ Admin)" });
@@ -161,8 +202,6 @@ namespace EcomaintSite.Controllers
                             }
                             // gan sesion user name
                             //tao doi tung cookie
-                            
-
                             Session["UserLoggedIn"] = model.Username;
                         }
                     }
@@ -246,8 +285,9 @@ namespace EcomaintSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetPassWord(string id )
+        public JsonResult GetPassWord(string id)
         {
+          
             var userDB = userRepository.GetUserByID(id);
             string ma;
             try
@@ -258,7 +298,7 @@ namespace EcomaintSite.Controllers
             {
                 ma = "!s!a!i!s!";
             }
-            return Json(new { pass = ma}, JsonRequestBehavior.AllowGet);
+            return Json(new { pass = ma }, JsonRequestBehavior.AllowGet);
         }
     }
 }

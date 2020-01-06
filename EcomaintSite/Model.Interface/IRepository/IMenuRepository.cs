@@ -5,8 +5,8 @@ namespace Model.Interface
 {
     public interface IMenuRepository
     {
-        IEnumerable<WebMenu> ListAll();
-        IEnumerable<WebMenu> GetChildMenuID(int ID);
-        IEnumerable<WebMenu> GetAllChildMenuID(string menuID);
+        IEnumerable<WebMenu> ListAll(string UserName);
+        IEnumerable<WebMenu> GetChildMenuID(int ID,string UserName);
+        IEnumerable<WebMenu> GetAllChildMenuID(string menuID, string UserName);
     }
 }

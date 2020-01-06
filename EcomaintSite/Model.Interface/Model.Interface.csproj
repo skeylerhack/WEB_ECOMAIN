@@ -59,7 +59,6 @@
     <Compile Include="IRepository\IMonitoringOfQualitativeRepository.cs" />
     <Compile Include="IRepository\IMonitoringOfQuantitativeRepository.cs" />
     <Compile Include="IRepository\IMonitoringRepository.cs" />
-    <Compile Include="IRepository\ICheckInventory.cs" />
     <Compile Include="IRepository\IOrgUnitRepository.cs" />
     <Compile Include="IRepository\IPeriodicMaintenanceRepository.cs" />
     <Compile Include="IRepository\IPreventiveMaintenanceOfSparePartRepository.cs" />

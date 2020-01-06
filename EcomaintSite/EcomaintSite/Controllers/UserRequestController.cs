@@ -18,6 +18,7 @@ using System.Web.Http.Routing;
 using EcomaintSite.UtilityHelpers;
 using System.IO;
 using System.Web.Services;
+using Model.Combobox;
 
 namespace EcomaintSite.Controllers
 {
@@ -30,6 +31,12 @@ namespace EcomaintSite.Controllers
         IUserRequestUnitOfWork userRequestUnitOfWork;
         IUserRequestComponentRepository userRequestComponentRepository;
         IUserRequestDocumentRepository userRequestDocumentRepository;
+        private ICombobox _Combobox;
+        private ICombobox Combobox()
+        {
+            return _Combobox ?? (_Combobox = new Combobox());
+        }
+
         public UserRequestController(IWorkSiteRepository _workSiteRepository, IUserRequestRepository _userRequestRepository, IDeviceRepository _deviceRepository, IUserRequestDetailRepository _userRequestDetailRepository, IUserRequestComponentRepository _userRequestComponentRepository, IUserRequestDocumentRepository _userRequestDocumentRepository, IUserRequestUnitOfWork _userRequestUnitOfWork)
         {
             workSiteRepository = _workSiteRepository;
@@ -75,8 +82,8 @@ namespace EcomaintSite.Controllers
             List<Model.Data.ViewModel.DiaDiemViewModel> lst = new List<Model.Data.ViewModel.DiaDiemViewModel>();
             lst = userRequestRepository.GetNhaXuong(User.Identity.Name, SessionVariable.TypeLanguage, 0).ToList();
             //ViewBag.cboWorkSite = new SelectList(workSiteRepository.GetWorkSiteByID(User.Identity.GetUserName(), SessionVariable.TypeLanguage.ToString()), "ID", "Name", WorkSiteID);
-            ViewBag.cboWorkSite = new SelectList(lst, "MS_N_XUONG", "Ten_N_XUONG", 4);
-            ViewBag.cboDevice = new SelectList(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), "-1", "-1"), "ID", "Name", "-1");
+            ViewBag.cboWorkSite = Combobox().GetCbbDiaDiem(User.Identity.Name, SessionVariable.TypeLanguage,0);
+            ViewBag.cboDevice = new SelectList(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(),WorkSiteID, "-1"), "ID", "Name", "-1");
             ViewBag.cbonguyennhan = userRequestDetailRepository.DanhSachNguyenNhan();
             ViewBag.cboyeucaubaotri = userRequestDetailRepository.DanhSachLoaiBaoTri();
             ViewBag.cbouutien = userRequestDetailRepository.DanhSachUuTien();
@@ -129,9 +136,9 @@ namespace EcomaintSite.Controllers
                 ViewBag.dateOfRequest = DateTime.Now.ToString("dd/MM/yyyy");
                 ViewBag.timeOfRequest = DateTime.Now.ToString("HH:mm tt");
                 ViewBag.completedDate = DateTime.Now.ToString("dd/MM/yyyy");
-                ViewBag.CreatedBy = "";
+                ViewBag.CreatedBy = userRequestRepository.GetNguoiYC(User.Identity.GetUserName());
                 ViewBag.email = "";
-                //GetCreatedBy();
+                //GetCreatedBy(request.RequestedBy);
                 GetCombobox("-1");
                 return View(lst);
             }
@@ -150,7 +157,7 @@ namespace EcomaintSite.Controllers
                     ViewBag.email = request.Email;
                     ViewBag.workSiteID = request.WorkSiteID;
                     ViewBag.CreatedBy = request.RequestedBy;
-                    //GetCreatedBy(request.RequestedBy);
+                    GetCreatedBy(request.RequestedBy);
                     GetCombobox(request.WorkSiteID);
                     lst = userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(id, User.Identity.Name).ToList();
                     ViewBag.count = lst.Count;
@@ -161,15 +168,17 @@ namespace EcomaintSite.Controllers
                 return View(lst);
             }
         }
-
-       
-
         [Authorize]
         public JsonResult SaveRequest(string request, string requestInfo)
         {
             try
             {
                 List<UserRequest> lstRequest = JsonConvert.DeserializeObject<List<UserRequest>>(request);
+                //cập nhật user name
+                foreach (var item in lstRequest)
+                {
+                    item.Username = User.Identity.GetUserName();
+                }
                 List<UserRequestDetail> lstRequestDetails = JsonConvert.DeserializeObject<List<UserRequestDetail>>(requestInfo);
                 userRequestUnitOfWork.UserRequestRepository.SaveRequest(lstRequest[0]);
                 lstRequestDetails.ForEach(x => x.UserRequestID = lstRequest[0].ID);

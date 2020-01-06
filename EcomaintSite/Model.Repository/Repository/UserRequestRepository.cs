@@ -19,9 +19,9 @@ namespace Model.Repository
     {
         Model.Data.Model1 db;
         public UserRequestRepository() => db = new Model1();
-
         public UserRequestRepository(Model1 context) => db = context;
 
+        string data = "";
         public UserRequest GetUserRequest(int ID) =>
             db.UserRequest.Where(x => x.ID == ID).Count() > 0 ? db.UserRequest.Where(x => x.ID == ID).SingleOrDefault() : null;
 
@@ -38,10 +38,6 @@ namespace Model.Repository
            }).ToList();
             return lst;
         }
-        //public string test()
-        //{
-        //    string s = db.Configuration["dasda"];
-        //}
         public IEnumerable<GetUserRequestObj> GetCreatedBy()
         {
             var model = db.UserRequest.Select(x => new GetUserRequestObj
@@ -56,6 +52,14 @@ namespace Model.Repository
             });
             return model;
         }
+        public string GetNguoiYC(string UserName)
+        {
+            string resulst = SqlHelper.ExecuteScalar(DBUtils.BizConnectionString().ToString(), CommandType.Text, "SELECT  B.HO +' '+B.TEN FROM dbo.USERS A INNER JOIN dbo.CONG_NHAN B ON B.MS_CONG_NHAN = A.MS_CONG_NHAN WHERE A.USERNAME = '"+ UserName+ "'").ToString();
+            return resulst;
+        }
+
+      
+
         public IEnumerable<DiaDiemViewModel> GetNhaXuong(string UserName, int NNgu, int Coall)
         {
             List<DiaDiemViewModel> list = null;
@@ -84,7 +88,7 @@ namespace Model.Repository
                 listParameter.Add(new SqlParameter("@STT_VAN_DE", stt_vande));
                 list = DBUtils.ExecuteSPList<PhuTungViewModel.PhuTung>("GetPhuTungTheoMay", listParameter, AppName.Model1);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }

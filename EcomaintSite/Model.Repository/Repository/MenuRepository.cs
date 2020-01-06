@@ -10,12 +10,20 @@ namespace Model.Repository
     {
         Model.Data.Model1 db;
         public MenuRepository() => db = new Model.Data.Model1();
-        
-        public IEnumerable<WebMenu> ListAll() => db.WebMenu.Where(x => x.Hide == false).OrderBy(x => x.Index).ToList();
-        
-        public IEnumerable<WebMenu> GetChildMenuID(int ID) => db.WebMenu.Where(x => x.Root == ID).ToList();
-
-        public IEnumerable<WebMenu> GetAllChildMenuID(string menuID) =>
+        //public IEnumerable<WebMenu> ListAll() => db.WebMenu.Where(x => x.Hide == false).OrderBy(x => x.Index).ToList();
+        public IEnumerable<WebMenu> ListAll(string UserName)
+        {
+           return db.Database.SqlQuery<WebMenu>("GetNhomMenu_Web @UserName", new object[]
+            {
+                new SqlParameter("@UserName", UserName)
+            }).ToList();
+        }
+        public IEnumerable<WebMenu> GetChildMenuID(int ID,string UserName)
+        {
+            List<WebMenu> WebChild= ListAll(UserName).Where(x => x.Root == ID).ToList();
+            return WebChild;
+        }
+        public IEnumerable<WebMenu> GetAllChildMenuID(string menuID, string UserName) =>
             db.Database.SqlQuery<WebMenu>("GetAllChildMenu @menuID", new object[]
             {
                 new SqlParameter("@menuID", menuID)

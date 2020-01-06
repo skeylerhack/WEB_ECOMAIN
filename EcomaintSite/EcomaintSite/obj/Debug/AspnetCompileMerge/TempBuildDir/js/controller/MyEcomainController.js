@@ -1,7 +1,7 @@
 ﻿define(['_MasterPageController', '_MenuPageController', '_DetailsModalController', 'datatables-bootstrap', 'bootstrap-select'], function (module, menu, modal) {
     var MyEcomain = (function () {
         var app = angular.module("MyEcomainPage", [])
-        app.controller('MyEcomainController', function ($scope) {
+        app.controller('MyEcomainController', function ($scope, $compile) {
             var Main = module.Main
             var Languages = module.Languages
             var InfoDetails = modal

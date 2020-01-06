@@ -176,19 +176,19 @@ E:\WEB\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CoreCompile
 E:\WEB\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CopyComplete
 E:\WEB\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.dll
 E:\WEB\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.pdb
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Model.Interface.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Model.Interface.pdb
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Model.Data.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\EntityFramework.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Model.Data.pdb
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Model.Data.dll.config
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\EntityFramework.xml
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csprojAssemblyReference.cache
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CoreCompileInputs.cache
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CopyComplete
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.dll
-D:\01.GitCode\04.Web_Ecomain\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Model.Interface.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Model.Interface.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Model.Data.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Model.Data.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Model.Data.dll.config
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csprojAssemblyReference.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CoreCompileInputs.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.csproj.CopyComplete
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Debug\Model.Interface.pdb

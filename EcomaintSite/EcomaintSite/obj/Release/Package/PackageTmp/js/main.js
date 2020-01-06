@@ -2,7 +2,8 @@
     baseUrl: baseUrl,
     paths: {
         /*****************angularjs*****************/
-        'angular': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.7/angular.min',
+        //'angular': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.7/angular.min',
+        'angular': baseUrl + 'plugins/angular/angular.min',
 
         /*****************select2*****************/
         'select2': 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min',
@@ -16,7 +17,8 @@
         'bootstrap': baseUrl + 'plugins/bootstrap/bootstrap.min',
         'bootstrap-datetimepicker': baseUrl + 'plugins/bootstrap/bootstrap-datetimepicker.min',
         'bootstrap-select': baseUrl + 'plugins/bootstrap/bootstrap-select.min',
-        'moment': 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min',
+        //'moment': 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min',
+        'moment': baseUrl + 'plugins/moment.min',
         /*****************datatables****************/
         'datatables-jquery': baseUrl + 'plugins/datatables/jquery.dataTables.min',
         'datatables-bootstrap': baseUrl + 'plugins/datatables/dataTables.bootstrap4.min',
@@ -34,16 +36,21 @@
         /*******************linq********************/
         'linq': baseUrl + 'plugins/linq/linq.min',
         /*****************sweetalert****************/
-        'sweetalert': 'http://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.8.0/sweetalert2.min',
+        //'sweetalert': 'http://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.8.0/sweetalert2.min',
+        'sweetalert': baseUrl + 'browser/sweetalert2.min',
         /*****************highcharts****************/
-        'highcharts': 'https://code.highcharts.com/js/highcharts',
+        //'highcharts': 'https://code.highcharts.com/js/highcharts',
+        'highcharts': baseUrl + 'browser/highcharts',
         /*****************buttonfloat***************/
         'button-float': baseUrl + 'plugins/kc.fab.min',
         /******************treeview*****************/
         'treeview-widget': baseUrl + 'plugins/metro.min',
-        'core': 'http://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core',
-        'html5shiv': 'http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
-        'respond': 'http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
+        //'core': 'http://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core',
+        //'html5shiv': 'http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv',
+        //'respond': 'http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min',
+        'core': baseUrl + 'browser/core',
+        'html5shiv': baseUrl + 'browser/html5shiv',
+        'respond': baseUrl + 'browser/respond.min',
         ///*****************controller***************/
         '_MasterPageController': baseUrl + 'controller/_MasterPageController',
         '_SettingPageController': baseUrl + 'controller/_SettingPageController',
@@ -54,6 +61,7 @@
         'OrgUnitController': baseUrl + 'controller/OrgUnitController',
         'ApproveRequestsController': baseUrl + 'controller/ApproveRequestsController',
         'MonitoringController': baseUrl + 'controller/MonitoringController',
+        'InitMonitoringController': baseUrl + 'controller/InitMonitoringController',
         'MasterPlansController': baseUrl + 'controller/MasterPlansController',
         'WorkOrderController': baseUrl + 'controller/WorkOrderController',
         'AddRequestController': baseUrl + 'controller/AddRequestController',
@@ -64,7 +72,7 @@
     },
     shim: {
         'bootstrap': {
-            exports: 'jquery',
+            exports: 'jquery',  
             deps: ["jquery"]
         },
         'button-float': {
@@ -108,7 +116,7 @@
         },
         'UserRequestController': {
             exports: 'angular',
-            deps: ['angular']
+            deps: ['angular', 'select2']
         },
         'ReceiptRequestController': {
             exports: 'angular',
@@ -120,13 +128,18 @@
         },
         'AddRequestController': {
             exports: 'angular',
-            deps: ['angular']
+            deps: ['angular','select2']
         },
+
         'ApproveRequestsController': {
             exports: 'angular',
             deps: ['angular']
         },
         'MonitoringController': {
+            exports: 'angular',
+            deps: ['angular', 'select2']
+        },
+        'InitMonitoringController': {
             exports: 'angular',
             deps: ['angular', 'select2']
         },

@@ -16,12 +16,13 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
-//using IronBarCode;
-//using Dynamsoft.Barcode;
-//using BarcodeReader = IronBarCode.BarcodeReader;
 using System.Drawing;
 using ZXing;
 using System.ComponentModel;
+using System.Text;
+using QRCodeDecoderLibrary;
+//using IronBarCode;
+using System.Drawing.Imaging;
 
 namespace EcomaintSite.Controllers
 {
@@ -40,6 +41,7 @@ namespace EcomaintSite.Controllers
             return _MyEcomainRepository ?? (_MyEcomainRepository = new MyEcomainRepository());
         }
         // GET: MyEcomain
+        [Authorize]
         public ActionResult Index()
         {
             var us = User.Identity.GetUserName();
@@ -120,6 +122,65 @@ namespace EcomaintSite.Controllers
             string dengnay = Request["today"];
             return RedirectToAction("Show", "Monitoring", new { msnx = nx, msmay = id, tngay = tungay, dngay = dengnay });
         }
+
+        private static string QRCodeResult
+        (
+        byte[][] DataByteArray
+        )
+        {
+            // no QR code
+            if (DataByteArray == null) return string.Empty;
+
+            // image has one QR code
+            if (DataByteArray.Length == 1) return ForDisplay(QRDecoder.ByteArrayToStr(DataByteArray[0]));
+
+            // image has more than one QR code
+            StringBuilder Str = new StringBuilder();
+            for (int Index = 0; Index < DataByteArray.Length; Index++)
+            {
+                if (Index != 0) Str.Append("\r\n");
+                Str.AppendFormat("QR Code {0}\r\n", Index + 1);
+                Str.Append(ForDisplay(QRDecoder.ByteArrayToStr(DataByteArray[Index])));
+            }
+            return Str.ToString();
+        }
+        private static string ForDisplay
+        (
+        string Result
+        )
+        {
+            int Index;
+            for (Index = 0; Index < Result.Length && (Result[Index] >= ' ' && Result[Index] <= '~' || Result[Index] >= 160); Index++) ;
+            if (Index == Result.Length) return Result;
+
+            StringBuilder Display = new StringBuilder(Result.Substring(0, Index));
+            for (; Index < Result.Length; Index++)
+            {
+                char OneChar = Result[Index];
+                if (OneChar >= ' ' && OneChar <= '~' || OneChar >= 160)
+                {
+                    Display.Append(OneChar);
+                    continue;
+                }
+
+                if (OneChar == '\r')
+                {
+                    Display.Append("\r\n");
+                    if (Index + 1 < Result.Length && Result[Index + 1] == '\n') Index++;
+                    continue;
+                }
+
+                if (OneChar == '\n')
+                {
+                    Display.Append("\r\n");
+                    continue;
+                }
+
+                Display.Append('¿');
+            }
+            return Display.ToString();
+        }
+
         [HttpPost]
         public JsonResult ProcessRequest()
         {
@@ -128,24 +189,30 @@ namespace EcomaintSite.Controllers
             try
             {
                 Stream iStream = imgBinary.InputStream;
+                //Image image = System.Drawing.Image.FromStream(iStream);
+                //image.Save("D:\\Image.jpg", ImageFormat.Jpeg);
                 byte[] bytes = new byte[iStream.Length];
                 iStream.Seek(0, SeekOrigin.Begin);
                 iStream.Read(bytes, 0, bytes.Length);
                 TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
                 Bitmap bitmap = (Bitmap)tc.ConvertFrom(bytes);
-
                 BarcodeReader reder = new BarcodeReader();
-                var resulst = reder.Decode(bitmap);
+
+                ////////////////MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+                ////////////////string resulst = decoder.Decode(new QRCodeBitmapImage(bitmap));
+                Result resulst = reder.Decode(bitmap);
                 if (resulst != null)
                 {
                     string s = resulst.Text;
                 }
-                return Json(resulst.Text, JsonRequestBehavior.AllowGet);
+                return Json(resulst.Text.ToString(), JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json(ex.Message.ToString(), JsonRequestBehavior.AllowGet);
             }
+
+
 
             //HttpRequest request = System.Web.HttpContext.Current.Request;
             //bool isSuccess = false;
@@ -179,14 +246,16 @@ namespace EcomaintSite.Controllers
             //    // 3. read and get result
             //    Stream iStream = imgBinary.InputStream;
             //    byte[] bytes = new byte[iStream.Length];
+
+            //    Image image = System.Drawing.Image.FromStream(iStream);
+            //    image.Save("D:\\Image.jpg", ImageFormat.Jpeg);
             //    iStream.Seek(0, SeekOrigin.Begin);
             //    iStream.Read(bytes, 0, bytes.Length);
             //    DateTime tDecodeBegin = DateTime.Now;
             //    results = barcodeReader.DecodeFileInMemory(bytes, "");
             //    tsDecode = DateTime.Now - tDecodeBegin;
             //    isSuccess = true;
-
-            //    BarcodeResult Result = IronBarCode.BarcodeReader.QuicklyReadOneBarcode(iStream, BarcodeEncoding.Code39, true);
+            //    BarcodeResult Result = IronBarCode.BarcodeReader.QuicklyReadOneBarcode(iStream, BarcodeEncoding.QRCode, true);
             //    if (Result != null)
             //    {
             //        string s = Result.Text;

@@ -1,7 +1,7 @@
 ﻿define(['_MasterPageController', '_MenuPageController', '_DetailsModalController', 'datatables-bootstrap', 'bootstrap-select'], function (module, menu, modal) {
     var MyEcomain = (function () {
         var app = angular.module("MyEcomainPage", [])
-        app.controller('MyEcomainController', function ($scope) {
+        app.controller('MyEcomainController', function ($scope, $compile) {
             var Main = module.Main
             var Languages = module.Languages
             var InfoDetails = modal
@@ -165,7 +165,7 @@
                         method.FilterData();
                     });
                     Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')], method.FilterData);
-                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cbbThietBi'));
+                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cbbThietBi'), '#cbbThietBi option');
                     Main.fn.InitButtonFloat(buttonFloat);
                     $('.select2-container--classic').select2({ theme: "classic" });
                 }

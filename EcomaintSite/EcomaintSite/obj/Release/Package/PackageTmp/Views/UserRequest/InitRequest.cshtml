@@ -24,6 +24,7 @@
 
 
 <div ng-controller="AddRequestController" ng-init="fn.Init()">
+    <input type="file" id="fileToUpload" style="display: none;" />
     <div class="row">
         <div class="col-lg-12">
             <div class="card-box">
@@ -76,15 +77,15 @@
                     <div class="col-lg-4 col-sm-4 col-xs-6">
                         <div class="form-group">
                             <label data-lang="lblNXuong">Địa điểm</label>
-
-                            @if (ViewBag.ID > -1)
-                            {
-                                @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { data_live_search = "true", data_slide = "both", @class = "form-control", @disabled = "disabled" })
-                            }
-                            else
-                            {
-                                @Html.DropDownList("cboWorkSite",ViewBag.cboWorkSite as SelectList, new { @class = "form-control" })
-                            }
+                            @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { name = "cboWorkSite", data_slide = "left", @class = "form-control select2-container--classic", @style = "width:100%" })
+                            @*@if (ViewBag.ID > -1)
+        {
+            @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { data_live_search = "true", data_slide = "both", @class = "form-control", @disabled = "disabled" })
+        }
+        else
+        {
+            @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { @class = "form-control" })
+        }*@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-6">
@@ -99,7 +100,7 @@
                             else
                             {
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="cboCreatedBy" />
+                                    <input class="form-control" type="text" id="cboCreatedBy" value="@ViewBag.CreatedBy"/>
                                     <a class="input-group-addon" ng-click="fn.NguoiYeuCau();" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                                 </div>
                             }
@@ -204,7 +205,12 @@
                             <div class="form-group">
                                 <label data-lang="lblDevice">Máy</label>
                                 @*@Html.DropDownList("departmentsDropdown", ViewBag.cboyeucaubaotri as SelectList, new { data_live_search = "true", data_slide = "both", @class = "selectpicker form-control" })*@
-                                <select id="cboDevice" name="cboDevice" class="form-control" data_live_search="true" data_slide="both"></select>
+                                <div class="input-group">
+                                    @*<select id="cboDevice" name="cboDevice" class="form-control" data_live_search="true" data_slide="both"></select>*@
+                                    @*@Html.DropDownList("cboDevice", ViewBag.cboWorkSite as SelectList, new { name = "cboDevice", data_slide = "left", @class = "form-control select2-container--classic", @style = "width:100%" })*@
+                                    @Html.DropDownList("cboDevice", ViewBag.NhaXuong as SelectList, new { name = "cboDevice", data_live_search = "true", data_slide = "left", @class = "form-control select2-container--classic", @style = "width:100%" })
+                                    <a class="input-group-addon" id="ReadBtn" href="#"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span></a>
+                                </div>
                             </div>
                         </div>
 
@@ -282,12 +288,12 @@
                                     </thead>
                                     <tbody>
                                         @*@foreach (var item in Model)
-                                        {
-                                            <tr data-id="@item.Value">
-                                                <td style="width: 150px">@item.Value</td>
-                                                <td>@item.Text</td>
-                                            </tr>
-                                        }*@
+                                            {
+                                                <tr data-id="@item.Value">
+                                                    <td style="width: 150px">@item.Value</td>
+                                                    <td>@item.Text</td>
+                                                </tr>
+                                            }*@
                                     </tbody>
                                 </table>
                             </div>
@@ -320,6 +326,7 @@
         var urlRequest = '@Url.Action("Index", "UserRequest")';
         var urlDevices = '@Url.Action("getDevices", "UserRequest")';
         var urlShowNguoiYeuCau = '@Url.Action("ShowNguoiYeuCau", "UserRequest")';
+        var urlReadbarcode = '@Url.Action("ProcessRequest", "MyEcomain")';
         require(["./AddRequestController"]);
     </script>
 </div>

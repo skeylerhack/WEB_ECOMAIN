@@ -123,6 +123,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="QRCodeDecoderLibrary">
+      <HintPath>C:\Users\PC01\Downloads\QRCodeLibrary_src\QRCodeDecoder\QRCodeDecoderLibrary\bin\Debug\QRCodeDecoderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -181,6 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\autocomplete.css" />
+    <Content Include="Content\browser\googleapis.css" />
+    <Content Include="Content\browser\jquery-ui.css" />
     <Content Include="Content\custombootstrap.css" />
     <Content Include="Content\dash-board.css" />
     <Content Include="Content\flags.css" />
@@ -260,6 +265,13 @@
     <Content Include="img\up-small.png" />
     <Content Include="img\up.png" />
     <Content Include="img\user-avatar.jpg" />
+    <Content Include="js\browser\highcharts.js" />
+    <Content Include="js\browser\sweetalert2.min.js" />
+    <Content Include="js\browser\core.js" />
+    <Content Include="js\browser\html5shiv.js" />
+    <Content Include="js\browser\respond.min.js" />
+    <Content Include="js\browser\select2.min.js" />
+    <Content Include="Content\browser\highcharts.css" />
     <Content Include="js\controller\InitMonitoringController - Copy.js" />
     <Content Include="js\controller\InitMonitoringController.js" />
     <Content Include="js\controller\MonitoringController.js" />
@@ -302,6 +314,7 @@
     <Content Include="js\plugins\highcharts\Chart4.js" />
     <Content Include="js\plugins\highcharts\Chart5.js" />
     <Content Include="js\plugins\highcharts\highcharts.js" />
+    <Content Include="js\plugins\jquery\jquery-3.2.1.min.js" />
     <Content Include="js\plugins\jquery\jquery-1.12.2.min.js" />
     <Content Include="js\plugins\jquery\jquery.cookie.js" />
     <Content Include="js\plugins\jquery\jquery.doubletap.js" />
@@ -316,7 +329,9 @@
     <Content Include="js\controller\ApproveRequestsController.js" />
     <Content Include="js\controller\AddRequestController.js" />
     <Content Include="js\controller\UserRequestController.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectResolver.cs" />
@@ -369,7 +384,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="json\datatables-lang-vn.json" />
     <Content Include="json\datatables-lang-en.json" />
-    <None Include="Properties\PublishProfiles\EcomaintSiteMVC.pubxml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\_PartialMenu.cshtml" />
     <Content Include="Views\OrgUnit\Index.cshtml" />

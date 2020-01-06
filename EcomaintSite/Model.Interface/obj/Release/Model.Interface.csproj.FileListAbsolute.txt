@@ -108,3 +108,29 @@ D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model.Interface\obj
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model.Interface\obj\Release\Model.Interface.csproj.CopyComplete
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model.Interface\obj\Release\Model.Interface.dll
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model.Interface\obj\Release\Model.Interface.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Model.Interface.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Model.Interface.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Model.Data.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.Razor.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.Razor.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Microsoft.Web.Infrastructure.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Microsoft.AspNet.Identity.Core.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.Deployment.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Model.Data.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Model.Data.dll.config
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.Mvc.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.Razor.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.Razor.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\Microsoft.AspNet.Identity.Core.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\bin\Release\System.Web.WebPages.Deployment.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Release\Model.Interface.csprojAssemblyReference.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Release\Model.Interface.csproj.CoreCompileInputs.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Release\Model.Interface.csproj.CopyComplete
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Release\Model.Interface.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model.Interface\obj\Release\Model.Interface.pdb

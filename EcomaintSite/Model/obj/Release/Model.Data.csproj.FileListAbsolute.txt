@@ -77,3 +77,19 @@ D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model\obj\Release\M
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model\obj\Release\Model.Data.csproj.CopyComplete
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model\obj\Release\Model.Data.dll
 D:\Ecomain\03.Web\SourceEcomaint\SourceEcomaint\EcomaintSite\Model\obj\Release\Model.Data.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Model.Data.dll.config
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Model.Data.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Model.Data.pdb
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\EntityFramework.SqlServer.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Microsoft.AspNet.Identity.Core.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\EntityFramework.SqlServer.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Microsoft.AspNet.Identity.Core.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Release\Model.Data.csprojAssemblyReference.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Release\Model.Data.csproj.CoreCompileInputs.cache
+E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Release\Model.Data.csproj.CopyComplete
+E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Release\Model.Data.dll
+E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Release\Model.Data.pdb

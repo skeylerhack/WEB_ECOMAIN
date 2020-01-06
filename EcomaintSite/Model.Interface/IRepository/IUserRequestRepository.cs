@@ -11,6 +11,7 @@ namespace Model.Interface
         UserRequest GetUserRequest(int ID);
         IEnumerable<GetUserRequestObj> GetUserRequest(string requestedBy, string MS_N_XUONG, string fromDate, string toDate, string username, int languages);
         IEnumerable<GetUserRequestObj> GetCreatedBy();
+        string GetNguoiYC(string UserName);
         string CreateRequestID();
         Boolean CheckExistRequest(string ID);
         void SaveRequest(UserRequest obj);

@@ -68,13 +68,12 @@
                     Main.fn.InitButtonFloat(buttonFloat) //Init button float for mobile
                     method = fnPrivate
                     $('#cboWorkSite').val($('#workSiteID').val());
-
+                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'),'#cboDevice option');
                     $('#tbNguoiYeuCau tbody').on('dblclick', 'tr', function () {
                         var tennyc = $('#tbNguoiYeuCau tbody').find('tr[class$=selected] td:nth-child(2)').text();
                         $('#ModalNCY').appendTo("body").modal('hide');
                         $('#cboCreatedBy').val(tennyc);
                     });
-
                     $('#tbRequestInfo tbody').on('click', 'tr', function () {
                         if ($(this).is('[new]')) {
                             method.DisabledButton(false);
@@ -83,13 +82,11 @@
                             method.DisabledButton(true);
                         }
                     });
-
                     $('#btnChooseNYC').click(function () {
                         var tennyc = $('#tbNguoiYeuCau tbody').find('tr[class$=selected] td:nth-child(2)').text();
                         $('#ModalNCY').appendTo("body").modal('hide');
                         $('#cboCreatedBy').val(tennyc);
                     });
-
                     var rowCount = $('#tbRequestInfo >tbody >tr').length;
                     if (rowCount === 0) {
                         $('#cboWorkSite').attr('disabled', false);
@@ -97,6 +94,7 @@
                     else {
                         $('#cboWorkSite').attr('disabled', true);
                     }
+                    $('.select2-container--classic').select2({ theme: "classic" });
                 },
                 CheckValidateControl: function () {
                     if ($('#hfID').val() == -1) {
@@ -260,7 +258,11 @@
                 Add: function () {
                     //load combobox de
                     var $wordsite = $('#cboWorkSite').val();
-                    $('#cboDevice option').remove();
+                    if ($wordsite == null) {
+                        Alert.fn.Show("Địa điểm không được để trống!", Alert.Type.error);
+                        return;
+                    }
+                    $('#cboDevice option').removeData();
                     $.ajax({
                         type: "POST",
                         url: urlDevices,

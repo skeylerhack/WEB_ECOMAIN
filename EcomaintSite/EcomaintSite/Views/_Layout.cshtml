@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using Model.Data.ViewModel;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,7 +175,7 @@
                         <span class="flag-icon flag-icon-us flag-icon-squared hidden"></span>
                     </div>
                     <div style="float:left; margin-left:5px">Database: <span id="DatabaseName">@(Session["DatabaseName"])</span></div>
-                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline"></span></div>
+                    <div style="float:left; margin-left:5px"> - Online: <span id="userOnline">@Commons.lic/@Commons.licCom</span></div>
                 </footer>
             </div>
             @Html.Partial("~/Views/_PartialModalDetails.cshtml")

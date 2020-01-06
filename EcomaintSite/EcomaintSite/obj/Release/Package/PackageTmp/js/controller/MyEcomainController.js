@@ -1,7 +1,7 @@
 ﻿define(['_MasterPageController', '_MenuPageController', '_DetailsModalController', 'datatables-bootstrap', 'bootstrap-select'], function (module, menu, modal) {
     var MyEcomain = (function () {
         var app = angular.module("MyEcomainPage", [])
-        app.controller('MyEcomainController', function ($scope) {
+        app.controller('MyEcomainController', function ($scope, $compile) {
             var Main = module.Main
             var Languages = module.Languages
             var InfoDetails = modal
@@ -11,11 +11,11 @@
             var currentPageName = 'MyEcomainWeb'
             var menuID = 'mnuMyEcomain'
             var buttonFloat = [
-                {
-                    "id": "btnbt",
-                    "url": "#",
-                    "func": "fn.ShowPBT"
-                }
+                //{
+                //    "id": "btnbt",
+                //    "url": "#",
+                //    "func": "fn.ShowPBT"
+                //}
             ]
             var vars = {};
             var bindVariables = function () {
@@ -40,7 +40,7 @@
                                     render: function (data, type, row) {
                                         if (type === 'display') {
                                             //return '<input type="checkbox" disabled="disabled"  class="editor-pbt">';
-                                            return '<a type="button" class="btn btn-default disabled" name = "btnbt" href="MyEcomain/ShowPBT/' + row['MS_MAY'] + '?nhaxuong=' + $("#cbbDiaDiem").val() + '&fromday=' + $('#fromDate').val() + '&today=' + $('#toDate').val() + '">link <span class="badge">No</span></a>';
+                                            return '<a type="button" class="btn btn-default disabled" name = "btnbt" href="MyEcomain/ShowPBT/' + row['MS_MAY'] + '?nhaxuong=' + $("#cbbDiaDiem").val() + '&fromday=' + $('#fromDate').val() + '&today=' + $('#toDate').val() + '"> <span class="badge">No</span></a>';
                                         }
                                         return data;
                                     },
@@ -51,7 +51,7 @@
                                     render: function (data, type, row) {
                                         if (type === 'display') {
                                             //return '<input type="checkbox" disabled="disabled"  class="editor-gs">';
-                                            return '<a type="button" class="btn btn-default disabled" name = "btngs" href=MyEcomain/ShowGSTT/' + row['MS_MAY'] + '?nhaxuong=' + $("#cbbDiaDiem").val() + '&fromday=' + $('#fromDate').val() + '&today=' + $('#toDate').val() + '">link <span class="badge">No</span></a>';
+                                            return '<a type="button" class="btn btn-default disabled" name = "btngs" href="MyEcomain/ShowGSTT/' + row['MS_MAY'] + '?nhaxuong=' + $("#cbbDiaDiem").val() + '&fromday=' + $('#fromDate').val() + '&today=' + $('#toDate').val() + '"> <span class="badge">No</span></a>';
                                         }
                                         return data;
                                     },
@@ -112,12 +112,12 @@
                 },
                 EvenRadio: function () {
                     $('input[type=radio][name=optradio]').change(function () {
-                        if (this.value == 0) {
+                        if (this.value === 0) {
                             $('#toDate').hide();
                             $('[data-lang=lblDenngay]').hide();
                             $("#fromDate").val(new Date().toLocaleString('en-GB').substr(0, 10));
                         }
-                        else if (this.value == 1) {
+                        else if (this.value === 1) {
                             $('#toDate').toggle();
                             $('[data-lang=lblDenngay]').toggle();
 
@@ -165,6 +165,7 @@
                         method.FilterData();
                     });
                     Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')], method.FilterData);
+                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cbbThietBi'), '#cbbThietBi option');
                     Main.fn.InitButtonFloat(buttonFloat);
                     $('.select2-container--classic').select2({ theme: "classic" });
                 }
