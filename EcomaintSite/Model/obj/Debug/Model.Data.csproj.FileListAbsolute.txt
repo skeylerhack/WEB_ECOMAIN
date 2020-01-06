@@ -153,3 +153,18 @@ E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CoreCom
 E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CopyComplete
 E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Debug\Model.Data.dll
 E:\Nâng cấp web ofline\EcomaintSite\Model\obj\Debug\Model.Data.pdb
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Model.Data.dll.config
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Model.Data.dll
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Model.Data.pdb
+E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.dll
+E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.xml
+E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CoreCompileInputs.cache
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CopyComplete
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.dll
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.pdb

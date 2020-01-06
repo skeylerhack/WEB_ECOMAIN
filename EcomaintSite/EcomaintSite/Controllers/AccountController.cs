@@ -198,18 +198,26 @@ namespace EcomaintSite.Controllers
                                 if (User.Identity.IsAuthenticated == false)
                                 {
                                     d.Add(model.Username.ToLower());
+                                    // gan sesion user name
+                                    //tao doi tung cookie
+                                    Session["UserLoggedIn"] = model.Username;
                                 }
                             }
-                            // gan sesion user name
-                            //tao doi tung cookie
-                            Session["UserLoggedIn"] = model.Username;
+                           
                         }
                     }
+  
                     if (User.Identity.IsAuthenticated == false)
                     {
-                        var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
-                        var userSign = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                        authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = model.RememberMe }, userSign);
+                        try
+                        {
+                            var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
+                            var userSign = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                            authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = model.RememberMe }, userSign);
+                        }
+                        catch (Exception)
+                        {
+                        }
                         SessionVariable.Username = model.Username;
                         SessionVariable.TypeLanguage = 0;
                         if (!webRepository.CheckExists(User.Identity.Name))
