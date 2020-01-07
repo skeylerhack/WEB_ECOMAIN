@@ -54,7 +54,15 @@ namespace Model.Repository
         }
         public string GetNguoiYC(string UserName)
         {
-            string resulst = SqlHelper.ExecuteScalar(DBUtils.BizConnectionString().ToString(), CommandType.Text, "SELECT  B.HO +' '+B.TEN FROM dbo.USERS A INNER JOIN dbo.CONG_NHAN B ON B.MS_CONG_NHAN = A.MS_CONG_NHAN WHERE A.USERNAME = '"+ UserName+ "'").ToString();
+            string resulst ="";
+            try
+            {
+                resulst = SqlHelper.ExecuteScalar(DBUtils.BizConnectionString().ToString(), CommandType.Text, "SELECT  B.HO +' '+B.TEN FROM dbo.USERS A INNER JOIN dbo.CONG_NHAN B ON B.MS_CONG_NHAN = A.MS_CONG_NHAN WHERE A.USERNAME = '" + UserName + "'").ToString();
+            }
+            catch (Exception ex)
+            {
+                resulst = "";
+            }
             return resulst;
         }
 

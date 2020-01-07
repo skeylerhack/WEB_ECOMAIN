@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ecomaint Site</title>
     <link rel="shortcut icon" href="~/img/settings.ico" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <link href="~/Content/jquery/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <link href="~/Content/jquery/jquery-ui.css" rel="Stylesheet" type="text/css" />
 
     <link href="~/Content/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap/bootstrap-flat.min.css" rel="stylesheet" />
@@ -29,19 +29,15 @@
     <link href="~/Content/autocomplete.css" rel="stylesheet" />
     <link href="~/Content/loading-sap.css" rel="stylesheet" />
     <link href="~/Content/scrollbar.css" rel="stylesheet" />
-    <link href="http://fonts.googleapis.com/css?family=Muli:400,400i,600,600i&amp;subset=vietnamese" rel="stylesheet">
-
+    @*<link href="http://fonts.googleapis.com/css?family=Muli:400,400i,600,600i&amp;subset=vietnamese" rel="stylesheet">*@
+    <link href="~/Content/fonts/googleapis.css" rel="stylesheet" />
     <link href="~/Content/loadingPage.css" rel="stylesheet" />
 
     <!--Button float  -->
     <link href="~/Content/plugins/kc.fab.css" rel="stylesheet" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    @*<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>*@
-    <link href="http://code.highcharts.com/css/highcharts.css" rel="stylesheet" />
-
+    @*<link href="http://code.highcharts.com/css/highcharts.css" rel="stylesheet" />*@
+    <link href="~/Content/highcharts/highcharts.css" rel="stylesheet" />
     <link href="~/Content/flags.css" rel="stylesheet" />
 
     <link href="~/Content/plugins/metro-treeview.css" rel="stylesheet" />
@@ -53,11 +49,12 @@
     <link href="~/Content/plugins/datatables/customdatatables.css" rel="stylesheet" />
     <link href="~/Content/layout.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap/bootstrap-select2.css" rel="stylesheet" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+    <script src="~/js/plugins/jquery/jquery-3.2.1.min.js"></script>
+
     <!------ Include the above in your HEAD tag ---------->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>*@
+    <script src="~/js/plugins/select2/select2.min.js"></script>
     <script>
         var URLLanguages = '@Url.Action("GetLanguages", "Languages")'
         var URLChangeSetting = '@Url.Action("ChangeThemeValue", "Languages")'

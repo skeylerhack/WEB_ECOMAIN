@@ -190,7 +190,10 @@
     <Content Include="Content\dash-board.css" />
     <Content Include="Content\flags.css" />
     <Content Include="Content\font-style.css" />
+    <Content Include="Content\fonts\googleapis.css" />
+    <Content Include="Content\highcharts\highcharts.css" />
     <Content Include="Content\ie.css" />
+    <Content Include="Content\jquery\jquery-ui.css" />
     <Content Include="Content\layout.css" />
     <Content Include="Content\loading-sap.css" />
     <Content Include="Content\loadingPage.css" />
@@ -314,6 +317,9 @@
     <Content Include="js\plugins\highcharts\Chart4.js" />
     <Content Include="js\plugins\highcharts\Chart5.js" />
     <Content Include="js\plugins\highcharts\highcharts.js" />
+    <Content Include="js\plugins\jquery\jquery-ui-1.9.1.min.js" />
+    <Content Include="js\plugins\jquery\jquery-1.9.1.min.js" />
+    <Content Include="js\plugins\jquery\jquery-ui.js" />
     <Content Include="js\plugins\jquery\jquery-3.2.1.min.js" />
     <Content Include="js\plugins\jquery\jquery-1.12.2.min.js" />
     <Content Include="js\plugins\jquery\jquery.cookie.js" />
@@ -324,11 +330,14 @@
     <Content Include="js\plugins\linq\linq.min.js" />
     <Content Include="js\plugins\metro.min.js" />
     <Content Include="js\plugins\moment.min.js" />
+    <Content Include="js\plugins\select2\select2.min.js" />
+    <Content Include="js\plugins\sweetalert2\sweetalert2.min.js" />
     <Content Include="js\require.js" />
     <Content Include="js\controller\_SettingPageController.js" />
     <Content Include="js\controller\ApproveRequestsController.js" />
     <Content Include="js\controller\AddRequestController.js" />
     <Content Include="js\controller\UserRequestController.js" />
+    <Content Include="Resulst\Dropdown_2-24.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -393,6 +402,8 @@
     <Content Include="Views\PeriodicMaintenance\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\WorkOrder\Index.cshtml" />
+    <Content Include="font-awesome\fonts\7Auwp_0qiz-afT3GLRrX.woff2" />
+    <Content Include="Content\fonts\7Auwp_0qiz-afT3GLRrX.woff2" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\UserRequest\_ThemPhuThung.cshtml" />
     <Content Include="Views\UserRequest\_ThemHinh.cshtml" />

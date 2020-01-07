@@ -6,13 +6,15 @@
         'angular': baseUrl + 'plugins/angular/angular.min',
 
         /*****************select2*****************/
-        'select2': 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min',
+        //'select2': 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min',
+        'select2': baseUrl + 'browser/select2.min',
         /******************jquery*******************/
         'jquery': baseUrl + 'plugins/jquery/jquery-1.12.2.min',
         'jquery-cookie': baseUrl + 'plugins/jquery/jquery.cookie',
         'jquery-doubletap': baseUrl + 'plugins/jquery/jquery.doubletap',
         'jquery.treegrid': baseUrl + 'plugins/jquery/jquery.treegrid',
-        'jquery-ui': 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min',
+        //'jquery-ui': 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min',
+        'jquery-ui': baseUrl + 'plugins/jquery/jquery-ui',
         /*****************boostrap******************/
         'bootstrap': baseUrl + 'plugins/bootstrap/bootstrap.min',
         'bootstrap-datetimepicker': baseUrl + 'plugins/bootstrap/bootstrap-datetimepicker.min',
