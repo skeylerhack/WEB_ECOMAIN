@@ -4,7 +4,6 @@ namespace Model.Data
     using System;
     using System.Data.Entity;
     using System.Web;
-
     public partial class Model1 : IdentityDbContext<ApplicationUser>
     {
         public Model1()
@@ -16,7 +15,7 @@ namespace Model.Data
                 string connectionString = this.Database.Connection.ConnectionString;
                 if (databaseName != this.Database.Connection.Database)
                 {
-                    connectionString = connectionString.Replace(connectionString.Substring(connectionString.IndexOf("Database"), connectionString.IndexOf("User") - connectionString.IndexOf("Database")), "Database=" + databaseName + ";");
+                    this.Database.Connection.ConnectionString = connectionString.Replace(connectionString.Substring(connectionString.IndexOf("Database"), connectionString.IndexOf("User") - connectionString.IndexOf("Database")), "Database=" + databaseName + ";");
                 }
             }
             catch (Exception ex) { }

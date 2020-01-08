@@ -164,6 +164,7 @@ E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.xml
 E:\03.WEB\EcomaintSite\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 E:\03.WEB\EcomaintSite\Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csprojAssemblyReference.cache
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CoreCompileInputs.cache
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CopyComplete
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.dll

@@ -212,7 +212,7 @@
                         return false;
                     }
                     if ($('#txtRequest').val() == null || $('#txtRequest').val().trim() == "" || $('#txtRequest').val().length == 0) {
-                        Alert.fn.Show(Messenger.msgNhapYeuCau, Alert.Type.warning);
+                        Alert.fn.Show("Vui lòng nhập nội dung!", Alert.Type.warning);
                         return false;
                     }
                     if ($('#btnSave').attr('data-action') == 'add') {

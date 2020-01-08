@@ -154,9 +154,6 @@ namespace EcomaintSite.Controllers
                 SessionVariable.DatabaseName = model.DatabaseName;
                 var userDB = userRepository.GetUserActiveByID(model.Username);
                 ApplicationUser user = null;
-
-
-
                 if (userDB == null)
                 {
                     return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Tài khoản chưa đăng ký hoặc đang deactive. (liên hệ Admin)" });
@@ -183,27 +180,27 @@ namespace EcomaintSite.Controllers
                             return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Tài khoản chưa đăng ký hoặc đang deactive. (liên hệ Admin)" });
                         }
                     }
-                    else
+                    //else
+                    //{
+                    user = manager.Find(model.Username, model.Password);
+                    if (user == null)
                     {
-                        user = manager.Find(model.Username, model.Password);
-                        if (user == null)
+                        return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Tài khoản hoặc mật khẩu không đúng!" });
+                    }
+                    System.Collections.Generic.List<string> d = (System.Collections.Generic.List<string>)HttpContext.Application["UsersLoggedIn"];
+                    if (d != null)
+                    {
+                        lock (d)
                         {
-                            return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Tài khoản hoặc mật khẩu không đúng!" });
-                        }
-                        System.Collections.Generic.List<string> d = (System.Collections.Generic.List<string>)HttpContext.Application["UsersLoggedIn"];
-                        if (d != null)
-                        {
-                            lock (d)
+                            if (User.Identity.IsAuthenticated == false)
                             {
-                                if (User.Identity.IsAuthenticated == false)
-                                {
-                                    d.Add(model.Username.ToLower());
-                                }
+                                d.Add(model.Username.ToLower());
                             }
-                            // gan sesion user name
-                            //tao doi tung cookie
-                            Session["UserLoggedIn"] = model.Username;
                         }
+                        // gan sesion user name
+                        //tao doi tung cookie
+                        Session["UserLoggedIn"] = model.Username;
+                        //}
                     }
                     if (User.Identity.IsAuthenticated == false)
                     {
