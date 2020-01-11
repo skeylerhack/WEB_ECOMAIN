@@ -289,6 +289,7 @@
             //How frequently to check for session expiration in milliseconds
             var sessPollInterval = 1000;
 
+            var request = 3600;
             //How many minutes the session is valid for
             var sessExpirationMinutes = 5;
             //How many minutes before the warning prompt
@@ -307,23 +308,23 @@
                     minutes,
                     seconds;
                 function timer() {
-                    diff = duration - (((Date.now() - start) / 1000) | 0);
+                    diff = duration - (((Date.now() - start) / request) | 0);
                     if (diff <= 0 && _IDLE == true) {
-                        _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //_IDLE = false;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 };
-                idleButtonIntervalID = setInterval(timer, 1000);
+                //idleButtonIntervalID = setInterval(timer, request);
             }
             var SessInterval = function () {
                 var now = new Date();
                 var diff = now - sessLastActivity;
-                var diffMins = (diff / 1000 / 60);
+                var diffMins = (diff / request / 60);
                 TrackingUserOnline();
                 if (diffMins >= sessWarningMinutes) {
                     clearInterval(sessIntervalID);
@@ -346,15 +347,15 @@
                             });
                             now = new Date();
                             diff = now - sessLastActivity;
-                            diffMins = (diff / 1000 / 60);
+                            diffMins = (diff / request / 60);
                             if (diffMins > sessExpirationMinutes) {
-                                _IDLE = false;
-                                $.removeCookie("_IDLE", '/')
-                                $.cookie("_IDLE", _IDLE, {
-                                    expires: 0.2,
-                                    path: '/'
-                                });
-                                window.location.href = URLLogOut;
+                                //_IDLE = false;
+                                //$.removeCookie("_IDLE", '/')
+                                //$.cookie("_IDLE", _IDLE, {
+                                //    expires: 0.2,
+                                //    path: '/'
+                                //});
+                                //window.location.href = URLLogOut;
                             }
                             else {
                                 fn.InitSession();
@@ -363,13 +364,13 @@
                             clearInterval(idleButtonIntervalID)
                         }
                         else {
-                            _IDLE = false;
-                            $.removeCookie("_IDLE", '/')
-                            $.cookie("_IDLE", _IDLE, {
-                                expires: 0.2,
-                                path: '/'
-                            });
-                            window.location.href = URLLogOut;
+                            //_IDLE = false;
+                            //$.removeCookie("_IDLE", '/')
+                            //$.cookie("_IDLE", _IDLE, {
+                            //    expires: 0.2,
+                            //    path: '/'
+                            //});
+                            //window.location.href = URLLogOut;
                         }
                     });
                 }
@@ -381,13 +382,13 @@
                         $('#userOnline').text(data);
                     }
                     else {
-                        _IDLE = false;
-                        $.removeCookie("_IDLE", '/')
-                        $.cookie("_IDLE", _IDLE, {
-                            expires: 0.2,
-                            path: '/'
-                        });
-                        window.location.href = URLLogOut;
+                        //_IDLE = false;
+                        //$.removeCookie("_IDLE", '/')
+                        //$.cookie("_IDLE", _IDLE, {
+                        //    expires: 0.2,
+                        //    path: '/'
+                        //});
+                        //window.location.href = URLLogOut;
                     }
                 });
             }
@@ -395,7 +396,7 @@
                 fn: {
                     Init: function () {
                         sessLastActivity = new Date();
-                        SessSetInterval();
+                        //SessSetInterval();
                         $(document).bind('keypress.session', function (ed, e) {
                             SessKeyPressed(ed, e);
                         });
@@ -504,11 +505,11 @@
                         return mm + '/' + dd + '/' + yyyy;
                     }
                     else {
-                        var hours = today.getHours();
-                        var minutes = today.getMinutes();
-                        minutes = minutes < 10 ? '0' + minutes : minutes;
-                        var strTime = hours + ':' + minutes;
-                        return dd + '/' + mm + '/' + yyyy + ' ' + strTime;
+                        //var hours = today.getHours();
+                        //var minutes = today.getMinutes();
+                        //minutes = minutes < 10 ? '0' + minutes : minutes;
+                        //var strTime = hours + ':' + minutes;
+                        //return dd + '/' + mm + '/' + yyyy + ' ' + strTime;
                     }
                 },
                 ///**

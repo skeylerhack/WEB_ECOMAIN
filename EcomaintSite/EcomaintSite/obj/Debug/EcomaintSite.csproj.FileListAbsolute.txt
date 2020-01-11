@@ -1167,6 +1167,10 @@ E:\Nâng cấp web ofline\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.cspro
 E:\Nâng cấp web ofline\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CopyComplete
 E:\Nâng cấp web ofline\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.dll
 E:\Nâng cấp web ofline\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.pdb
+E:\03.WEB\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
+E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
+E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
+E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\ApplicationInsights.config
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\roslyn\csc.exe.config
@@ -1263,14 +1267,12 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Interface.pdb
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Repository.pdb
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Data.pdb
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Data.dll.config
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\EntityFramework.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\EntityFramework.SqlServer.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AI.DependencyCollector.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AI.Web.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AI.WindowsServer.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.ApplicationInsights.xml
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Core.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.AspNet.SignalR.Core.xml
@@ -1280,7 +1282,6 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Ninject.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\QRCodeDecoderLibrary.pdb
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\QRCodeDecoderLibrary.xml
@@ -1290,7 +1291,6 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Http.WebHost.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Mvc.xml
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Razor.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Deployment.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.WebPages.Razor.xml
