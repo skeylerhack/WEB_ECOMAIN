@@ -22,9 +22,7 @@ namespace Model.Repository
             User resulst =  db.User.Where(x => x.Username == username && x.Active == true).Count() > 0 ? db.User.SingleOrDefault(x => x.Username == username) : null;
             return resulst;
         }
-
         public IEnumerable<User> ListAll() => db.User.ToList();
-
         public string GetPhongBan(int msTo)
         {
             try
@@ -38,11 +36,11 @@ namespace Model.Repository
             }
         }
 
-        public int SoLuongLogin()
+        public int SoLuongLogin(string Usename)
         {
             try
             {
-                return db.WebUserLogin.Count();
+                return db.WebUserLogin.Where(x=>x.Username!=Usename).Count();
 
             }
             catch (Exception)

@@ -11,7 +11,7 @@ namespace Model.Data
         {
             try
             {
-                string databaseName = databaseName = HttpContext.Current.Request.Cookies["DatabaseName"].Value;
+                string databaseName = HttpContext.Current.Request.Cookies["DatabaseName"].Value;
                 string connectionString = this.Database.Connection.ConnectionString;
                 if (databaseName != this.Database.Connection.Database)
                 {

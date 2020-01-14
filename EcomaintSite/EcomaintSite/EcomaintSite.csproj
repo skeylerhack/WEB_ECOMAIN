@@ -275,10 +275,8 @@
     <Content Include="js\browser\respond.min.js" />
     <Content Include="js\browser\select2.min.js" />
     <Content Include="Content\browser\highcharts.css" />
-    <Content Include="js\controller\InitMonitoringController - Copy.js" />
     <Content Include="js\controller\InitMonitoringController.js" />
     <Content Include="js\controller\MonitoringController.js" />
-    <Content Include="js\controller\MyEcomainController - Copy.js" />
     <Content Include="js\controller\MyEcomainController.js" />
     <Content Include="js\controller\ReceiptRequestController.js" />
     <Content Include="js\controller\_DetailsModalController.js" />

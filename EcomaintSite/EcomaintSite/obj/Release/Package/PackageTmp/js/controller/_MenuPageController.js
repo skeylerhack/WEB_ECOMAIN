@@ -37,7 +37,7 @@
                 }
                 else {
                     $.post(urlAllChildMenu, { menuID: menuID }, function (data) {
-                        var mnuRoot = Enumerable.From(data).Where(function (x) { return x.Root === 0 }).SingleOrDefault().MenuID;
+                        var mnuRoot = Enumerable.From(data).Where(function (x) { return x.Root === 0 }).SingleOrDefault();
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].Root === 0) continue;
                             if (data[i].MetaTitle === '#') {

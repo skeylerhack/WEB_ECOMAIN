@@ -21,10 +21,12 @@ namespace Model.Repository
 
         public void Delete(string Username)
         {
-            if(db.WebUserLogin.Where(x => x.Username == Username).Count() > 0)
+            if (db.WebUserLogin.Where(x => x.Username == Username).Count() > 0)
+            {
                 db.WebUserLogin.Remove(db.WebUserLogin.SingleOrDefault(x => x.Username == Username));
+                db.SaveChanges();
+            }
         }
-
         public void SaveChanges() => db.SaveChanges();
 
         private bool disposed = false;

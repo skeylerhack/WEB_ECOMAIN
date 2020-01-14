@@ -30,8 +30,8 @@ namespace EcomaintSite
                     {
                         d.Remove(userLoggedIn.ToLower());
                         Model.Repository.WebUserLoginRepository webUserLogin = new Model.Repository.WebUserLoginRepository();
-                        webUserLogin.Delete(userLoggedIn);
-                        webUserLogin.SaveChanges();
+                        //webUserLogin.Delete(userLoggedIn);
+                        //webUserLogin.SaveChanges();
                     }
                 }
             }

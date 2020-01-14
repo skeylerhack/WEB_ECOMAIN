@@ -18,26 +18,26 @@
                 "id": "btnApproved",
                 "url": "#",
                 "icon": "<i class='fa fa-check-square-o'></i>",
-                "lang": "btnApprove",
+                    "lang": "btnDuyet",
                 "func": 'fn.Approved'
             }, {
                 "id": "btnNotApprove",
                 "url": "#",
                 "icon": "<i class='fa fa-square-o'></i>",
-                "lang": "btnNotApprove",
+                    "lang": "btnKhongDuyet",
                 "func": 'fn.NotApprove'
             }, {
                 "id": "btnExecute",
                 "url": "#",
                 "icon": "<i class='fa fa-pencil'></i>",
-                "lang": "btnExecute",
+                    "lang": "btnThucHien",
                 "hidden": "true",
                 "func": 'fn.Execute'
             }, {
                 "id": "btnCancel",
                 "url": "#",
                 "icon": "<i class='fa fa-reply'></i>",
-                "lang": "btnCancel",
+                    "lang": "btnHuy",
                 "hidden": "true",
                 "func": 'fn.Cancel'
             }

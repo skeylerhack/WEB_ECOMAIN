@@ -26,25 +26,25 @@
                     "func": "fn.CreateWO"
                 },
                 {
-                    "id": "btnThem",
+                    "id": "btnAdd",
                     "url": "#",
                     "icon": "<i class='fa fa-plus-circle'></i>",
-                    "lang": "btnThem",
-                    "func": "fn.Them"
+                    "lang": "btnAdd",
+                    "func": "fn.Add"
                 },
                 {
-                    "id": "btnSua",
+                    "id": "btnEdit",
                     "url": "#",
                     "icon": "<i class='fa fa-pencil'></i>",
-                    "lang": "btnSua",
+                    "lang": "btnEdit",
                     "func": "fn.Edit"
                 },
                 {
-                    "id": "btnXoa",
+                    "id": "btnRemove",
                     "url": "#",
                     "icon": "<i class='fa fa-trash'></i>",
-                    "lang": "btnXoa",
-                    "func": "fn.Xoa"
+                    "lang": "btnRemove",
+                    "func": "fn.Remove"
                 }
             ]
             var Action = {
@@ -72,7 +72,7 @@
                     $tbSparePartSelected: $('#tbSparePartSelected'),
                     $tbWorkSelecting: $("#tbWorkSelecting"),
                     $tbWorkSelected: $('#tbWorkSelected'),
-                    $tbPlan: $("#tbPlan"),
+                    //$tbPlan: $("#tbPlan"),
                     $tbWorkBody: $('#tbWork tbody'),
                     $tbWorkSelectingBody: $("#tbWorkSelecting tbody"),
                     $tabContents: $('#tabContentModal a[data-toggle="tab"]'),
@@ -486,6 +486,7 @@
                 },
                 TabContentsPlanSelectIndexChanged: function (e) {
                     if ($(e.target).attr('data-index') == 0) {
+
                     }
                     else {
                         var planID = $('#tbPlan tr[class$="selected"]').attr('data-planid');
@@ -635,7 +636,7 @@
                         callback(false);
                         return false;
                     }
-                    var tmp = $('#startDatePlanModal').val()
+                    tmp = $('#startDatePlanModal').val()
                     if (tmp === '') {
                         Alert.fn.Show(Messenger.msgChooseStartDate, Alert.Type.warning);
                         callback(false);
@@ -716,7 +717,7 @@
                     Loading.fn.Show()
                     window.setTimeout(function () { method.FilterData(); }, 1500);
                 },
-                Them: function () {
+                Add: function () {
                     vars.$action = Action.add
                     method.ResetText()
                     method.DisableControl(false)

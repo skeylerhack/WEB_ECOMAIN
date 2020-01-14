@@ -24,7 +24,7 @@ namespace EcomaintSite.Controllers
             webRepository = _web;
             dataRepository = _data;
         }
-        public bool CheckService()
+        public bool CheckService(string Username)
         {
             string sConnect = new Model1().Database.Connection.ConnectionString;
             string sIP = sConnect.Split(';')[0].Substring(7).Split('\\')[0];
@@ -46,7 +46,7 @@ namespace EcomaintSite.Controllers
                 try
                 {
                     //lấy số lượng của user hiện tại
-                    Commons.lic = userRepository.SoLuongLogin() + 1;
+                    Commons.lic = userRepository.SoLuongLogin(Username) + 1;
                     Commons.licCom = int.Parse(sArr[3]);
                 }
                 catch (Exception ex)
@@ -77,7 +77,7 @@ namespace EcomaintSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string ReturnURL, string error = "")
         {
-            CheckService();
+            CheckService(model.Username);
             string s = Request.Form["Password"];
             // HttpCookie db = Response.Cookies["DatabaseName"];
             HttpCookie us = Response.Cookies["Username"];
@@ -275,6 +275,7 @@ namespace EcomaintSite.Controllers
         {
             var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
+            webRepository.Delete(User.Identity.Name);
             Session.Abandon();
             //them vao de xoa cac nguoi dung co ten hien tai
             //System.Web.HttpContext.Current.Application.Remove(System.Web.HttpContext.Current.User.Identity.Name);

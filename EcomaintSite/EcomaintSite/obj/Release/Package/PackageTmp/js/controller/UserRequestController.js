@@ -50,7 +50,7 @@
                     "url": "#",
                     "icon": "<i class='fa fa-trash-o'></i>",
                     "lang": "btnXoa",
-                    "func": 'fn.Removebphinh'
+                    "func": 'fn.Removeyeucau'
                 }
             ]
             var vars = {};

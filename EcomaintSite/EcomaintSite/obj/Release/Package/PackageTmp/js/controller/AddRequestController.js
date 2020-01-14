@@ -22,35 +22,35 @@
                     "id": "btnAdd",
                     "url": '#',
                     "icon": "<i class='fa fa-plus'></i>",
-                    "lang": "btnAdd",
+                    "lang": "btnThem",
                     "func": "fn.Add" //set tên hàm tương ứng
                 },
                 {
                     "id": "btnEdit",
                     "url": '#',
                     "icon": "<i class='fa fa-pencil'></i>",
-                    "lang": "btnEdit",
+                    "lang": "btnSua",
                     "func": "fn.Edit"
                 },
                 {
                     "id": "btnRemove",
                     "url": '#',
                     "icon": "<i class='fa fa-trash'></i>",
-                    "lang": "btnRemove",
+                    "lang": "btnXoa",
                     "func": "fn.Remove"
                 },
                 {
                     "id": "btnSave",
                     "url": '#',
                     "icon": "<i class='fa fa-floppy-o'></i>",
-                    "lang": "btnSave",
+                    "lang": "btnGhi",
                     "func": "fn.CheckValidateControl"
                 },
                 {
                     "id": "btnBack",
                     "url": urlRequest,
                     "icon": "<i class='fa fa-reply'></i>",
-                    "lang": "btnBack"
+                    "lang": "btnTroVe"
                 }
             ]
             var fnPrivate = {
@@ -215,7 +215,7 @@
                         Alert.fn.Show("Vui lòng nhập nội dung!", Alert.Type.warning);
                         return false;
                     }
-                    if ($('#btnSave').attr('data-action') == 'add') {
+                    if ($('#btnSave').attr('data-action') !== 'edit') {
                         var tableBody = $('#tbRequestInfo tbody');
                         var ID = Math.floor((Math.random() * 9000000) + 1);
                         tableBody.append('<tr new data-id-vd='

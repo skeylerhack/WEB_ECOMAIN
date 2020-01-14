@@ -11,18 +11,22 @@ namespace EcomaintSite.Controllers
 {
     public class UserController : Controller
     {
+        IWebUserLoginRepository webRepository;
         IWebUserLoginRepository webUserLoginRepository;
-        public UserController(IWebUserLoginRepository _webUserLoginRepository) => webUserLoginRepository = _webUserLoginRepository;
+        public UserController(IWebUserLoginRepository _webUserLoginRepository, IWebUserLoginRepository _web) { webUserLoginRepository = _webUserLoginRepository;
+            webRepository = _web;
+
+        }
         // GET: User
         public JsonResult TrackingUserOnline()
         {
             try
             {
-                //if(!webUserLoginRepository.CheckExists(User.Identity.Name))
-                if (!webUserLoginRepository.CheckExists("Admin"))
+                if(!webUserLoginRepository.CheckExists(User.Identity.Name))
                 {
                     var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
                     authenticationManager.SignOut();
+                    webRepository.Delete(User.Identity.Name);
                     Session.Abandon();
                     return Json("out: ", JsonRequestBehavior.AllowGet);
                 }

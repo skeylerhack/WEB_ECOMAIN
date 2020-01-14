@@ -207,7 +207,6 @@ E:\Nâng cấp web ofline\EcomaintSite\Model.Repository\obj\Debug\Model.Reposito
 E:\Nâng cấp web ofline\EcomaintSite\Model.Repository\obj\Debug\Model.Repository.csproj.CopyComplete
 E:\Nâng cấp web ofline\EcomaintSite\Model.Repository\obj\Debug\Model.Repository.dll
 E:\Nâng cấp web ofline\EcomaintSite\Model.Repository\obj\Debug\Model.Repository.pdb
-E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\EntityFramework.xml
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Repository.dll
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Repository.pdb
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\EntityFramework.dll
@@ -217,6 +216,7 @@ E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Interface.dll
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Interface.pdb
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Data.pdb
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Model.Data.dll.config
+E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\EntityFramework.xml
 E:\03.WEB\EcomaintSite\Model.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\03.WEB\EcomaintSite\Model.Repository\obj\Debug\Model.Repository.csprojAssemblyReference.cache
 E:\03.WEB\EcomaintSite\Model.Repository\obj\Debug\Model.Repository.Common.HelperSetting.resources

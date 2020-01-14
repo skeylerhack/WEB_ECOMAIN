@@ -50,9 +50,13 @@
                         "lang": "btnGhi",
                         "func": "fn.Ghi()"
                     },
+                    {
+                        "id": "btnBack",
+                        "url": urlGetGiamSatTinhTrang,
+                        "icon": "<i class='fa fa-reply'></i>",
+                        "lang": "btnTroVe"
+                    }
                 ]
-
-
             var vars = {}
             var bindVariables = function () {
                 return {
@@ -120,8 +124,8 @@
                                 vars.$qualityParamsDatatables = $("#tbQualityParameter").DataTable({
                                     "columnDefs": [
                                         { "visible": false, "targets": 0 },
-                                        { "width": '160px', "targets": 1 },
-                                        { "width": "50%", "targets": 2 },
+                                        { "width": '10%', "targets": 1 },
+                                        { "width": "40%", "targets": 2 },
                                         { "width": "50%", "targets": 3 }
                                     ],
                                     "language":
@@ -142,7 +146,7 @@
                                         "emptyTable": "<span data-lang='lblEmpty'></span>",
                                     },
                                     "lengthChange": false,
-                                    "lengthMenu": [10],
+                                    "lengthMenu": [20],
                                     "scrollY": '50vh',
                                     "scrollX": true,
                                     "processing": true,
@@ -173,8 +177,8 @@
                                 vars.$quantityParamsDatatables = $("#tbQuantityParameter").DataTable({
                                     "columnDefs": [
                                         { "visible": false, "targets": 0 },
-                                        { "width": '50%', "targets": 1 },
-                                        { "width": "50px", "targets": 2 },
+                                        { "width": '10px', "targets": 1 },
+                                        { "width": "40%", "targets": 2 },
                                         { "width": "50%", "targets": 3 }
                                     ],
                                     "language":
@@ -195,7 +199,7 @@
                                         "emptyTable": "<span data-lang='lblEmpty'></span>",
                                     },
                                     "lengthChange": false,
-                                    "lengthMenu": [10],
+                                    "lengthMenu": [20],
                                     "scrollY": '50vh',
                                     "scrollX": true,
                                     "processing": true,
