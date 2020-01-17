@@ -31,6 +31,8 @@ namespace EcomaintSite.Controllers
         IUserRequestUnitOfWork userRequestUnitOfWork;
         IUserRequestComponentRepository userRequestComponentRepository;
         IUserRequestDocumentRepository userRequestDocumentRepository;
+
+      
         private ICombobox _Combobox;
         private ICombobox Combobox()
         {
@@ -169,7 +171,7 @@ namespace EcomaintSite.Controllers
             }
         }
         [Authorize]
-        public JsonResult SaveRequest(string request, string requestInfo)
+        public JsonResult SaveRequest(string request, string requestInfo,string diadiem)
         {
             try
             {
@@ -184,12 +186,29 @@ namespace EcomaintSite.Controllers
                 lstRequestDetails.ForEach(x => x.UserRequestID = lstRequest[0].ID);
                 lstRequestDetails.ForEach(x => userRequestUnitOfWork.UserRequestDetailRepository.SaveRequestInfomation(x));
                 userRequestUnitOfWork.Save();
+                string row ="";
+                foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
+                {
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD,item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
+                }
+                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), lstRequest[0].DateCompleted, row);
+
+                //láy danh sách
+
+                Combobox().SendEmail("bamboo2711@gmail.com;skeylerhack@gmail.com", "giửi hướng", result);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json("failure: " + ex.Message, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        private string GetDsMail(string msnx,string mailthem)
+        {
+            string resulst = "";
+            return resulst;
+
         }
 
         [Authorize]

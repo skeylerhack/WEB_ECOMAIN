@@ -1299,6 +1299,8 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\zxing.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\zxing.presentation.pdb
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\zxing.presentation.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csprojAssemblyReference.cache
+E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.Resulst.Emailtemplete.resources
+E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.GenerateResource.cache
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CoreCompileInputs.cache
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.csproj.CopyComplete
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Debug\EcomaintSite.dll

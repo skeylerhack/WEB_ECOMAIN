@@ -234,6 +234,7 @@ namespace EcomaintSite.Controllers
 
         public string GiaiMaDL(string str)
         {
+
             string sTam = "";
             const int _CODE_ = 354;
             for (int i = 0; i < str.Length; i++)
@@ -281,11 +282,9 @@ namespace EcomaintSite.Controllers
             //System.Web.HttpContext.Current.Application.Remove(System.Web.HttpContext.Current.User.Identity.Name);
             return RedirectToAction("Login", "Account");
         }
-
         [HttpPost]
         public JsonResult GetPassWord(string id)
         {
-
             var userDB = userRepository.GetUserByID(id);
             string ma;
             try

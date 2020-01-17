@@ -12,6 +12,7 @@ namespace Model.Data.ViewModel
         public static string Company { get; set; }
         public static DateTime DateExpired { get; set; }
 
+
     }
 
 }

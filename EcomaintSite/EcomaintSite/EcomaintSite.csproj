@@ -366,6 +366,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\SessionVariable.cs" />
+    <Compile Include="Resulst\Emailtemplete.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Emailtemplete.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup1.cs" />
     <Compile Include="UtilityHelpers\DropzoneOptions.cs" />
   </ItemGroup>
@@ -411,6 +416,7 @@
     <Content Include="Views\MyEcomain\Index - Copy.cshtml" />
     <Content Include="Views\Monitoring\_ThemGiamSatTinhTrang.cshtml" />
     <Content Include="Views\CheckInventory\Index.cshtml" />
+    <Content Include="Views\About\Index - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -438,6 +444,12 @@
       <Project>{eca26243-73d3-4b55-b5f7-c3802d1afef1}</Project>
       <Name>Model.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resulst\Emailtemplete.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Emailtemplete.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
