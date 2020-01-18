@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LINK_DUYET_YEU_CAU" xml:space="preserve">
+    <value>&lt;a href="{0}" style="color: mediumblue; text-decoration:none"&gt;===&gt;Web EcomaintSite&lt;===&lt;/a&gt;</value>
+  </data>
   <data name="ROW_YEU_CAU_NSD" xml:space="preserve">
     <value>&lt;tr&gt;
             &lt;td&gt;{0}&lt;/td&gt;  &lt;td&gt;{1}&lt;/td&gt;
@@ -133,7 +136,7 @@
     &lt;p&gt;Người yêu cầu: {1}&lt;/p&gt;
     &lt;p&gt;Ngày yêu cầu: {2}&lt;/p&gt;
     &lt;p&gt;Giờ yêu cầu: {3}&lt;/p&gt;
-    &lt;p&gt;Ngày hoàng thành: {4}&lt;/p&gt;
+    &lt;p&gt;Ngày hoàn thành: {4}&lt;/p&gt;
     &lt;b style="text-align:center"&gt;YÊU CẦU BẢO TRÌ&lt;/b&gt;&lt;/br&gt;
     &lt;table border="1" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable"&gt;
         &lt;tr&gt;
@@ -147,8 +150,6 @@
         &lt;/tr&gt;
         {5}
     &lt;/table&gt;
-
-    &lt;a href="http://localhost/EcomaintSite/dashboard"&gt;quy về phiếu bảo trì&lt;/a&gt;
     &lt;p&gt;Trân trọng và cảm ơn,&lt;/p&gt;
     &lt;p&gt;------------------------&lt;/p&gt;</value>
   </data>

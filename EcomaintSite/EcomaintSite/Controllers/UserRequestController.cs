@@ -180,6 +180,7 @@ namespace EcomaintSite.Controllers
                 foreach (var item in lstRequest)
                 {
                     item.Username = User.Identity.GetUserName();
+                    item.CreatedBy = User.Identity.GetUserName();
                 }
                 List<UserRequestDetail> lstRequestDetails = JsonConvert.DeserializeObject<List<UserRequestDetail>>(requestInfo);
                 userRequestUnitOfWork.UserRequestRepository.SaveRequest(lstRequest[0]);
@@ -191,11 +192,9 @@ namespace EcomaintSite.Controllers
                 {
                     row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD,item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
                 }
-                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), lstRequest[0].DateCompleted, row);
-
+                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-
-                Combobox().SendEmail("bamboo2711@gmail.com;skeylerhack@gmail.com", "giửi hướng", result);
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem,User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

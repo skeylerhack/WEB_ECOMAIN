@@ -118,10 +118,15 @@ namespace Model.Combobox
              });
             return new SelectList(listItem, "Value", "Text", null);
         }
-        public void SendEmail(string address, string subject, string message)
+        public string GetEmailByNhaXuong(string msnx,string username,string mailthem)
+        {
+            string resulst = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString, "spGetEmailYCSD", msnx, 1, username, mailthem));
+            return resulst;
+        }
+        public void SendEmail(string address, string subject, string message,string link)
         {
             DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL FROM dbo.THONG_TIN_CHUNG"));
+            dt.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
             string str =dt.Rows[0]["PASS_MAIL"].ToString();
             string password = "";
             const int _CODE_ = 354;
@@ -129,10 +134,11 @@ namespace Model.Combobox
             {
                 password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
             }
+            message += string.Format(link, dt.Rows[0]["LINK_WEB"].ToString(), dt.Rows[0]["LINK_WEB"].ToString());
             string email = dt.Rows[0]["MAIL_FROM"].ToString();
             var loginInfo = new NetworkCredential(email, password);
             var msg = new MailMessage();
-            var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString(),Convert.ToInt32(dt.Rows[0]["PORT_MAIL"]));
+            var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
             msg.From = new MailAddress(email);
             var mail = address.Split(';');
             foreach (var item in mail)
@@ -144,7 +150,7 @@ namespace Model.Combobox
             msg.IsBodyHtml = true;
             msg.SubjectEncoding = Encoding.UTF8;
             msg.BodyEncoding = Encoding.UTF8;
-            msg.Priority = MailPriority.High;
+            //msg.Priority = MailPriority.High;
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = loginInfo;
