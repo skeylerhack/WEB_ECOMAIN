@@ -60,6 +60,16 @@
                 }
             }
             var method = 'undefined'
+
+            function xlchuoi(resulst) {
+                var dsmail = $("#txtEmail").val();
+                if (dsmail.split(";").length === 1) {
+                    return resulst;
+                }
+                else {
+                    return dsmail.substring(0, dsmail.lastIndexOf(";")) +';'+ resulst;
+                }
+            }
             $scope.fn = {
                 Init: function () {
                     global.CurrentNamePage = currentNamePage // Set CurrentNamePage = 'UserRequestWeb' to change to languages for Page
@@ -68,7 +78,7 @@
                     Main.fn.InitButtonFloat(buttonFloat) //Init button float for mobile
                     method = fnPrivate
                     $('#cboWorkSite').val($('#workSiteID').val());
-                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'),'#cboDevice option');
+                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'), '#cboDevice option');
                     $('#tbNguoiYeuCau tbody').on('dblclick', 'tr', function () {
                         var tennyc = $('#tbNguoiYeuCau tbody').find('tr[class$=selected] td:nth-child(2)').text();
                         $('#ModalNCY').appendTo("body").modal('hide');
@@ -95,13 +105,6 @@
                         $('#cboWorkSite').attr('disabled', true);
                     }
                     $('.select2-container--classic').select2({ theme: "classic" });
-
-
-
-
-                  
-
-
                 },
                 CheckValidateControl: function () {
                     if ($('#hfID').val() == -1) {
@@ -263,7 +266,7 @@
                     $('#btnSave').attr('data-action', 'add')
                 },
                 AutoCompleteMail: function () {
-                      $("#txtEmail").autocomplete({
+                    $("#txtEmail").autocomplete({
                         source: function (request, response) {
                             $.ajax({
                                 url: urlAutocomplete,
@@ -276,7 +279,7 @@
                                     response($.map(data, function (item) {
                                         return {
                                             label: item,
-                                            value: $("#txtEmail").val() +item
+                                            value: xlchuoi(item)  //nếu là lần đàu thì cleate sạch xong cộng, lần 2 clea sau dấu ;
                                         };
                                     }))
                                 },
@@ -285,8 +288,9 @@
                                 }
                             })
                         }
-                    });  
+                    });
                 },
+
                 Add: function () {
                     //load combobox de
                     var $wordsite = $('#cboWorkSite').val();

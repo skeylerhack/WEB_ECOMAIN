@@ -95,10 +95,11 @@ namespace EcomaintSite.Controllers
         public JsonResult AutocompleteMail(string keyword)
         {
             string[] arrListStr = keyword.Split(';');
+            string chuoidau = "";
             string s = arrListStr[arrListStr.Count() - 1];
             List<EmailViewModel> result = Combobox().AutoCompleteMail();
             var data = result.Where(x => x.MAILNAME.StartsWith(s)).Select(x => x.MAILNAME).Distinct().ToList();
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(data,JsonRequestBehavior.AllowGet);
         }
         public ActionResult getDevices(string WorkSiteID)
         {
@@ -128,7 +129,6 @@ namespace EcomaintSite.Controllers
         [Authorize]
         public JsonResult GetComponent(int id, int detailID, string deviceID) =>
              Json(userRequestComponentRepository.GetUserRequestComponent(id, deviceID, detailID), JsonRequestBehavior.AllowGet);
-
         [Authorize]
         public JsonResult GetDocument(int id, int detailID, string deviceID) =>
             Json(userRequestDocumentRepository.GetRequestDocument(id, deviceID, detailID), JsonRequestBehavior.AllowGet);
