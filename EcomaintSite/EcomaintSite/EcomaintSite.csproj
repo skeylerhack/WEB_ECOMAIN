@@ -315,10 +315,7 @@
     <Content Include="js\plugins\highcharts\Chart4.js" />
     <Content Include="js\plugins\highcharts\Chart5.js" />
     <Content Include="js\plugins\highcharts\highcharts.js" />
-    <Content Include="js\plugins\jquery\jquery-ui-1.9.1.min.js" />
-    <Content Include="js\plugins\jquery\jquery-1.9.1.min.js" />
     <Content Include="js\plugins\jquery\jquery-ui.js" />
-    <Content Include="js\plugins\jquery\jquery-3.2.1.min.js" />
     <Content Include="js\plugins\jquery\jquery-1.12.2.min.js" />
     <Content Include="js\plugins\jquery\jquery.cookie.js" />
     <Content Include="js\plugins\jquery\jquery.doubletap.js" />

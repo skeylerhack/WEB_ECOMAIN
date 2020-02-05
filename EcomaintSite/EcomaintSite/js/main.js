@@ -130,7 +130,7 @@
         },
         'AddRequestController': {
             exports: 'angular',
-            deps: ['angular','select2']
+            deps: ['angular', 'select2','jquery','jquery-ui']
         },
 
         'ApproveRequestsController': {

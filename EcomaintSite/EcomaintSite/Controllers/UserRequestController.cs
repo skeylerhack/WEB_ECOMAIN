@@ -19,6 +19,7 @@ using EcomaintSite.UtilityHelpers;
 using System.IO;
 using System.Web.Services;
 using Model.Combobox;
+using Model.Data.ViewModel;
 
 namespace EcomaintSite.Controllers
 {
@@ -90,13 +91,20 @@ namespace EcomaintSite.Controllers
             ViewBag.cboyeucaubaotri = userRequestDetailRepository.DanhSachLoaiBaoTri();
             ViewBag.cbouutien = userRequestDetailRepository.DanhSachUuTien();
         }
-
+        [HttpPost]
+        public JsonResult AutocompleteMail(string keyword)
+        {
+            string[] arrListStr = keyword.Split(';');
+            string s = arrListStr[arrListStr.Count() - 1];
+            List<EmailViewModel> result = Combobox().AutoCompleteMail();
+            var data = result.Where(x => x.MAILNAME.StartsWith(s)).Select(x => x.MAILNAME).Distinct().ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult getDevices(string WorkSiteID)
         {
             List<DeviceObjForDropdown> lst = new List<DeviceObjForDropdown>();
             return Json(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID,"-1").ToList(), JsonRequestBehavior.AllowGet);
         }
-
         [Authorize]
         public JsonResult GetRequestInfomation(int id)
         {
@@ -117,7 +125,6 @@ namespace EcomaintSite.Controllers
             }).ToList();
            return Json(lst, JsonRequestBehavior.AllowGet);
         }
-
         [Authorize]
         public JsonResult GetComponent(int id, int detailID, string deviceID) =>
              Json(userRequestComponentRepository.GetUserRequestComponent(id, deviceID, detailID), JsonRequestBehavior.AllowGet);

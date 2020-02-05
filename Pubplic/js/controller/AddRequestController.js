@@ -179,7 +179,7 @@
                     });
                     var stringData1 = JSON.stringify(lstRequestDetails);
                     if ($('#hfID').val() == "-1") {
-                        $.post(urlSaveRequest, { request: stringData, requestInfo: stringData1 }, function (data) {
+                        $.post(urlSaveRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
                             if (data == "success") {
                                 window.location.href = urlRequest;
                             }

@@ -95,6 +95,13 @@
                         $('#cboWorkSite').attr('disabled', true);
                     }
                     $('.select2-container--classic').select2({ theme: "classic" });
+
+
+
+
+                  
+
+
                 },
                 CheckValidateControl: function () {
                     if ($('#hfID').val() == -1) {
@@ -254,6 +261,31 @@
                     }
                     $('#myModal').appendTo("body").modal('hide')
                     $('#btnSave').attr('data-action', 'add')
+                },
+                AutoCompleteMail: function () {
+                      $("#txtEmail").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: urlAutocomplete,
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    keyword: $("#txtEmail").val(),
+                                },
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return {
+                                            label: item,
+                                            value: $("#txtEmail").val() +item
+                                        };
+                                    }))
+                                },
+                                error: function () {
+                                    alert('something went wrong !');
+                                }
+                            })
+                        }
+                    });  
                 },
                 Add: function () {
                     //load combobox de

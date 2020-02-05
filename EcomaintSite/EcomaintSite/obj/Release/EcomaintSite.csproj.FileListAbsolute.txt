@@ -727,7 +727,6 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Interface.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Model.Repository.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Ninject.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Owin.dll
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\QRCodeDecoderLibrary.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.dll
@@ -764,8 +763,6 @@ E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.Cookies.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Microsoft.Owin.Security.OAuth.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\Ninject.xml
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\QRCodeDecoderLibrary.pdb
-E:\03.WEB\EcomaintSite\EcomaintSite\bin\QRCodeDecoderLibrary.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Diagnostics.DiagnosticSource.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Net.Http.Formatting.xml
 E:\03.WEB\EcomaintSite\EcomaintSite\bin\System.Web.Helpers.xml
@@ -785,3 +782,5 @@ E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CoreCompileI
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.CopyComplete
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.dll
 E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.pdb
+E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.Resulst.Emailtemplete.resources
+E:\03.WEB\EcomaintSite\EcomaintSite\obj\Release\EcomaintSite.csproj.GenerateResource.cache

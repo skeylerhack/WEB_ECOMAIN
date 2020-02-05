@@ -168,3 +168,4 @@ E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CoreCompileInputs.cache
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csproj.CopyComplete
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.dll
 E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.pdb
+E:\03.WEB\EcomaintSite\Model\obj\Debug\Model.Data.csprojAssemblyReference.cache

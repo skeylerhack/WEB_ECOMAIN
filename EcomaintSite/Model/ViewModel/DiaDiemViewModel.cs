@@ -11,4 +11,9 @@ namespace Model.Data.ViewModel
         public string MS_N_XUONG { get; set; }
         public string Ten_N_XUONG { get; set; }
     }
+    public class EmailViewModel
+    {
+        public string IDMAIL { get; set; }
+        public string MAILNAME { get; set; }
+    }
 }

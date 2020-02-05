@@ -123,6 +123,19 @@ namespace Model.Combobox
             string resulst = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString, "spGetEmailYCSD", msnx, 1, username, mailthem));
             return resulst;
         }
+        public List<EmailViewModel> AutoCompleteMail()
+        {
+            List<EmailViewModel> list = null;
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+                list = DBUtils.ExecuteSPList<EmailViewModel>("sp_GetAutocompleteMail", listParameter, AppName.Model1);
+            }
+            catch (Exception)
+            {
+            }
+            return list;
+        }
         public void SendEmail(string address, string subject, string message,string link)
         {
             DataTable dt = new DataTable();
