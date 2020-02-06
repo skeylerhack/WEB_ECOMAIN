@@ -46,6 +46,12 @@ namespace Model.Data
                 public string TEN_GIA_TRI { get; set; }
                 public string GHI_CHU { get; set; }
             }
+            public class GiaTriDL
+            {
+                public string TEN_GT { get; set; }
+                public double GIA_TRI_DUOI { get; set; }
+                public double GIA_TRI_TREN { get; set; }
+            }
         }
     }
 }

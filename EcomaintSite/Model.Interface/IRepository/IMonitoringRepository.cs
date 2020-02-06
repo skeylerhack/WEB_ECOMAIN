@@ -15,7 +15,8 @@ namespace Model.Interface
         IEnumerable<MonitoringParametersByDevice> GetMonitoringParametersByDevice(string deviceID, int isDue,string dngay,int msloaicv,int stt);
         IEnumerable<MoningtoringViewModel> GetGiamSatTinhTrang(DateTime tungay, DateTime denngay, string mscn, string msmay);
         IEnumerable<MoningtoringViewModel.ThongSoGiamSat> GetThongSoGSTT(int stt, int dat, string msmay, int loaits);
-        IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt, string msmay, string msbp, string msts, int loai);
+        IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTriDT(int stt, string msmay, string msbp, string msts, int loai);
+        IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTriDL> GetGiaTriDL(int stt, string msmay, string msbp, string msts, string Username, int NNgu);
         string CreateSoPhieu(DateTime date);
         int XoaGiamSatTinhTrang(int ID);
 

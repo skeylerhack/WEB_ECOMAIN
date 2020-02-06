@@ -148,14 +148,12 @@ namespace EcomaintSite.Controllers
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
         }
-
-
         [Authorize]
         public JsonResult GetGiaTri(int stt, string msmay, string msbp, string msts, int loai)
         {
             try
             {
-                var model = monitoringRepository.GetGiaTri(stt, msmay, msbp, msts, loai).ToList();
+                var model = monitoringRepository.GetGiaTriDT(stt, msmay, msbp, msts, loai).ToList();
                 return Json(model, JsonRequestBehavior.AllowGet);
             }
             catch
@@ -163,6 +161,20 @@ namespace EcomaintSite.Controllers
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
         }
+        [Authorize]
+        public JsonResult GetGiaTriDL(int stt, string msmay, string msbp, string msts)
+        {
+            try
+            {
+                var model = monitoringRepository.GetGiaTriDL(stt, msmay, msbp, msts, User.Identity.GetUserName(), SessionVariable.TypeLanguage).ToList();
+                return Json(model, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+        }
+
 
         [Authorize]
         public JsonResult CheckTheParametersDue(string msnx)

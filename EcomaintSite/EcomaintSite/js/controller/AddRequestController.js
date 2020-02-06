@@ -60,7 +60,6 @@
                 }
             }
             var method = 'undefined'
-
             function xlchuoi(resulst) {
                 var dsmail = $("#txtEmail").val();
                 if (dsmail.split(";").length === 1) {

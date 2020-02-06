@@ -93,7 +93,6 @@ namespace Model.Repository
             return list;
         }
 
-
         public IEnumerable<MoningtoringViewModel.ThongSoGiamSat> GetThongSoGSTT(int stt, int dat, string msmay, int loaits)
         {
             List<MoningtoringViewModel.ThongSoGiamSat> list = null;
@@ -132,7 +131,7 @@ namespace Model.Repository
             return ResponseCode;
         }
 
-        public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTri(int stt,string msmay,string msbp,string msts, int loai)
+        public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTri> GetGiaTriDT(int stt,string msmay,string msbp,string msts, int loai)
         {
             List<MoningtoringViewModel.ThongSoGiamSat.GiaTri> list = null;
             try
@@ -144,6 +143,25 @@ namespace Model.Repository
                 listParameter.Add(new SqlParameter("@MS_TS_GSTT", msts));
                 listParameter.Add(new SqlParameter("@LOAI", loai));
                 list = DBUtils.ExecuteSPList<MoningtoringViewModel.ThongSoGiamSat.GiaTri>("GetGIAM_SAT_TINH_TRANG_TS_DT", listParameter, AppName.Model1);
+            }
+            catch (Exception) { }
+            return list;
+        }
+
+        public IEnumerable<MoningtoringViewModel.ThongSoGiamSat.GiaTriDL> GetGiaTriDL(int stt, string msmay, string msbp, string msts, string Username,int NNgu)
+        {
+            List<MoningtoringViewModel.ThongSoGiamSat.GiaTriDL> list = null;
+            try
+            {
+                List<SqlParameter> listParameter = new List<SqlParameter>();
+                listParameter.Add(new SqlParameter("@STT", stt));
+                listParameter.Add(new SqlParameter("@MsThonsSo", msts));
+                listParameter.Add(new SqlParameter("@LoaiTS", 0));
+                listParameter.Add(new SqlParameter("@MsMay", msmay));
+                listParameter.Add(new SqlParameter("@MsBP", msbp));
+                listParameter.Add(new SqlParameter("@UserName", Username));
+                listParameter.Add(new SqlParameter("@NNgu", NNgu));
+                list = DBUtils.ExecuteSPList<MoningtoringViewModel.ThongSoGiamSat.GiaTriDL>("sp_GetDanhSachGiaTri", listParameter, AppName.Model1);
             }
             catch (Exception) { }
             return list;
