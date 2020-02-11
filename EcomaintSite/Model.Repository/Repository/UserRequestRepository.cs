@@ -94,7 +94,7 @@ namespace Model.Repository
                 listParameter.Add(new SqlParameter("@MS_MAY", may));
                 listParameter.Add(new SqlParameter("@STT", id));
                 listParameter.Add(new SqlParameter("@STT_VAN_DE", stt_vande));
-                list = DBUtils.ExecuteSPList<PhuTungViewModel.PhuTung>("GetPhuTungTheoMay", listParameter, AppName.Model1);
+                list = DBUtils.ExecuteSPList<PhuTungViewModel.PhuTung>("GetPhuTungTheoMayWeb", listParameter, AppName.Model1);
             }
             catch (Exception ex)
             {

@@ -283,12 +283,16 @@
                             });
                             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw(false);
                             $('#tbthongsodinhluong').find('tr:first-child').addClass('selected');
-                            method.TableThongSo_RowChanged();
+                            method.TableThongSoDL_RowChanged();
                         });
                 },
                 TableThongSo_RowChanged: function () {
                     var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                     method.LoadGiaTri(STT);
+                    return false;
+                },
+                TableThongSoDL_RowChanged: function () {
+                    var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                     method.LoadGiaTriDL(STT);
                     return false;
                 },
@@ -376,6 +380,7 @@
                         });
                     //click vào table thông số định tính thì load chi tiết
                     $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
+                    $('#tbthongsodinhluong').on('click', 'tr', method.TableThongSoDL_RowChanged);
                     //vars.$txtDevice.on('keypress', function (e) {
                     //    if (e.which === 13) {
                     //        Loading.fn.Show()
