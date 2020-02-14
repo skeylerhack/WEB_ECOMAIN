@@ -76,7 +76,12 @@
                     Languages.fn.AutoChangeLanguage()
                     Main.fn.InitButtonFloat(buttonFloat) //Init button float for mobile
                     method = fnPrivate
-                    $('#cboWorkSite').val($('#workSiteID').val());
+                    if ($('#hfID').val() === "-1") {
+                        $('#cboWorkSite').val('-1');
+                    }
+                    else {
+                        $('#cboWorkSite').val($('#workSiteID').val());
+                    }
                     Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'), '#cboDevice option');
                     $('#tbNguoiYeuCau tbody').on('dblclick', 'tr', function () {
                         var tennyc = $('#tbNguoiYeuCau tbody').find('tr[class$=selected] td:nth-child(2)').text();

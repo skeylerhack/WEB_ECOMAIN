@@ -33,7 +33,7 @@ namespace EcomaintSite.Controllers
         IUserRequestComponentRepository userRequestComponentRepository;
         IUserRequestDocumentRepository userRequestDocumentRepository;
 
-      
+
         private ICombobox _Combobox;
         private ICombobox Combobox()
         {
@@ -59,8 +59,8 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult FilterData(string fromDate, string toDate, string createdBy,string MS_N_XUONG) =>
-            Json(userRequestRepository.GetUserRequest(createdBy,MS_N_XUONG, Convert.ToDateTime(fromDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToDateTime(toDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), User.Identity.GetUserName(), SessionVariable.TypeLanguage).Select(x => new
+        public JsonResult FilterData(string fromDate, string toDate, string createdBy, string MS_N_XUONG) =>
+            Json(userRequestRepository.GetUserRequest(createdBy, MS_N_XUONG, Convert.ToDateTime(fromDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToDateTime(toDate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), User.Identity.GetUserName(), SessionVariable.TypeLanguage).Select(x => new
             {
                 ID = x.ID,
                 UserRequestID = x.UserRequestID,
@@ -76,7 +76,7 @@ namespace EcomaintSite.Controllers
         public void GetCreatedBy(string id = "-1")
         {
             ViewBag.cboCreatedBy = new SelectList(userRequestRepository.GetCreatedBy(), "RequestedBy", "RequestedName", id);
-            ViewBag.cboNXuong = new SelectList(userRequestRepository.GetNhaXuong(User.Identity.Name, SessionVariable.TypeLanguage,1), "MS_N_XUONG", "Ten_N_XUONG", id);
+            ViewBag.cboNXuong = new SelectList(userRequestRepository.GetNhaXuong(User.Identity.Name, SessionVariable.TypeLanguage, 1), "MS_N_XUONG", "Ten_N_XUONG", id);
         }
 
         [Authorize]
@@ -85,8 +85,8 @@ namespace EcomaintSite.Controllers
             List<Model.Data.ViewModel.DiaDiemViewModel> lst = new List<Model.Data.ViewModel.DiaDiemViewModel>();
             lst = userRequestRepository.GetNhaXuong(User.Identity.Name, SessionVariable.TypeLanguage, 0).ToList();
             //ViewBag.cboWorkSite = new SelectList(workSiteRepository.GetWorkSiteByID(User.Identity.GetUserName(), SessionVariable.TypeLanguage.ToString()), "ID", "Name", WorkSiteID);
-            ViewBag.cboWorkSite = Combobox().GetCbbDiaDiem(User.Identity.Name, SessionVariable.TypeLanguage,0);
-            ViewBag.cboDevice = new SelectList(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(),WorkSiteID, "-1"), "ID", "Name", "-1");
+            ViewBag.cboWorkSite = Combobox().GetCbbDiaDiem(User.Identity.Name, SessionVariable.TypeLanguage,1);
+            ViewBag.cboDevice = new SelectList(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID, "-1"), "ID", "Name", "-1");
             ViewBag.cbonguyennhan = userRequestDetailRepository.DanhSachNguyenNhan();
             ViewBag.cboyeucaubaotri = userRequestDetailRepository.DanhSachLoaiBaoTri();
             ViewBag.cbouutien = userRequestDetailRepository.DanhSachUuTien();
@@ -99,12 +99,20 @@ namespace EcomaintSite.Controllers
             string s = arrListStr[arrListStr.Count() - 1];
             List<EmailViewModel> result = Combobox().AutoCompleteMail();
             var data = result.Where(x => x.MAILNAME.StartsWith(s)).Select(x => x.MAILNAME).Distinct().ToList();
-            return Json(data,JsonRequestBehavior.AllowGet);
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
         public ActionResult getDevices(string WorkSiteID)
         {
             List<DeviceObjForDropdown> lst = new List<DeviceObjForDropdown>();
-            return Json(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID,"-1").ToList(), JsonRequestBehavior.AllowGet);
+            lst = deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID, "-1").ToList();
+            if (lst.Count == 0)
+            {
+                return Json(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(),"-1", "-1").ToList(), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(lst, JsonRequestBehavior.AllowGet);
+            }
         }
         [Authorize]
         public JsonResult GetRequestInfomation(int id)
@@ -124,7 +132,7 @@ namespace EcomaintSite.Controllers
                 TEN_UU_TIEN = x.TEN_UU_TIEN,
                 TEN_LOAI_YEU_CAU_BT = x.TEN_LOAI_YEU_CAU_BT
             }).ToList();
-           return Json(lst, JsonRequestBehavior.AllowGet);
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
         [Authorize]
         public JsonResult GetComponent(int id, int detailID, string deviceID) =>
@@ -178,7 +186,7 @@ namespace EcomaintSite.Controllers
             }
         }
         [Authorize]
-        public JsonResult SaveRequest(string request, string requestInfo,string diadiem)
+        public JsonResult SaveRequest(string request, string requestInfo, string diadiem)
         {
             try
             {
@@ -194,14 +202,14 @@ namespace EcomaintSite.Controllers
                 lstRequestDetails.ForEach(x => x.UserRequestID = lstRequest[0].ID);
                 lstRequestDetails.ForEach(x => userRequestUnitOfWork.UserRequestDetailRepository.SaveRequestInfomation(x));
                 userRequestUnitOfWork.Save();
-                string row ="";
+                string row = "";
                 foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
                 {
-                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD,item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
                 }
                 string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem,User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -210,7 +218,7 @@ namespace EcomaintSite.Controllers
             }
         }
 
-        private string GetDsMail(string msnx,string mailthem)
+        private string GetDsMail(string msnx, string mailthem)
         {
             string resulst = "";
             return resulst;
@@ -218,7 +226,7 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult EditRequest(string request, string requestInfo )
+        public JsonResult EditRequest(string request, string requestInfo)
         {
             try
             {
@@ -320,21 +328,21 @@ namespace EcomaintSite.Controllers
             {
                 return Json("failure", JsonRequestBehavior.AllowGet);
             }
-        }   
+        }
         public JsonResult Removebp(int id)
+        {
+            if (userRequestRepository.XoaChiTietBoPhan(id) == 1)
             {
-                if (userRequestRepository.XoaChiTietBoPhan(id) == 1)
-                {
-                    return Json("success", JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json("failure", JsonRequestBehavior.AllowGet);
-                }
+                return Json("success", JsonRequestBehavior.AllowGet);
             }
-
-            public JsonResult Removehinh(int id)
+            else
             {
+                return Json("failure", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public JsonResult Removehinh(int id)
+        {
             string fileName = userRequestRepository.GetPath(id);
             if (fileName != null || fileName != string.Empty)
             {
@@ -345,14 +353,14 @@ namespace EcomaintSite.Controllers
 
             }
             if (userRequestRepository.XoaChiTietHinh(id) == 1)
-                {
-                    return Json("success", JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json("failure", JsonRequestBehavior.AllowGet);
-                }
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
             }
+            else
+            {
+                return Json("failure", JsonRequestBehavior.AllowGet);
+            }
+        }
 
 
         public JsonResult Removeyeucau(int id)
@@ -369,26 +377,26 @@ namespace EcomaintSite.Controllers
 
 
         public ActionResult CapNhatHinhDaiDien(string maNV, HttpPostedFileBase file)
-            {
-                // try
-                //{
-                //    ResponseResult result = TaiKhoanNhanVienService.CapNhatHinhDaiDien(maNV, file);
-                //    if (result != null && result.ResponseCode == 1)
-                //    {
-                //        var NvSession = SettingDataService.GetNhanVienSessionInfo();
-                //        if (maNV == NvSession.MaNVMoi)
-                //        {
-                //            SettingDataService.UpdateNhanVienSessionInfo(NvSession.NhanvienID, NvSession.MaNV, maNV, NvSession.HoNV, NvSession.TenLotNV, NvSession.TenNV, NvSession.HoVaTen, result.ResponseMessage);
-                //        }
-                //        return Json(JsonResponseViewModel.CreateSuccess());
-                //    }
-                //    return Json(JsonResponseViewModel.CreateFail(NotifyMessage.THONGBAO_KHONGCAPNHAT_HINHDAIDIEN));
-                //}
-                //catch (Exception ex)
-                //{
-                return Json(JsonRequestBehavior.AllowGet);
-                //}
-            }
+        {
+            // try
+            //{
+            //    ResponseResult result = TaiKhoanNhanVienService.CapNhatHinhDaiDien(maNV, file);
+            //    if (result != null && result.ResponseCode == 1)
+            //    {
+            //        var NvSession = SettingDataService.GetNhanVienSessionInfo();
+            //        if (maNV == NvSession.MaNVMoi)
+            //        {
+            //            SettingDataService.UpdateNhanVienSessionInfo(NvSession.NhanvienID, NvSession.MaNV, maNV, NvSession.HoNV, NvSession.TenLotNV, NvSession.TenNV, NvSession.HoVaTen, result.ResponseMessage);
+            //        }
+            //        return Json(JsonResponseViewModel.CreateSuccess());
+            //    }
+            //    return Json(JsonResponseViewModel.CreateFail(NotifyMessage.THONGBAO_KHONGCAPNHAT_HINHDAIDIEN));
+            //}
+            //catch (Exception ex)
+            //{
+            return Json(JsonRequestBehavior.AllowGet);
+            //}
+        }
 
         [Authorize]
         public JsonResult ShowNguoiYeuCau()
@@ -404,4 +412,4 @@ namespace EcomaintSite.Controllers
         }
 
     }
-    }
+}
