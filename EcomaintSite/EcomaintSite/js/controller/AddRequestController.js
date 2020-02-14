@@ -74,7 +74,7 @@
                     global.CurrentNamePage = currentNamePage // Set CurrentNamePage = 'UserRequestWeb' to change to languages for Page
                     MainMenu.fn.SetActive(menuID) //Set highlight for menuitem
                     Languages.fn.AutoChangeLanguage()
-                    Main.fn.InitButtonFloat(buttonFloat) //Init button float for mobile
+                    Main.fn.InitButtonFloat(buttonFloat)//Init button float for mobile
                     method = fnPrivate
                     if ($('#hfID').val() === "-1") {
                         $('#cboWorkSite').val('-1');
