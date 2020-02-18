@@ -1,28 +1,22 @@
 ﻿//using Dynamsoft.Barcode;
 using Microsoft.AspNet.Identity;
 using Model.Combobox;
-using Model.Data;
 using Model.Interface;
 using Model.Interface.IRepository;
-using Model.Repository;
 using Model.Repository.Repository;
 //using Newtonsoft.Json;
 //using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
-using System.Drawing;
-using ZXing;
-using System.ComponentModel;
+//using ZXing;
 using System.Text;
 using QRCodeDecoderLibrary;
+using Dynamsoft.Barcode;
 //using IronBarCode;
-using System.Drawing.Imaging;
 
 namespace EcomaintSite.Controllers
 {
@@ -184,88 +178,82 @@ namespace EcomaintSite.Controllers
         [HttpPost]
         public JsonResult ProcessRequest()
         {
+            //HttpRequest request = System.Web.HttpContext.Current.Request;
+            //HttpPostedFile imgBinary = request.Files["image"];
+            //try
+            //{
+            //    Stream iStream = imgBinary.InputStream;
+            //    //Image image = System.Drawing.Image.FromStream(iStream);
+            //    //image.Save("D:\\Image.jpg", ImageFormat.Jpeg);
+            //    byte[] bytes = new byte[iStream.Length];
+            //    iStream.Seek(0, SeekOrigin.Begin);
+            //    iStream.Read(bytes, 0, bytes.Length);
+            //    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+            //    Bitmap bitmap = (Bitmap)tc.ConvertFrom(bytes);
+            //    BarcodeReader reder = new BarcodeReader();
+
+            //    ////////////////MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+            //    ////////////////string resulst = decoder.Decode(new QRCodeBitmapImage(bitmap));
+            //    Result resulst = reder.Decode(bitmap);
+            //    if (resulst != null)
+            //    {
+            //        string s = resulst.Text;
+            //    }
+            //    return Json(resulst.Text.ToString(), JsonRequestBehavior.AllowGet);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Json(ex.Message.ToString(), JsonRequestBehavior.AllowGet);
+            //}
+
             HttpRequest request = System.Web.HttpContext.Current.Request;
-            HttpPostedFile imgBinary = request.Files["image"];
+            bool isSuccess = false;
+            Exception readBarcodeException = null;
+            TextResult[] results = null;
+            TimeSpan tsDecode = TimeSpan.Zero;
             try
             {
+                // 1. Get Base64 Stream
+                Request.InputStream.Position = 0;
+                string jsonString;
+                using (StreamReader streamReader = new StreamReader(request.InputStream))
+                {
+                    jsonString = streamReader.ReadToEnd();
+                }
+
+                HttpPostedFile imgBinary = request.Files["image"];
+                int barcodeFormat = int.Parse(request["barcodeFormat"]);
+                if (imgBinary == null)
+                {
+                    throw new Exception("Post data is null.");
+                }
+
+                // 2. load settings
+                BarcodeReader barcodeReader = new BarcodeReader();
+                barcodeReader.ProductKeys = System.Web.Configuration.WebConfigurationManager.AppSettings["barcodeReaderKey"];
+                //Best coverage setting
+                //barcodeReader.InitRuntimeSettingsWithString("{\"ImageParameter\":{\"Name\":\"BestCoverage\",\"DeblurLevel\":9,\"ExpectedBarcodesCount\":512,\"ScaleDownThreshold\":100000,\"LocalizationModes\":[{\"Mode\":\"LM_CONNECTED_BLOCKS\"},{\"Mode\":\"LM_SCAN_DIRECTLY\"},{\"Mode\":\"LM_STATISTICS\"},{\"Mode\":\"LM_LINES\"},{\"Mode\":\"LM_STATISTICS_MARKS\"}],\"GrayscaleTransformationModes\":[{\"Mode\":\"GTM_ORIGINAL\"},{\"Mode\":\"GTM_INVERTED\"}]}}", EnumConflictMode.CM_OVERWRITE, out errorMessage);
+                //Best speed setting
+                //barcodeReader.InitRuntimeSettingsWithString("{\"ImageParameter\":{\"Name\":\"BestSpeed\",\"DeblurLevel\":3,\"ExpectedBarcodesCount\":512,\"LocalizationModes\":[{\"Mode\":\"LM_SCAN_DIRECTLY\"}],\"TextFilterModes\":[{\"MinImageDimension\":262144,\"Mode\":\"TFM_GENERAL_CONTOUR\"}]}}", EnumConflictMode.CM_OVERWRITE, out errorMessage);
+                ////Balance setting
+                //barcodeReader.InitRuntimeSettingsWithString("{\"ImageParameter\":{\"Name\":\"Balance\",\"DeblurLevel\":5,\"ExpectedBarcodesCount\":512,\"LocalizationModes\":[{\"Mode\":\"LM_CONNECTED_BLOCKS\"},{\"Mode\":\"LM_STATISTICS\"}]}}", EnumConflictMode.CM_OVERWRITE, out errorMessage);
+
+                PublicRuntimeSettings settings = barcodeReader.GetRuntimeSettings();
+                settings.BarcodeFormatIds = barcodeFormat;
+                barcodeReader.UpdateRuntimeSettings(settings);
+                // 3. read and get result
                 Stream iStream = imgBinary.InputStream;
-                //Image image = System.Drawing.Image.FromStream(iStream);
-                //image.Save("D:\\Image.jpg", ImageFormat.Jpeg);
                 byte[] bytes = new byte[iStream.Length];
                 iStream.Seek(0, SeekOrigin.Begin);
                 iStream.Read(bytes, 0, bytes.Length);
-                TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-                Bitmap bitmap = (Bitmap)tc.ConvertFrom(bytes);
-                BarcodeReader reder = new BarcodeReader();
-
-                ////////////////MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
-                ////////////////string resulst = decoder.Decode(new QRCodeBitmapImage(bitmap));
-                Result resulst = reder.Decode(bitmap);
-                if (resulst != null)
-                {
-                    string s = resulst.Text;
-                }
-                return Json(resulst.Text.ToString(), JsonRequestBehavior.AllowGet);
+                results = barcodeReader.DecodeFileInMemory(bytes, "");
+                string[] s = results[0].BarcodeText.ToString().Split('*');
+                return Json(s[0], JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json(ex.Message.ToString(), JsonRequestBehavior.AllowGet);
             }
-
-
-
-            //HttpRequest request = System.Web.HttpContext.Current.Request;
-            //bool isSuccess = false;
-            //Exception readBarcodeException = null;
-            //TextResult[] results = null;
-            //TimeSpan tsDecode = TimeSpan.Zero;
-            //try
-            //{
-            //    // 1. Get Base64 Stream
-            //    System.Web.HttpContext.Current.Request.InputStream.Position = 0;
-            //    string jsonString;
-            //    using (StreamReader streamReader = new StreamReader(request.InputStream))
-            //    {
-            //        jsonString = streamReader.ReadToEnd();
-            //    }
-
-            //    HttpPostedFile imgBinary = request.Files["image"];
-            //    int barcodeFormat = int.Parse(request["barcodeFormat"]);
-            //    if (imgBinary == null)
-            //    {
-            //        throw new Exception("Post data is null.");
-            //    }
-            //    // 2. load settings
-            //    Dynamsoft.Barcode.BarcodeReader barcodeReader = new Dynamsoft.Barcode.BarcodeReader();
-            //    barcodeReader.ProductKeys = System.Web.Configuration.WebConfigurationManager.AppSettings["barcodeReaderKey"];
-
-            //    PublicRuntimeSettings settings = barcodeReader.GetRuntimeSettings();
-            //    settings.BarcodeFormatIds = barcodeFormat;
-            //    barcodeReader.UpdateRuntimeSettings(settings);
-
-            //    // 3. read and get result
-            //    Stream iStream = imgBinary.InputStream;
-            //    byte[] bytes = new byte[iStream.Length];
-
-            //    Image image = System.Drawing.Image.FromStream(iStream);
-            //    image.Save("D:\\Image.jpg", ImageFormat.Jpeg);
-            //    iStream.Seek(0, SeekOrigin.Begin);
-            //    iStream.Read(bytes, 0, bytes.Length);
-            //    DateTime tDecodeBegin = DateTime.Now;
-            //    results = barcodeReader.DecodeFileInMemory(bytes, "");
-            //    tsDecode = DateTime.Now - tDecodeBegin;
-            //    isSuccess = true;
-            //    BarcodeResult Result = IronBarCode.BarcodeReader.QuicklyReadOneBarcode(iStream, BarcodeEncoding.QRCode, true);
-            //    if (Result != null)
-            //    {
-            //        string s = Result.Text;
-            //    }
-            //    return Json(Result.Text, JsonRequestBehavior.AllowGet);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Json("error", JsonRequestBehavior.AllowGet);
-            //}
         }
     }
 }
