@@ -1,3 +1,8 @@
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'GetRequestInfomation')
+   
+exec('CREATE PROCEDURE GetRequestInfomation AS BEGIN SET NOCOUNT ON; END')
+
+GO
 
 ALTER procedure [dbo].[GetRequestInfomation] 
 	@ID as INTEGER = 72,
