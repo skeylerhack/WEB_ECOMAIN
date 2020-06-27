@@ -10,6 +10,7 @@
             var MainMenu = menu
             var menuID = 'mnuListUserRequest'
             var currentNamePage = 'UserRequestWeb'
+            var request="";
 
             // struct of Buttons floating for mobile
             var buttonFloat = [
@@ -111,6 +112,8 @@
                     $('.select2-container--classic').select2({ theme: "classic" });
                 },
                 CheckValidateControl: function () {
+                    if (request === $('#txtRequestNum').val()) return;
+                    request = $('#txtRequestNum').val();
                     if ($('#hfID').val() == -1) {
                         var countRow = $('#hfCount').val();
                         if (countRow == 0) {
@@ -203,7 +206,7 @@
                         });
                     }
                     else {
-                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1 }, function (data) {
+                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
                             if (data == "success") {
                                 window.location.href = urlRequest;
                             }
@@ -212,7 +215,6 @@
                             }
                         });
                     }
-
 
                 },
                 CheckValidateControl1: function () {
@@ -294,12 +296,11 @@
                         }
                     });
                 },
-
                 Add: function () {
                     //load combobox de
                     var $wordsite = $('#cboWorkSite').val();
-                    if ($wordsite == null) {
-                        Alert.fn.Show("Địa điểm không được để trống!", Alert.Type.error);
+                    if ($wordsite == "-1") {
+                        Alert.fn.Show("Bạn cần phải chọn địa điểm!", Alert.Type.error);
                         return;
                     }
                     $('#cboDevice option').removeData();

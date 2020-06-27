@@ -185,9 +185,13 @@ namespace EcomaintSite.Controllers
                 return View(lst);
             }
         }
+        private string sp ="" ;
         [Authorize]
         public JsonResult SaveRequest(string request, string requestInfo, string diadiem)
         {
+            //kiểm
+            if (sp == request) return Json("success", JsonRequestBehavior.AllowGet);
+            sp = request;
             try
             {
                 List<UserRequest> lstRequest = JsonConvert.DeserializeObject<List<UserRequest>>(request);
@@ -226,7 +230,7 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult EditRequest(string request, string requestInfo)
+        public JsonResult EditRequest(string request, string requestInfo, string diadiem)
         {
             try
             {
@@ -235,6 +239,14 @@ namespace EcomaintSite.Controllers
                 lstRequestDetails.ForEach(x => x.UserRequestID = lstRequest[0].ID);
                 lstRequestDetails.ForEach(x => userRequestUnitOfWork.UserRequestDetailRepository.SaveRequestInfomation(x));
                 userRequestUnitOfWork.Save();
+                string row = "";
+                foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
+                {
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
+                }
+                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
+                //láy danh sách
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Sữa yêu cầu bảo trì số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

@@ -305,7 +305,6 @@
                         }
                     });
                 },
-
                 Removeyeucau: function () {
                     var id = $('#tbRequest tr[class$="selected"]').attr('data-id');
                     if (typeof id == 'undefined') {

@@ -161,9 +161,6 @@
                         method.FilterData();
                         method.LoadMay();
                     });
-                    $("#cbbThietBi").change(function () {
-                        method.FilterData();
-                    });
                     Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')], method.FilterData);
                     Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cbbThietBi'), '#cbbThietBi option');
                     Main.fn.InitButtonFloat(buttonFloat);

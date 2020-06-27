@@ -133,7 +133,7 @@
 
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="form-group">
-                            <label>Nhân viên kiểm tra</label>
+                            <label data-lang="lblNhanvienkiemtra">Nhân viên kiểm tra</label>
                             @Html.DropDownList("cbbNhanVien", ViewBag.NhanVien as SelectList, new { name = "cbbNhanVien", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
                         </div>
                     </div>
@@ -178,8 +178,8 @@
                     </button>
                 </div>
                 <ul id="myTabsthem" class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#tabThemDinhTinh" data-val="1" aria-controls="tabThemDinhTinh" role="tab" data-toggle="tab">định tính</a></li>
-                    <li role="presentation"><a href="#tabThemThongSoDL" data-val="2" aria-controls="tabThemThongSoDL" role="tab" data-toggle="tab" @*data-lang="tabThongSoDL"*@>định lượng</a></li>
+                    <li role="presentation" class="active"><a href="#tabThemDinhTinh" data-val="1" aria-controls="tabThemDinhTinh" role="tab" data-toggle="tab" data-lang="tabThongSoDT">định tính</a></li>
+                    <li role="presentation"><a href="#tabThemThongSoDL" data-val="2" aria-controls="tabThemThongSoDL" role="tab" data-toggle="tab" data-lang="tabThongSoDL">định lượng</a></li>
                 </ul>
                 <h6 style="margin: 20px 0 0 0;"></h6>
                 <!-- Tab panes -->
@@ -204,7 +204,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                 <div class="form-group">
-                                    <label>Loại công việc</label>
+                                    <label data-lang="labLoaiCV">Loại công việc</label>
                                     @Html.DropDownList("cbbLoaiCV", ViewBag.LoaiCV as SelectList, new { name = "cbbLoaiCV", data_live_search = "true", data_slide = "left", @class = "form-control select-one select2", @style = "width:100%" })
                                 </div>
                             </div>
@@ -238,10 +238,14 @@
                                         <table id="tbQuantityParameter" class="table table-bordered table-condensed ">
                                             <thead>
                                                 <tr>
-                                                    <th class="">Group</th>
-                                                    <th data-lang="TEN_GIA_TRI">Giá trị</th>
-                                                    <th style="width:80px" data-lang="IN">IN</th>
-                                                    <th data-lang="Note">Ghi chú</th>
+                                                    <th data-lang="MS_MAY" class="hidden">MS_MAY</th>
+                                                    <th data-lang="TEN_MAY">TEN_MAY</th>
+                                                    <th data-lang="MS_BP" class="hidden">MS_BP</th>
+                                                    <th data-lang="TEN_BP">TEN_BP</th>
+                                                    <th data-lang="MS_TS" class="hidden">MS_TS</th>
+                                                    <th data-lang="TEN_TS">TEN_TS</th>
+                                                    <th data-lang="GIA_TRI">GIA_TRI</th>
+                                                    <th data-lang="DVD">DVD</th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>

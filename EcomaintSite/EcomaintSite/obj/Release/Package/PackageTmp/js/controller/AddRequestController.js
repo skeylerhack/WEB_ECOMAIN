@@ -10,6 +10,7 @@
             var MainMenu = menu
             var menuID = 'mnuListUserRequest'
             var currentNamePage = 'UserRequestWeb'
+            var request="";
 
             // struct of Buttons floating for mobile
             var buttonFloat = [
@@ -60,15 +61,29 @@
                 }
             }
             var method = 'undefined'
+            function xlchuoi(resulst) {
+                var dsmail = $("#txtEmail").val();
+                if (dsmail.split(";").length === 1) {
+                    return resulst;
+                }
+                else {
+                    return dsmail.substring(0, dsmail.lastIndexOf(";")) +';'+ resulst;
+                }
+            }
             $scope.fn = {
                 Init: function () {
                     global.CurrentNamePage = currentNamePage // Set CurrentNamePage = 'UserRequestWeb' to change to languages for Page
                     MainMenu.fn.SetActive(menuID) //Set highlight for menuitem
                     Languages.fn.AutoChangeLanguage()
-                    Main.fn.InitButtonFloat(buttonFloat) //Init button float for mobile
+                    Main.fn.InitButtonFloat(buttonFloat)//Init button float for mobile
                     method = fnPrivate
-                    $('#cboWorkSite').val($('#workSiteID').val());
-                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'),'#cboDevice option');
+                    if ($('#hfID').val() === "-1") {
+                        $('#cboWorkSite').val('-1');
+                    }
+                    else {
+                        $('#cboWorkSite').val($('#workSiteID').val());
+                    }
+                    Main.fn.ScanBarCode($('#ReadBtn'), $('#fileToUpload'), $('#cboDevice'), '#cboDevice option');
                     $('#tbNguoiYeuCau tbody').on('dblclick', 'tr', function () {
                         var tennyc = $('#tbNguoiYeuCau tbody').find('tr[class$=selected] td:nth-child(2)').text();
                         $('#ModalNCY').appendTo("body").modal('hide');
@@ -97,6 +112,8 @@
                     $('.select2-container--classic').select2({ theme: "classic" });
                 },
                 CheckValidateControl: function () {
+                    if (request === $('#txtRequestNum').val()) return;
+                    request = $('#txtRequestNum').val();
                     if ($('#hfID').val() == -1) {
                         var countRow = $('#hfCount').val();
                         if (countRow == 0) {
@@ -189,7 +206,7 @@
                         });
                     }
                     else {
-                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1 }, function (data) {
+                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
                             if (data == "success") {
                                 window.location.href = urlRequest;
                             }
@@ -198,7 +215,6 @@
                             }
                         });
                     }
-
 
                 },
                 CheckValidateControl1: function () {
@@ -255,11 +271,36 @@
                     $('#myModal').appendTo("body").modal('hide')
                     $('#btnSave').attr('data-action', 'add')
                 },
+                AutoCompleteMail: function () {
+                    $("#txtEmail").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: urlAutocomplete,
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    keyword: $("#txtEmail").val(),
+                                },
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return {
+                                            label: item,
+                                            value: xlchuoi(item)  //nếu là lần đàu thì cleate sạch xong cộng, lần 2 clea sau dấu ;
+                                        };
+                                    }))
+                                },
+                                error: function () {
+                                    alert('something went wrong !');
+                                }
+                            })
+                        }
+                    });
+                },
                 Add: function () {
                     //load combobox de
                     var $wordsite = $('#cboWorkSite').val();
-                    if ($wordsite == null) {
-                        Alert.fn.Show("Địa điểm không được để trống!", Alert.Type.error);
+                    if ($wordsite == "-1") {
+                        Alert.fn.Show("Bạn cần phải chọn địa điểm!", Alert.Type.error);
                         return;
                     }
                     $('#cboDevice option').removeData();

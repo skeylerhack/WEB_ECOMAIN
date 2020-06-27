@@ -2,6 +2,7 @@
     ViewBag.Title = "InitRequest";
     Layout = "~/Views/_Layout.cshtml";
 }
+
 <style>
     label {
         margin-bottom: 0px !important;
@@ -21,7 +22,6 @@
         </ol>
     </div>
 </div>
-
 
 <div ng-controller="AddRequestController" ng-init="fn.Init()">
     <input type="file" id="fileToUpload" style="display: none;" />
@@ -79,13 +79,13 @@
                             <label data-lang="lblNXuong">Địa điểm</label>
                             @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { name = "cboWorkSite", data_slide = "left", @class = "form-control select2-container--classic", @style = "width:100%" })
                             @*@if (ViewBag.ID > -1)
-        {
-            @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { data_live_search = "true", data_slide = "both", @class = "form-control", @disabled = "disabled" })
-        }
-        else
-        {
-            @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { @class = "form-control" })
-        }*@
+                                {
+                                    @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { data_live_search = "true", data_slide = "both", @class = "form-control", @disabled = "disabled" })
+                                }
+                                else
+                                {
+                                    @Html.DropDownList("cboWorkSite", ViewBag.cboWorkSite as SelectList, new { @class = "form-control" })
+                                }*@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-6">
@@ -99,7 +99,7 @@
                             else
                             {
                                 <div class="input-group">
-                                    <input class="form-control" type="text" id="cboCreatedBy" value="@ViewBag.CreatedBy"/>
+                                    <input class="form-control" type="text" id="cboCreatedBy" value="@ViewBag.CreatedBy" />
                                     <a class="input-group-addon" ng-click="fn.NguoiYeuCau();" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                                 </div>
                             }
@@ -114,7 +114,7 @@
                             }
                             else
                             {
-                                <input type="text" class="form-control" id="txtEmail" value="@ViewBag.email" />
+                                <input type="text" class="form-control" id="txtEmail" ng-keydown="fn.AutoCompleteMail();" value="@ViewBag.email" />
                             }
 
                         </div>
@@ -257,7 +257,7 @@
                         </div>
                         <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 pull-right">
                             <div class="form-group">
-                                <input type="submit" id="btnSave" data-action="add"  style="color: #fff; width: 100%;" data-lang="btnGhi" class="btn-flat flat" ng-click="fn.CheckValidateControl1()" value="Lưu">
+                                <input type="submit" id="btnSave" data-action="add" style="color: #fff; width: 100%;" data-lang="btnGhi" class="btn-flat flat" ng-click="fn.CheckValidateControl1()" value="Lưu">
                             </div>
                         </div>
                     </div>
@@ -326,6 +326,7 @@
         var urlDevices = '@Url.Action("getDevices", "UserRequest")';
         var urlShowNguoiYeuCau = '@Url.Action("ShowNguoiYeuCau", "UserRequest")';
         var urlReadbarcode = '@Url.Action("ProcessRequest", "MyEcomain")';
+        var urlAutocomplete = '@Url.Action("AutocompleteMail", "UserRequest")';
         require(["./AddRequestController"]);
     </script>
 </div>

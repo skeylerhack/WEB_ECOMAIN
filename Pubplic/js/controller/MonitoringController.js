@@ -283,12 +283,17 @@
                             });
                             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw(false);
                             $('#tbthongsodinhluong').find('tr:first-child').addClass('selected');
-                            method.TableThongSo_RowChanged();
+                            method.TableThongSoDL_RowChanged();
                         });
                 },
                 TableThongSo_RowChanged: function () {
                     var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
                     method.LoadGiaTri(STT);
+                    return false;
+                },
+                TableThongSoDL_RowChanged: function () {
+                    var STT = $('#tbGiamSatTinhTrang').find('tr[class$="selected"]').attr('data-id');
+                    method.LoadGiaTriDL(STT);
                     return false;
                 },
                 //GetGiaTri(int stt, string msmay, string msbp, string msts, int loai);
@@ -309,6 +314,30 @@
                             else {
                                 for (i = 0; i < data.length; i++) {
                                     tableBody.append('<tr><td>' + data[i].TEN_GIA_TRI + '</td><td >' + data[i].GHI_CHU + '</td></tr>');
+                                }
+                            }
+                        });
+                    }
+                },
+                LoadGiaTriDL: function (STT) {
+                    var msmay = $("#tbthongsodinhluong tbody").find('tr[class$="selected"]').attr('data-msmay');
+                    var msbp = $("#tbthongsodinhluong tbody").find('tr[class$="selected"]').attr('data-msbp');
+                    var msts = $("#tbthongsodinhluong  tbody").find('tr[class$="selected"]').attr('data-msts');
+                    var tableBody = $('#tbgiatriDL tbody');
+                    if (typeof msmay == 'undefined') {
+                        tableBody.empty();
+                        tableBody.append('<tr><td colspan="3">Không có dữ liệu</td></tr>');
+                    }
+                    else {
+                        $.post(urlGetGiaTriDL, { stt: STT, msmay: msmay, msbp: msbp, msts: msts}, function (data) {
+                            var i;
+                            tableBody.empty();
+                            if (data.length == 0) { tableBody.append('<tr><td colspan="3">Không có dữ liệu</td></tr>'); }
+                            else {
+                                for (i = 0; i < data.length; i++) {
+                                    tableBody.append('<tr><td>' + data[i].TEN_GT + '</td><td >'
+                                        + data[i].GIA_TRI_TREN + '</td><td >'
+                                        + data[i].GIA_TRI_DUOI + '</td></tr>');
                                 }
                             }
                         });
@@ -351,6 +380,7 @@
                         });
                     //click vào table thông số định tính thì load chi tiết
                     $('#tbthongsodinhtinh').on('click', 'tr', method.TableThongSo_RowChanged);
+                    $('#tbthongsodinhluong').on('click', 'tr', method.TableThongSoDL_RowChanged);
                     //vars.$txtDevice.on('keypress', function (e) {
                     //    if (e.which === 13) {
                     //        Loading.fn.Show()

@@ -81,8 +81,6 @@ namespace Model.Repository.Repository
             return list;
         }
 
-
-
         private bool disposed = false;
         protected void Dispose(bool disposing)
         {
