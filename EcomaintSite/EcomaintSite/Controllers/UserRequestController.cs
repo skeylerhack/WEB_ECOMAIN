@@ -213,7 +213,9 @@ namespace EcomaintSite.Controllers
                 }
                 string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                //Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                //return Json("success", JsonRequestBehavior.AllowGet);
+                Combobox().SendEmail("bamboo2711@gmail.com", "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

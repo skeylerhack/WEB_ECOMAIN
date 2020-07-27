@@ -236,7 +236,6 @@
             $.get('@Url.Action("_ThemPhuThung", "UserRequest")', { id: requestID, may: DeviceID, stt_vande: Detailid }, function (data) {
                 $("#myModalbp").html(data);
                 $("#myModalbp").modal('show');
-
             });
         }
         //thêm hình
