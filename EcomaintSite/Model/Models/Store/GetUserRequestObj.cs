@@ -22,5 +22,6 @@ namespace Model.Data
         public string WorkSiteID { get; set; }
         public string WorkSiteName { get; set; }
         public Nullable<bool> IsExecuteApproveRequested { get; set; }
+        public string DeviceID { get; set; }
     }
 }

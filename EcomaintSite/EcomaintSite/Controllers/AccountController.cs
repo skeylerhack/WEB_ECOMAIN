@@ -94,10 +94,6 @@ namespace EcomaintSite.Controllers
             }
             if (model.RememberMe == true)
             {
-                //db = new HttpCookie("DatabaseName");
-                //db.Value = model.DatabaseName;
-                //db.Expires = DateTime.Now.AddDays(15);
-                //Response.Cookies.Add(db);
                 us = new HttpCookie("Username");
                 us.Value = model.Username;
                 us.Expires = DateTime.Now.AddDays(15);
@@ -113,10 +109,10 @@ namespace EcomaintSite.Controllers
                 us.Expires = DateTime.Now.AddDays(-1D);
                 pass.Expires = DateTime.Now.AddDays(-1D);
             }
-            if (Commons.licCom == 0)
-            {
-                return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Không thể kết nói tới server vui lòng liên hệ lại admin!" });
-            }
+            //if (Commons.licCom == 0)
+            //{
+            //    return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Không thể kết nói tới server vui lòng liên hệ lại admin!" });
+            //}
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "" });

@@ -122,12 +122,15 @@
   </data>
   <data name="ROW_YEU_CAU_NSD" xml:space="preserve">
     <value>&lt;tr&gt;
-            &lt;td&gt;{0}&lt;/td&gt;  &lt;td&gt;{1}&lt;/td&gt;
+            &lt;td&gt;{0}&lt;/td&gt;
+            &lt;td&gt;{1}&lt;/td&gt;
             &lt;td&gt;{2}&lt;/td&gt;
             &lt;td&gt;{3}&lt;/td&gt;
             &lt;td&gt;{4}&lt;/td&gt;
             &lt;td&gt;{5}&lt;/td&gt;
             &lt;td&gt;{6}&lt;/td&gt;
+            &lt;td&gt;{7}&lt;/td&gt;
+            &lt;td&gt;{8}&lt;/td&gt;
         &lt;/tr&gt;</value>
   </data>
   <data name="YEU_CAU_NSD" xml:space="preserve">
@@ -136,7 +139,7 @@
     &lt;p&gt;Người yêu cầu: {1}&lt;/p&gt;
     &lt;p&gt;Ngày yêu cầu: {2}&lt;/p&gt;
     &lt;p&gt;Giờ yêu cầu: {3}&lt;/p&gt;
-    &lt;p&gt;Ngày hoàn thành: {4}&lt;/p&gt;
+    &lt;p&gt;Ngày YC HT: {4}&lt;/p&gt;
     &lt;b style="text-align:center"&gt;YÊU CẦU BẢO TRÌ&lt;/b&gt;&lt;/br&gt;
     &lt;table border="1" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable"&gt;
         &lt;tr&gt;
@@ -147,6 +150,8 @@
             &lt;th&gt;Nguyên nhân&lt;/th&gt;
             &lt;th&gt;Ưu tiên&lt;/th&gt;
             &lt;th&gt;Loại yêu cầu&lt;/th&gt;
+            &lt;th&gt;Ngày hỏng&lt;/th&gt;
+            &lt;th&gt;Giờ hỏng&lt;/th&gt;
         &lt;/tr&gt;
         {5}
     &lt;/table&gt;

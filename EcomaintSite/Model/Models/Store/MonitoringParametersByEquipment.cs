@@ -18,4 +18,24 @@ namespace Model.Data
         public int ValueParamID { get; set; }
         public int ID { get; set; }
     }
+    public class MonitoringByDevice
+    {
+        //với cái này
+        public int STT;
+        //public int STT
+        //{
+        //    get { return stt; }
+        //    set { stt = value +1; }
+        //}
+        public string DeviceID { get; set; }
+        public string MonitoringParamsName { get; set; }
+        public string MonitoringParamsID { get; set; }
+        public string ComponentID { get; set; }
+        public string ComponentName { get; set; }
+        public string MeasurementUnitName { get; set; }
+        public bool TypeOfParam { get; set; }
+        public string Speak { get; set; }
+        public string Message { get; set; }
+        public string TEN_GT { get; set; }
+    }
 }

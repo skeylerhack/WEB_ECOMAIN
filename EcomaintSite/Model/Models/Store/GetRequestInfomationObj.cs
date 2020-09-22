@@ -1,6 +1,7 @@
 ﻿namespace Model.Data
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class GetRequestInfomationObj
     {

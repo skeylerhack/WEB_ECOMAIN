@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using EcomaintSite;
-using Model.Repository;
 using System.Globalization;
 using Model.Data;
 using Newtonsoft.Json;
 using Microsoft.AspNet.Identity;
-using Model.UnitOfWork;
 using Model.Interface;
-using System.Web.Http.Routing;
 using EcomaintSite.UtilityHelpers;
 using System.IO;
-using System.Web.Services;
 using Model.Combobox;
 using Model.Data.ViewModel;
 
@@ -69,7 +62,9 @@ namespace EcomaintSite.Controllers
                 RequestedBy = x.RequestedBy,
                 DateCompleted = x.DateCompleted.HasValue ? x.DateCompleted.Value.ToString("dd/MM/yyyy") : "",
                 Email = x.Email,
-                WorkSiteID = x.WorkSiteID
+                WorkSiteID = x.WorkSiteID,
+                DeviceID = x.DeviceID
+
             }).OrderByDescending(x => x.UserRequestID), JsonRequestBehavior.AllowGet);
 
         [Authorize]
@@ -95,7 +90,6 @@ namespace EcomaintSite.Controllers
         public JsonResult AutocompleteMail(string keyword)
         {
             string[] arrListStr = keyword.Split(';');
-            string chuoidau = "";
             string s = arrListStr[arrListStr.Count() - 1];
             List<EmailViewModel> result = Combobox().AutoCompleteMail();
             var data = result.Where(x => x.MAILNAME.StartsWith(s)).Select(x => x.MAILNAME).Distinct().ToList();
@@ -121,6 +115,7 @@ namespace EcomaintSite.Controllers
             {
                 UserRequestDetailID = x.UserRequestDetailID,
                 DeviceID = x.DeviceID,
+                DeviceName = x.DeviceName,
                 Description = x.Description,
                 DateOccurred = x.DateOccurred.HasValue ? x.DateOccurred.Value.ToString("dd/MM/yyyy") : "",
                 HourOccurred = x.HourOccurred.HasValue ? x.HourOccurred.Value.ToString("HH:mm") : "",
@@ -209,13 +204,11 @@ namespace EcomaintSite.Controllers
                 string row = "";
                 foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
                 {
-                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT, item.DateOccurred == null ?"" :Convert.ToDateTime(item.DateOccurred).ToString("dd/MM/yyyy"),item.HourOccurred == null ? "" : Convert.ToDateTime(item.HourOccurred).ToString("HH:mm tt"));
                 }
                 string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-                //Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
-                //return Json("success", JsonRequestBehavior.AllowGet);
-                Combobox().SendEmail("bamboo2711@gmail.com", "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -223,7 +216,6 @@ namespace EcomaintSite.Controllers
                 return Json("failure: " + ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
-
         private string GetDsMail(string msnx, string mailthem)
         {
             string resulst = "";
@@ -244,7 +236,7 @@ namespace EcomaintSite.Controllers
                 string row = "";
                 foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
                 {
-                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT);
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT, item.DateOccurred, item.HourOccurred);
                 }
                 string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách

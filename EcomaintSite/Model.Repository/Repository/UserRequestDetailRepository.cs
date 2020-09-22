@@ -28,17 +28,41 @@ namespace Model.Repository
         public IEnumerable<UserRequestDetail> GetRequestDetailsByPlan(int planID) => 
             db.UserRequestDetail.Where(x => x.PlanID == planID).Count() > 0 ? db.UserRequestDetail.Where(x => x.PlanID == planID): null;
        
-        public IEnumerable<ApprovedRequestObj> ApprovedRequest(string user, Nullable<int> option, Nullable<int> lang, byte[] image, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, string workSiteID, string typeOfDeviceID) =>
-            db.Database.SqlQuery<ApprovedRequestObj>("ApprovedRequest @username, @option, @lang, @image, @fromDate, @toDate, @workSiteID, @typeOfDeviceID", new object[]
+        public IEnumerable<ApprovedRequestObj> ApprovedRequest(string user, Nullable<int> option, Nullable<int> lang, byte[] image, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, string workSiteID, string typeOfDeviceID)
+        {
+            List<ApprovedRequestObj> list = null;
+            try
             {
-                new SqlParameter("@username", user),
-                new SqlParameter("@option", option),
-                new SqlParameter("@lang", lang), image == null ? new SqlParameter("@image", new byte[0]) :  new SqlParameter("@image", image),
-                new SqlParameter("@fromDate", fromDate),
-                new SqlParameter("@toDate", toDate),
-                new SqlParameter("@workSiteID", workSiteID),
-                new SqlParameter("@typeOfDeviceID", typeOfDeviceID)
-            }).ToList();
+                list =  db.Database.SqlQuery<ApprovedRequestObj>("ApprovedRequest @username, @option, @lang, @image, @fromDate, @toDate, @workSiteID, @typeOfDeviceID", new object[]
+                {
+                    new SqlParameter("@username", user),
+                    new SqlParameter("@option", option),
+                    new SqlParameter("@lang", lang), image == null ? new SqlParameter("@image", new byte[0]) :  new SqlParameter("@image", image),
+                    new SqlParameter("@fromDate", fromDate),
+                    new SqlParameter("@toDate", toDate),
+                    new SqlParameter("@workSiteID", workSiteID),
+                    new SqlParameter("@typeOfDeviceID", typeOfDeviceID)
+                }).ToList();
+            }
+            catch (Exception)
+            {
+            }
+            return list;
+
+        }
+        //db.Database.SqlQuery<ApprovedRequestObj>("ApprovedRequest @username, @option, @lang, @image, @fromDate, @toDate, @workSiteID, @typeOfDeviceID", new object[]
+        //{
+        //    new SqlParameter("@username", user),
+        //    new SqlParameter("@option", option),
+        //    new SqlParameter("@lang", lang), image == null ? new SqlParameter("@image", new byte[0]) :  new SqlParameter("@image", image),
+        //    new SqlParameter("@fromDate", fromDate),
+        //    new SqlParameter("@toDate", toDate),
+        //    new SqlParameter("@workSiteID", workSiteID),
+        //    new SqlParameter("@typeOfDeviceID", typeOfDeviceID)
+        //}).ToList();
+
+
+
 
         public SelectList DanhSachNguyenNhan()
         {

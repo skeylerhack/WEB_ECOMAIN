@@ -71,12 +71,15 @@ namespace EcomaintSite.Resulst {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
-        ///            &lt;td&gt;{0}&lt;/td&gt;  &lt;td&gt;{1}&lt;/td&gt;
+        ///            &lt;td&gt;{0}&lt;/td&gt;
+        ///            &lt;td&gt;{1}&lt;/td&gt;
         ///            &lt;td&gt;{2}&lt;/td&gt;
         ///            &lt;td&gt;{3}&lt;/td&gt;
         ///            &lt;td&gt;{4}&lt;/td&gt;
         ///            &lt;td&gt;{5}&lt;/td&gt;
         ///            &lt;td&gt;{6}&lt;/td&gt;
+        ///            &lt;td&gt;{7}&lt;/td&gt;
+        ///            &lt;td&gt;{8}&lt;/td&gt;
         ///        &lt;/tr&gt;.
         /// </summary>
         internal static string ROW_YEU_CAU_NSD {
@@ -91,7 +94,7 @@ namespace EcomaintSite.Resulst {
         ///    &lt;p&gt;Người yêu cầu: {1}&lt;/p&gt;
         ///    &lt;p&gt;Ngày yêu cầu: {2}&lt;/p&gt;
         ///    &lt;p&gt;Giờ yêu cầu: {3}&lt;/p&gt;
-        ///    &lt;p&gt;Ngày hoàn thành: {4}&lt;/p&gt;
+        ///    &lt;p&gt;Ngày YC HT: {4}&lt;/p&gt;
         ///    &lt;b style=&quot;text-align:center&quot;&gt;YÊU CẦU BẢO TRÌ&lt;/b&gt;&lt;/br&gt;
         ///    &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; id=&quot;bodyTable&quot;&gt;
         ///        &lt;tr&gt;
@@ -99,7 +102,7 @@ namespace EcomaintSite.Resulst {
         ///            &lt;th&gt;Tên Máy&lt;/th&gt;
         ///            &lt;th&gt;Mô tả&lt;/th&gt;
         ///            &lt;th&gt;Yêu cầu&lt;/th&gt;
-        ///             [rest of string was truncated]&quot;;.
+        ///            &lt;th&gt;N [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string YEU_CAU_NSD {
             get {

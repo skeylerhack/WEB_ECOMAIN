@@ -85,6 +85,7 @@
                             data: data,
                             columns: [
                                 { data: 'UserRequestID' },
+                                { data: 'DeviceID' },
                                 { data: 'DateCreated' },
                                 { data: 'HourCreated' },
                                 { data: 'RequestedBy' },
@@ -96,10 +97,11 @@
                                 { "width": "180px", "targets": [0] },
                                 { "width": "80px", "text-align": "right", "targets": [1] },
                                 { "width": "80px", "text-align": "right", "targets": [2] },
-                                { "width": "170px", "text-align": "right", "targets": [3] },
-                                { "width": "100px", "text-align": "right", "targets": [4] },
-                                { "width": "125px", "text-align": "right", "targets": [5] },
-                                { "width": "130px", "text-align": "right", "targets": [6] }
+                                { "width": "80px", "text-align": "right", "targets": [3] },
+                                { "width": "170px", "text-align": "right", "targets": [4] },
+                                { "width": "100px", "text-align": "right", "targets": [5] },
+                                { "width": "125px", "text-align": "right", "targets": [6] },
+                                { "width": "130px", "text-align": "right", "targets": [7] }
                             ],
                             "language": {
                                 "processing": "<div class='overlay custom-loader-background'><i class='fa fa-cog fa-spin custom-loader-color'></i></div>",
@@ -196,6 +198,7 @@
                                 tableBody.append('<tr data-detailid=' + data[i].UserRequestDetailID + '><td data-deviceid = '
                                     + data[i].DeviceID + '>'
                                     + data[i].DeviceID + '</td><td >'
+                                    + data[i].DeviceName + '</td><td >'
                                     + data[i].TEN_LOAI_YEU_CAU_BT + '</td><td >'
                                     + data[i].Description + '</td><td >'
                                     + data[i].TEN_NGUYEN_NHAN + '</td><td >'

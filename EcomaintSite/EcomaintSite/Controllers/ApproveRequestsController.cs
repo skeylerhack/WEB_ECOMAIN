@@ -58,7 +58,8 @@ namespace EcomaintSite.Controllers
                 Request = x.Request,
                 TypeOfMaintenanceName = x.TypeOfMaintenanceName,
                 Document = x.Document,
-                PriorityName = x.PriorityName
+                PriorityName = x.PriorityName,
+                IsApprovedRequest = x.IsApprovedRequest
             });
             return Json(model, JsonRequestBehavior.AllowGet);
         }

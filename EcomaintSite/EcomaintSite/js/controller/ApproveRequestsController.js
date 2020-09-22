@@ -18,26 +18,26 @@
                 "id": "btnApproved",
                 "url": "#",
                 "icon": "<i class='fa fa-check-square-o'></i>",
-                    "lang": "btnDuyet",
+                "lang": "btnDuyet",
                 "func": 'fn.Approved'
             }, {
                 "id": "btnNotApprove",
                 "url": "#",
                 "icon": "<i class='fa fa-square-o'></i>",
-                    "lang": "btnKhongDuyet",
+                "lang": "btnKhongDuyet",
                 "func": 'fn.NotApprove'
             }, {
                 "id": "btnExecute",
                 "url": "#",
                 "icon": "<i class='fa fa-pencil'></i>",
-                    "lang": "btnThucHien",
+                "lang": "btnThucHien",
                 "hidden": "true",
                 "func": 'fn.Execute'
             }, {
                 "id": "btnCancel",
                 "url": "#",
                 "icon": "<i class='fa fa-reply'></i>",
-                    "lang": "btnHuy",
+                "lang": "btnHuy",
                 "hidden": "true",
                 "func": 'fn.Cancel'
             }
@@ -69,7 +69,8 @@
                                 { data: 'DateCreated' },
                                 { data: 'TypeOfMaintenanceName' },
                                 { data: 'Document' },
-                                { data: 'PriorityName' }
+                                { data: 'PriorityName' },
+                                { data: 'IsApprovedRequest' }
                             ],
                             "language":
                             {
@@ -106,7 +107,8 @@
                                 { 'width': '80px', 'targets': 4 },
                                 { 'width': '110px', 'targets': 5 },
                                 { 'width': '60px', 'targets': 6 },
-                                { 'width': '150px', 'targets': 7 }
+                                { 'width': '150px', 'targets': 7 },
+                                {'targets': 8,'visible':false }
                             ],
                             scrollY: 350,
                             scrollX: true,
@@ -118,7 +120,17 @@
                                 }
                             }
                         });
+
                         $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw(false);
+                        if ($('#cboStatus').val() == 'tabApproved') {
+                            $('#tbApproveUserRequest').DataTable().column(8).search('True').draw();
+                        }
+                        else if ($('#cboStatus').val() == 'tabNotApprove') {
+                            $('#tbApproveUserRequest').DataTable().column(8).search('False').draw();
+                        }
+                        else {
+                            $('#tbApproveUserRequest').DataTable().search('').columns(8).search('').draw();
+                        }
                         Loading.fn.Hide();
                     });
                 },
@@ -230,7 +242,7 @@
                     //    Loading.fn.Show()
                     //    method.FilterData();
                     //});
-                    Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')], 
+                    Main.fn.InitDateTimePickerChanged([$('#fromDate'), $('#toDate')],
                         method.FilterData)
                     method.FilterData()
                 },
@@ -284,7 +296,7 @@
                 DropdownValueChanged: function () {
                     var status = $('#cboStatus').val();
                     var option = $('#cboOption').val();
-                    if (status == 'tabApproved') {
+                    if (status == 'tabApproved') {//được duyệt
                         if (option == '0') { //tabChuaKiemTra
                             vars.$btnApproved.prop("disabled", false);
                             vars.$btnNotApprove.prop("disabled", false);
@@ -297,13 +309,40 @@
                             vars.$btnApproved.prop("disabled", false);
                             vars.$btnNotApprove.prop("disabled", true);
                         }
-                        Loading.fn.Show()
-                        window.setTimeout(function () { method.FilterData(); }, 1500);
+                        //Loading.fn.Show()
+                        //window.setTimeout(function () { method.FilterData(); }, 1500);
                     }
                     else {
                         vars.$btnApproved.prop("disabled", true);
                         vars.$btnNotApprove.prop("disabled", true);
                     }
+                    if (status == 'tabApproved') {
+                        $('#tbApproveUserRequest').DataTable().column(8).search('True').draw();
+                    }
+                    else if (status == 'tabNotApprove') {
+                        $('#tbApproveUserRequest').DataTable().column(8).search('False').draw();
+                    }
+                    else {
+                        $('#tbApproveUserRequest').DataTable().search('').columns(8).search('').draw();
+                    }
+                },
+                DropdownValueChanged1: function () {
+                    var status = $('#cboStatus').val();
+                    var option = $('#cboOption').val();
+                    if (option == '0') { //tabChuaKiemTra
+                        vars.$btnApproved.prop("disabled", false);
+                        vars.$btnNotApprove.prop("disabled", false);
+                    }
+                    else if (option == '1') { //tabChuaXuLy
+                        vars.$btnApproved.prop("disabled", true);
+                        vars.$btnNotApprove.prop("disabled", false);
+                    }
+                    else if (option == '2') { //tabKhongThucHien
+                        vars.$btnApproved.prop("disabled", false);
+                        vars.$btnNotApprove.prop("disabled", true);
+                    }
+                    Loading.fn.Show()
+                    window.setTimeout(function () { method.FilterData(); }, 1500);
                 }
             }
         })

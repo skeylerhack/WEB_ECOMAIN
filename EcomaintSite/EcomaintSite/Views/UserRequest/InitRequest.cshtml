@@ -70,7 +70,7 @@
                             }
                             else
                             {
-                                <input class="form-control date" data-type="datepicker" type="text" id="completedDate" value="@ViewBag.completedDate" />
+                                <input class="form-control date" data-type="datepicker" type="text" id="completedDate" value="" />
                             }
                         </div>
                     </div>
@@ -155,8 +155,8 @@
                                         <th data-lang="TEN_LOAI_YEU_CAU_BT">TEN_LOAI_YEU_CAU_BT</th>
                                         <th data-lang="TypeOfMaintenanceRequestID" class="hidden">TypeOfMaintenanceRequestID</th>
                                         <th data-lang="PriorityID" class="hidden">PriorityID</th>
-                                        <th data-lang="DateOccurred" class="hidden">DateOccurred</th>
-                                        <th data-lang="HourOccurred" class="hidden">HourOccurred</th>
+                                        <th data-lang="DateOccurred">DateOccurred</th>
+                                        <th data-lang="HourOccurred">HourOccurred</th>
                                         <th data-lang="UserRequestDetailID" class="hidden">UserRequestDetailID</th>
                                     </tr>
                                 </thead>
@@ -173,8 +173,20 @@
                                             <td>@item.TEN_LOAI_YEU_CAU_BT</td>
                                             <td class="hidden">@item.TypeOfMaintenanceRequestID"</td>
                                             <td class="hidden">@item.PriorityID</td>
-                                            <td class="hidden">@item.DateOccurred</td>
-                                            <td class="hidden">@item.HourOccurred"</td>
+                                            <td>
+                                                @{ if (@item.DateOccurred != null)
+                                                    {
+                                                        @item.DateOccurred.ToString("dd/MM/yyyy");
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{ if (@item.HourOccurred != null)
+                                                    {
+                                                        @item.HourOccurred.ToString("HH:mm");
+                                                    }
+                                                }
+                                            </td>
                                             <td class="hidden">@item.UserRequestDetailID"</td>
                                         </tr>
                                     }
@@ -245,7 +257,7 @@
                                 </div>
 
                             </div>
-                            </div>
+                        </div>
 
                         @*giờ sự cố*@
 

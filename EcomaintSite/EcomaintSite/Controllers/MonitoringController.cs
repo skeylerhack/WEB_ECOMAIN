@@ -8,7 +8,10 @@ using Model.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 namespace EcomaintSite.Controllers
@@ -21,6 +24,11 @@ namespace EcomaintSite.Controllers
         IUserRepository userRepository;
 
         private ICombobox _Combobox;
+        public static List<MonitoringParametersByDevice> listthongso = null;
+
+        public static List<MonitoringByDevice> listgiamsat = null;
+        string sKeyV = @"http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=AAAXXX&tl=vi";
+
         private ICombobox Combobox()
         {
             return _Combobox ?? (_Combobox = new Combobox());
@@ -70,14 +78,14 @@ namespace EcomaintSite.Controllers
             }).ToList());
         }
 
-        public ActionResult InitMonitoring(string stt, string msmay,string msphieu)
+        public ActionResult InitMonitoring(string stt, string msmay, string msphieu)
         {
-            if(!string.IsNullOrEmpty(stt))
+            if (!string.IsNullOrEmpty(stt))
             {
                 //sửa
                 List<string> lstmay = msmay.Split(',').ToList();
-                List<SelectListItem> resulst = Combobox().GetCbbMay(User.Identity.Name,0,0).ToList();
-                var kq = resulst.Where(p =>lstmay.Where(y=>y.Trim().Equals(p.Value)).Any()).ToList();
+                List<SelectListItem> resulst = Combobox().GetCbbMay(User.Identity.Name, 0, 0).ToList();
+                var kq = resulst.Where(p => lstmay.Where(y => y.Trim().Equals(p.Value)).Any()).ToList();
                 ViewBag.May = new SelectList(kq, "Value", "Text", null);
                 ViewBag.MSPhieu = msphieu;
             }
@@ -98,7 +106,7 @@ namespace EcomaintSite.Controllers
                 Name = x.Name
             }).ToList());
         }
-        public ActionResult InitMonitoringEdit(int stt,string msmay)
+        public ActionResult InitMonitoringEdit(int stt, string msmay)
         {
             ViewBag.NhaXuong = Combobox().GetCbbDiaDiem(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
             ViewBag.LoaiCV = Combobox().GetCbbLoaiCV(User.Identity.GetUserName(), SessionVariable.TypeLanguage, 1);
@@ -191,16 +199,73 @@ namespace EcomaintSite.Controllers
         }
 
         [Authorize]
-        public JsonResult GetMonitoringParameters(string id, string due, string todate, string mslcv,string stt)
+        public JsonResult GetMonitoringParameters(string id, string due, string todate, string mslcv, string stt)
         {
             try
             {
-                return Json(monitoringRepository.GetMonitoringParametersByDevice(id, Convert.ToInt32(due), Convert.ToDateTime(todate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToInt32(mslcv),Convert.ToInt32(stt)), JsonRequestBehavior.AllowGet);
+                listthongso = monitoringRepository.GetMonitoringParametersByDevice(id, Convert.ToInt32(due), Convert.ToDateTime(todate, new CultureInfo("vi-vn")).ToString("yyyy/MM/dd"), Convert.ToInt32(mslcv), Convert.ToInt32(stt)).ToList();
+                var gs = listthongso.Select(x => new
+                {
+                    DeviceID = x.DeviceID,
+                    MonitoringParamsName = x.MonitoringParamsName,
+                    MonitoringParamsID = x.MonitoringParamsID,
+                    ComponentID = x.ComponentID,
+                    ComponentName = x.ComponentName,
+                    TypeOfParam = x.TypeOfParam,
+                    MeasurementUnitName = x.MeasurementUnitName,
+                }).Distinct().ToList();
+                listgiamsat = gs.Select((x, i) => new MonitoringByDevice()
+                {
+                    STT = i + 1,
+                    DeviceID = x.DeviceID,
+                    MonitoringParamsName = x.MonitoringParamsName,
+                    MonitoringParamsID = x.MonitoringParamsID,
+                    ComponentID = x.ComponentID,
+                    ComponentName = x.ComponentName,
+                    TypeOfParam = x.TypeOfParam,
+                    MeasurementUnitName = x.MeasurementUnitName,
+                    TEN_GT = GetGiaTriTS(x.ComponentID, x.MonitoringParamsID, x.TypeOfParam),
+                    //Value = GetGiaTriTS(x.ComponentID, x.MonitoringParamsID, x.TypeOfParam),
+                    Speak = "thông số kiểm tra thứ " + (i + 1) + " " + x.MonitoringParamsName + " ở " + x.ComponentName + " gồm các giá trị sau: " + GetGiaTriTS(x.ComponentID, x.MonitoringParamsID, x.TypeOfParam),
+                    Message = "thông số kiểm tra thứ " + (i + 1) + " " + x.MonitoringParamsName + " ở " + x.ComponentName + " gồm các giá trị sau: " + GetGiaTriTS(x.ComponentID, x.MonitoringParamsID, x.TypeOfParam),
+                }).ToList();
+                return Json(listthongso, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json("error: " + ex.Message, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [Authorize]
+        public JsonResult GetMonitoringParametersTMP()
+        {
+            try
+            {
+                return Json(listthongso, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json("error: " + ex.Message, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public string GetGiaTriTS(string msbp, string msts, bool loaits)
+        {
+            string resulst = "";
+            if (loaits == true)
+            {
+                var list = listthongso.Where(x => x.ComponentID.Equals(msbp) && x.MonitoringParamsID.Equals(msts)).ToList();
+                if (list.Count > 0)
+                {
+                    foreach (var item in list)
+                    {
+                        resulst += item.ValueParamName + ";";
+                    }
+                }
+            }
+            return resulst;
         }
 
         [Authorize]
@@ -215,9 +280,8 @@ namespace EcomaintSite.Controllers
                 return Json("error: " + ex.Message, JsonRequestBehavior.AllowGet);
             }
         }
-
         [Authorize]
-        public JsonResult Save(string data, string mscn,string stt,string ngaykt,string giokt)
+        public JsonResult Save(string data, string mscn, string stt, string ngaykt, string giokt)
         {
             try
             {
@@ -281,7 +345,7 @@ namespace EcomaintSite.Controllers
                         });
                     }
                 });
-                if(stt =="-1")
+                if (stt == "-1")
                 {//thêm
                     monitoringUnitOfWork.MonitoringRepository.Add(obj);//add giám sát tình trạng
 
@@ -313,6 +377,119 @@ namespace EcomaintSite.Controllers
             {
                 return Json("failure", JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpPost]
+        public ActionResult StarVoice(Int64 stt, string msmay)
+        {
+            string name = "", mess = "";
+            name = GetMp3("Bắc đầu kiểm tra thông số của máy " + msmay + "");
+            mess = "<b>Bắc đầu kiểm tra thông số của máy " + msmay + "!</b>";
+            stt = 0;
+            return Json(new { name = name, tengt = mess, stt = stt }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult SpeakVoice(string a, Int64 stt, string msmay)
+        {
+            string name = "", mess = "";
+            MonitoringByDevice recoure = listgiamsat.Where(x => x.STT == stt).FirstOrDefault();
+            MonitoringByDevice check = listgiamsat.Where(x => x.STT == stt - 1).FirstOrDefault();
+            if (CheckData(check, a) == false)
+            {
+                name = GetMp3("Giá trị bạn chọn không đúng xin vui lòng chọn lại");
+                mess = "Giá trị bạn chọn không đúng xin vui lòng chọn lại!";
+                stt = 0;
+            }
+            else
+            {
+                if (recoure == null)
+                {
+                    name = GetMp3("Bạn đã kiểm tra hết thông số");
+                    mess = "Bạn đã kiểm tra hết thông số!";
+                    stt = 0;
+                }
+                else
+                {
+                    name = GetMp3(recoure.Speak);
+                    mess = recoure.Message;
+                    //update giá trị vào list gía trị
+                    try
+                    {
+                        if (a.ToLower() == "ok")
+                        {
+                            var list = listthongso.Where(x => x.ComponentID.Equals(check.ComponentID) && x.MonitoringParamsID.Equals(check.MonitoringParamsID) && x.Pass==1).FirstOrDefault();
+                            list.Measurement = 1;
+                        }
+                        else
+                        {
+                            var list = listthongso.Where(x => x.ComponentID.Equals(check.ComponentID) && x.MonitoringParamsID.Equals(check.MonitoringParamsID) && x.ValueParamName.ToLower().Trim().Equals(a.ToLower().Trim())).FirstOrDefault();
+                            list.Measurement = 1;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+            return Json(new { name = name, tengt = mess, stt = stt }, JsonRequestBehavior.AllowGet);
+        }
+        public bool CheckData(MonitoringByDevice row, string input)
+        {
+            bool resulst = false;
+            if (row is null)
+            {
+                resulst = true;
+            }
+            else
+            {
+                List<string> array = new List<string> { "ok", "đạt" };
+                if (row.TEN_GT.ToString() != "")
+                {
+                    string[] mang = row.TEN_GT.ToString().Split(';');
+                    array.AddRange(mang);
+                    foreach (var item in array)
+                    {
+                        if (item.ToString().ToLower().Trim() == input.ToLower().Trim())
+                        {
+                            resulst = true; break;
+                        }
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        Int64 so = Convert.ToInt64(input.Trim());
+                        resulst = true;
+                    }
+                    catch (Exception)
+                    {
+                        resulst = false;
+                    }
+                }
+            }
+            return resulst;
+        }
+
+        public string GetMp3(string a)
+        {
+            DirectoryInfo di = new DirectoryInfo(HttpContext.Server.MapPath("~/Resource"));
+            foreach (FileInfo Files in di.GetFiles())
+            {
+                Files.Delete();
+            }
+            string sText = "";
+            sText = a;
+            sText = sKeyV.Replace("AAAXXX", sText);
+            //var url = "http://translate.google.com/translate_tts?tl=pt&q=";
+            //url += HttpUtility.UrlEncode(text, Encoding.GetEncoding("utf-8"));
+            var url = sText;
+            url = HttpUtility.UrlEncode(sText, Encoding.GetEncoding("utf-8"));
+            string name = DateTime.Now.TimeOfDay.Seconds.ToString();
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1";
+                client.DownloadFile(sText, HttpContext.Server.MapPath("~/Resource/" + name + ".mp3"));
+            }
+            return name;
         }
 
     }

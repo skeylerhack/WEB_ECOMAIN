@@ -79,6 +79,7 @@
                                             <thead>
                                                 <tr>
                                                     <th data-lang="UserRequestID">UserRequestID</th>
+                                                    <th data-lang="DeviceID">DeviceID</th>
                                                     <th data-lang="DateCreated">DateCreated</th>
                                                     <th data-lang="HourCreated">HourCreated</th>
                                                     <th data-lang="RequestedBy">RequestedBy</th>
@@ -108,6 +109,7 @@
                                             <thead>
                                                 <tr>
                                                     <th data-lang="DeviceID">DeviceID</th>
+                                                    <th data-lang="DeviceName">DeviceName</th>
                                                     <th data-lang="TEN_LOAI_YEU_CAU_BT">TEN_LOAI_YEU_CAU_BT</th>
                                                     <th data-lang="Description">Description</th>
                                                     <th data-lang="TEN_NGUYEN_NHAN">TEN_NGUYEN_NHAN</th>
@@ -236,7 +238,6 @@
             $.get('@Url.Action("_ThemPhuThung", "UserRequest")', { id: requestID, may: DeviceID, stt_vande: Detailid }, function (data) {
                 $("#myModalbp").html(data);
                 $("#myModalbp").modal('show');
-
             });
         }
         //thêm hình

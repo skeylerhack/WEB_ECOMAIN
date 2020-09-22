@@ -63,7 +63,7 @@
             var method = 'undefined'
             function xlchuoi(resulst) {
                 var dsmail = $("#txtEmail").val();
-                if (dsmail.split(";").length === 1) {
+                if (dsmail.split(";").length == 1) {
                     return resulst;
                 }
                 else {
@@ -77,7 +77,7 @@
                     Languages.fn.AutoChangeLanguage()
                     Main.fn.InitButtonFloat(buttonFloat)//Init button float for mobile
                     method = fnPrivate
-                    if ($('#hfID').val() === "-1") {
+                    if ($('#hfID').val() == "-1") {
                         $('#cboWorkSite').val('-1');
                     }
                     else {
@@ -103,7 +103,7 @@
                         $('#cboCreatedBy').val(tennyc);
                     });
                     var rowCount = $('#tbRequestInfo >tbody >tr').length;
-                    if (rowCount === 0) {
+                    if (rowCount == 0) {
                         $('#cboWorkSite').attr('disabled', false);
                     }
                     else {
@@ -112,9 +112,8 @@
                     $('.select2-container--classic').select2({ theme: "classic" });
                 },
                 CheckValidateControl: function () {
-                    if (request === $('#txtRequestNum').val()) return;
-                    request = $('#txtRequestNum').val();
-                    if ($('#hfID').val() == -1) {
+                   if (request == $('#txtRequestNum').val()) return;
+                    if ($('#hfID').val() ==-1) {
                         var countRow = $('#hfCount').val();
                         if (countRow == 0) {
                             Alert.fn.Show(Messenger.msgDSMayRong, Alert.Type.warning);
@@ -122,16 +121,16 @@
                             return false;
                         }
                         var tmp = $('#dateOfRequest').val()
-                        if (tmp === '') {
+                        if (tmp == '') {
                             Alert.fn.Show(Messenger.msgChonNgayYC, Alert.Type.warning);
                             return false;
                         }
                         tmp = $('#timeOfRequest').val()
-                        if (tmp === '') {
+                        if (tmp == '') {
                             Alert.fn.Show(Messenger.msgChonGioYC, Alert.Type.warning);
                             return false;
                         }
-                        if ($('#completedDate').val() !== '') {
+                        if ($('#completedDate').val() != '') {
                             var ngayYC = Convert.fn.DateTime($('#dateOfRequest').val(), 'MM/dd/yyyy')
                             var ngayHT = Convert.fn.DateTime($('#completedDate').val(), 'MM/dd/yyyy')
 
@@ -140,13 +139,14 @@
                                 return false;
                             }
                         }
-                        var nguoiYC = $('#cboCreatedBy').val()
+                        var nguoiYC = $('#cboCreatedBy').val();
                         if (nguoiYC == null || nguoiYC.trim() == "" || nguoiYC.length == 0) {
                             $('#btnSave').prop("disabled", false);
                             Alert.fn.Show(Messenger.msgChonNguoiYC, Alert.Type.warning);
                             return false;
                         }
                     }
+                    request = $('#txtRequestNum').val();
                     var lstRequest = new Array();
                     lstRequest[0] = new Object();
                     lstRequest[0].ID = $('#hfID').val();
@@ -156,8 +156,14 @@
                     lstRequest[0].RequestedBy = $('#cboCreatedBy').val();
                     lstRequest[0].WorkSiteID = $('#cboWorkSite').val();
                     lstRequest[0].DateCreated = $('#dateOfRequest').val().split('/')[2] + '/' + $('#dateOfRequest').val().split('/')[1] + '/' + $('#dateOfRequest').val().split('/')[0];
-                    lstRequest[0].HourCreated = '1900/01/01 ' + $('#timeOfRequest').val().split(' ')[0]
-                    lstRequest[0].DateCompleted = $('#completedDate').val().split('/')[2] + '/' + $('#completedDate').val().split('/')[1] + '/' + $('#completedDate').val().split('/')[0];
+                    lstRequest[0].HourCreated = '1900/01/01 ' + $('#timeOfRequest').val().split(' ')[0];
+                    if ($('#completedDate').val() == '') {
+                        lstRequest[0].DateCompleted = null;
+                    }
+                    else {
+                        lstRequest[0].DateCompleted = $('#completedDate').val().split('/')[2] + '/' + $('#completedDate').val().split('/')[1] + '/' + $('#completedDate').val().split('/')[0];
+                    }
+
                     //var completedDate;
                     //try {
                     //    completedDate = new Date($('#completedDate').val());
@@ -186,9 +192,23 @@
                         lstRequestDetails[i].CauseID = this.cells[10].innerHTML;
                         lstRequestDetails[i].TypeOfMaintenanceRequestID = this.cells[6].innerHTML;
                         lstRequestDetails[i].PriorityID = this.cells[7].innerHTML;
+                        if (this.cells[12].innerHTML == '') {
+                            lstRequestDetails[i].HourOccurred = null;
+                        }
+                        else {
+                            lstRequestDetails[i].HourOccurred = '1900/01/01 ' + this.cells[12].innerHTML.split(' ')[0];
+                        }
+                        if (this.cells[11].innerHTML == '') {
+                            lstRequestDetails[i].DateOccurred = null;
+                        }
+                        else {
+                            lstRequestDetails[i].DateOccurred = this.cells[11].innerHTML.split('/')[2] + '/' + this.cells[11].innerHTML.split('/')[1] + '/' + this.cells[11].innerHTML.split('/')[0];
+                        }
+                        //lstRequest[0].HourCreated = '1900/01/01 ' + $('#timeOfRequest').val().split(' ')[0];
+                        //lstRequest[0].DateCompleted = this.cells[12].innerHTML.split('/')[2] + '/' + this.cells[12].innerHTML.split('/')[1] + '/' + this.cells[12].innerHTML.split('/')[0];
 
-                        lstRequestDetails[i].DateOccurred = Convert.fn.Time(now.getMonth() + 1) + '/' + Convert.fn.Time(now.getDate()) + '/' + Convert.fn.Time(now.getFullYear());
-                        lstRequestDetails[i].HourOccurred = '1900/01/01 ' + Convert.fn.Time(now.getHours()) + ':' + Convert.fn.Time(now.getMinutes());
+                        //lstRequestDetails[i].DateOccurred = Convert.fn.Time(now.getMonth() + 1) + '/' + Convert.fn.Time(now.getDate()) + '/' + Convert.fn.Time(now.getFullYear());
+                        //lstRequestDetails[i].HourOccurred = '1900/01/01 ' + Convert.fn.Time(now.getHours()) + ':' + Convert.fn.Time(now.getMinutes());
                         //lstRequestDetails[i].CauseID = null;
                         //lstRequestDetails[i].TypeOfMaintenanceRequestID = -1;
                         //lstRequestDetails[i].PriorityID = null;
@@ -231,7 +251,7 @@
                         Alert.fn.Show("Vui lòng nhập nội dung!", Alert.Type.warning);
                         return false;
                     }
-                    if ($('#btnSave').attr('data-action') !== 'edit') {
+                    if ($('#btnSave').attr('data-action') != 'edit') {
                         var tableBody = $('#tbRequestInfo tbody');
                         var ID = Math.floor((Math.random() * 9000000) + 1);
                         tableBody.append('<tr new data-id-vd='
@@ -246,7 +266,9 @@
                             + $('#cbouutien').val() + '</td><td class="hidden">'
                             + $('#cboyeucaubaotri').val() + '</td><td class="hidden">'
                             + $('#cboyeucaubaotri').val() + '</td><td class="hidden">'
-                            + $('#cbonguyennhan').val() + '</td></tr >');
+                            + $('#cbonguyennhan').val() + '</td><td >'
+                            + $('#dateOccurred').val() + '</td><td >'
+                            + $('#hourOccurred').val() + '</td>');
                         $('#hfCount').val(parseInt($('#hfCount').val()) + 1)
                         $('#cboWorkSite').attr('disabled', true);
                     }
@@ -265,11 +287,13 @@
                             + $('#cbouutien').val() + '</td><td class="hidden">'
                             + $('#cboyeucaubaotri').val() + '</td><td class="hidden">'
                             + $('#cboyeucaubaotri').val() + '</td><td class="hidden">'
-                            + $('#cbonguyennhan').val() + '</td>');
-                        $('#btnSave').removeAttr("data-id-vd")
+                            + $('#cbonguyennhan').val() + '</td><td >'
+                            + $('#dateOccurred').val() + '</td><td >'
+                            + $('#hourOccurred').val() + '</td>');
+                        $('#btnSave').removeAttr("data-id-vd");
                     }
-                    $('#myModal').appendTo("body").modal('hide')
-                    $('#btnSave').attr('data-action', 'add')
+                    $('#myModal').appendTo("body").modal('hide');
+                    $('#btnSave').attr('data-action', 'add');
                 },
                 AutoCompleteMail: function () {
                     $("#txtEmail").autocomplete({
@@ -336,11 +360,11 @@
                 },
                 Remove: function () {
                     Alert.fn.ShowConfirm(Messenger.msgXoaYeuCau, Alert.Type.warning, '', function (result) {
-                        if (result === true) {
+                        if (result == true) {
                             $('#tbRequestInfo tr[new][class$=selected]').remove();
                             $('#hfCount').val(parseInt($('#hfCount').val()) - 1)
                             var rowCount = $('#tbRequestInfo >tbody >tr').length;
-                            if (rowCount === 0) {
+                            if (rowCount == 0) {
                                 $('#cboWorkSite').attr('disabled', false);
                             }
                         }
