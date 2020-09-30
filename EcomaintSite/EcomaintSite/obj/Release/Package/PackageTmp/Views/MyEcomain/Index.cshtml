@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/_Layout.cshtml";
 }
-
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
@@ -98,7 +97,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     @*tab giám sát tình trạng đến hạng*@
                     <div role="tabpanel" class="tab-pane" id="tabmonitoring">
@@ -111,6 +109,9 @@
         </div>
     </div>
 </div>
+
+
+
 <script>
     var urlPhieuBaoTri = '@Url.Action("GetPhieuBaoTri", "MyEcomain")';
     var urlGiamSatTinhTrang = '@Url.Action("GetGiamSatTinhTrang", "MyEcomain")';

@@ -221,7 +221,8 @@
                                 window.location.href = urlRequest;
                             }
                             else {
-                                Alert.fn.Show(Messenger.msgGhiKhongThanhCong, Alert.Type.error);
+                                alert(data);
+                                Alert.fn.Show(Messenger.msgGhiKhongThanhCong , Alert.Type.error);
                             }
                         });
                     }

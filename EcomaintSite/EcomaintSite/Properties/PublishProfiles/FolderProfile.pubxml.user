@@ -19,10 +19,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2020 15:43:27</publishTime>
     </File>
     <File Include="bin/EcomaintSite.dll">
-      <publishTime>08/11/2020 15:14:01</publishTime>
+      <publishTime>09/30/2020 09:36:59</publishTime>
     </File>
     <File Include="bin/EcomaintSite.pdb">
-      <publishTime>08/11/2020 15:14:01</publishTime>
+      <publishTime>09/30/2020 09:36:59</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/27/2020 11:18:35</publishTime>
@@ -91,13 +91,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:18:35</publishTime>
     </File>
     <File Include="bin/Model.Data.dll">
-      <publishTime>08/11/2020 15:13:54</publishTime>
+      <publishTime>09/30/2020 09:19:55</publishTime>
     </File>
     <File Include="bin/Model.Data.dll.config">
       <publishTime>06/27/2020 11:18:35</publishTime>
     </File>
     <File Include="bin/Model.Data.pdb">
-      <publishTime>08/11/2020 15:13:54</publishTime>
+      <publishTime>09/30/2020 09:19:55</publishTime>
     </File>
     <File Include="bin/Model.dll">
       <publishTime>02/01/2018 15:49:40</publishTime>
@@ -106,19 +106,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/23/2017 10:36:53</publishTime>
     </File>
     <File Include="bin/Model.Interface.dll">
-      <publishTime>08/11/2020 15:13:55</publishTime>
+      <publishTime>09/30/2020 09:19:55</publishTime>
     </File>
     <File Include="bin/Model.Interface.pdb">
-      <publishTime>08/11/2020 15:13:55</publishTime>
+      <publishTime>09/30/2020 09:19:55</publishTime>
     </File>
     <File Include="bin/Model.pdb">
       <publishTime>02/01/2018 15:49:40</publishTime>
     </File>
     <File Include="bin/Model.Repository.dll">
-      <publishTime>08/11/2020 15:13:56</publishTime>
+      <publishTime>09/30/2020 09:19:56</publishTime>
     </File>
     <File Include="bin/Model.Repository.pdb">
-      <publishTime>08/11/2020 15:13:56</publishTime>
+      <publishTime>09/30/2020 09:19:56</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/27/2020 11:18:35</publishTime>
@@ -640,7 +640,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:18:36</publishTime>
     </File>
     <File Include="js/controller/AddRequestController.js">
-      <publishTime>07/31/2020 10:48:11</publishTime>
+      <publishTime>09/30/2020 09:34:42</publishTime>
     </File>
     <File Include="js/controller/ApproveRequestsController.js">
       <publishTime>07/31/2020 14:28:25</publishTime>
@@ -655,7 +655,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2019 13:13:07</publishTime>
     </File>
     <File Include="js/controller/InitMonitoringController.js">
-      <publishTime>06/27/2020 11:18:36</publishTime>
+      <publishTime>09/30/2020 09:26:02</publishTime>
     </File>
     <File Include="js/controller/MasterPlansController.js">
       <publishTime>06/27/2020 11:18:36</publishTime>
@@ -667,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2019 14:01:39</publishTime>
     </File>
     <File Include="js/controller/MyEcomainController.js">
-      <publishTime>06/27/2020 11:18:36</publishTime>
+      <publishTime>08/21/2020 10:49:46</publishTime>
     </File>
     <File Include="js/controller/OrgUnitController.js">
       <publishTime>06/27/2020 11:18:36</publishTime>
@@ -835,10 +835,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:18:36</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/27/2020 11:18:36</publishTime>
+      <publishTime>08/15/2020 09:52:52</publishTime>
     </File>
     <File Include="Resulst/Dropdown_2-24.png">
       <publishTime>06/27/2020 11:18:35</publishTime>
+    </File>
+    <File Include="Resulst/translate_tts.mp3">
+      <publishTime>08/13/2020 15:20:35</publishTime>
     </File>
     <File Include="Views/About/Index - Copy.cshtml">
       <publishTime>06/27/2020 11:18:35</publishTime>
@@ -871,13 +874,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 14:37:31</publishTime>
     </File>
     <File Include="Views/Monitoring/_ThemGiamSatTinhTrang.cshtml">
-      <publishTime>06/27/2020 11:18:35</publishTime>
+      <publishTime>09/30/2020 08:52:19</publishTime>
     </File>
     <File Include="Views/MyEcomain/Index - Copy.cshtml">
       <publishTime>06/27/2020 11:18:35</publishTime>
     </File>
     <File Include="Views/MyEcomain/Index.cshtml">
-      <publishTime>06/27/2020 11:18:35</publishTime>
+      <publishTime>08/20/2020 09:45:48</publishTime>
     </File>
     <File Include="Views/OrgUnit/Index.cshtml">
       <publishTime>06/27/2020 11:18:35</publishTime>
@@ -934,7 +937,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:18:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/27/2020 11:18:35</publishTime>
+      <publishTime>09/30/2020 09:18:00</publishTime>
     </File>
   </ItemGroup>
 </Project>
