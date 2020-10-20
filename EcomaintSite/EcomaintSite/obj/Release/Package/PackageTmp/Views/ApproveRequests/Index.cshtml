@@ -48,7 +48,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group">
                             <label data-lang="lblTuNgay">Từ ngày</label>
-                            <input class="form-control" type="text" id="fromDate" data-loading="true" data-type="datepicker" value="@DateTime.Now.AddMonths(-5).ToString("dd/MM/yyyy")" />
+                            <input class="form-control" type="text" id="fromDate" data-loading="true" data-type="datepicker" value="@DateTime.Now.AddMonths(-1).ToString("dd/MM/yyyy")" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -88,9 +88,10 @@
                                     <th data-lang="DeviceID">DeviceID</th>
                                     <th data-lang="Description">Description</th>
                                     <th data-lang="Request">Request</th>
-                                    <th data-lang="DateCreated">DateCreated</th>
                                     <th data-lang="TypeOfMaintenanceName">TypeOfMaintenanceName</th>
-                                    <th data-lang="Document">Document</th>
+                                    <th data-lang="RequestNO">RequestNO</th>
+                                    <th data-lang="DateCreated">DateCreated</th>
+                                    <th data-lang="RequestedBy">RequestedBy</th>
                                     <th data-lang="Name">Name</th>
                                     <th data-lang="IsApprovedRequest" hidden>IsApprovedRequest</th>
                                 </tr>
@@ -147,7 +148,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label data-lang="lblThucHien">Thực hiện</label>
-                            <input type="checkbox" id="ckExecute" />
+                            <input type="checkbox" id="ckExecute" checked="checked" />
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ namespace Model.Interface
         SelectList GetCbbMay(string UserName, int NNgu, int CoAll);
         SelectList NhanVienKT(string Username);
         SelectList GetCbbLoaiCV(string UserName, int NNgu, int CoAll);
-        string GetEmailByNhaXuong(string msnx, string username, string mailthem);
+        string GetEmailByNhaXuong(int stt, string msnx, string loaiyc, string username, string mailthem);
         List<EmailViewModel> AutoCompleteMail();
         void SendEmail(string address, string subject, string message,string link);
     }

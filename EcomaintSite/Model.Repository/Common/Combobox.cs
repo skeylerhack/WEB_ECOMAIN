@@ -37,19 +37,19 @@ namespace Model.Combobox
         public SelectList GetCbbDiaDiem(string Username, int NNgu, int CoAll)
         {
             DataTable tb = new DataTable();
-            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetNhaXuongAll",Username,NNgu,CoAll));
-                var listItem = tb.AsEnumerable().Select(
-                 x => new SelectListItem
-                 {
-                     Text = x.Field<string>("TEN_N_XUONG"),
-                     Value = x.Field<string>("MS_N_XUONG")
-                 });
+            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetNhaXuongAll", Username, NNgu, CoAll));
+            var listItem = tb.AsEnumerable().Select(
+             x => new SelectListItem
+             {
+                 Text = x.Field<string>("TEN_N_XUONG"),
+                 Value = x.Field<string>("MS_N_XUONG")
+             });
             return new SelectList(listItem, "Value", "Text", null);
         }
         public SelectList GetCbbHeThong(string Username, int NNgu, int CoAll)
         {
             DataTable tb = new DataTable();
-            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetHeThongAll",CoAll, Username, NNgu));
+            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetHeThongAll", CoAll, Username, NNgu));
             var listItem = tb.AsEnumerable().Select(
              x => new SelectListItem
              {
@@ -91,7 +91,7 @@ namespace Model.Combobox
             UserRepository us = new UserRepository();
             string s = us.GetUserByID(Username).StaffID;
             DataTable tb = new DataTable();
-            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "MGetCNVaiTroUsers","-1",Username));
+            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "MGetCNVaiTroUsers", "-1", Username));
             var listItem = tb.AsEnumerable().Select(
              x => new SelectListItem
              {
@@ -108,7 +108,7 @@ namespace Model.Combobox
                         " T1.MS_LOAI_CV = T2.MS_LOAI_CV INNER JOIN USERS T3 ON T2.GROUP_ID = T3.GROUP_ID " +
                         " WHERE USERNAME = '" + Username + "' UNION  SELECT -1, ' < ALL > ' " +
                         " ORDER BY TEN_LOAI_CV";
-            dtTmp.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, CommandType.Text,sSql));
+            dtTmp.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, CommandType.Text, sSql));
             var listItem = dtTmp.AsEnumerable().Select(
              x => new SelectListItem
              {
@@ -117,10 +117,29 @@ namespace Model.Combobox
              });
             return new SelectList(listItem, "Value", "Text", null);
         }
-        public string GetEmailByNhaXuong(string msnx,string username,string mailthem)
+        public string GetEmailByNhaXuong(int stt, string msnx, string loaiyc, string username, string mailthem)
         {
-            string resulst = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString, "spGetEmailYCSD", msnx, 1, username, mailthem));
-            return resulst;
+            //kiểm tra mail thêm
+            string smail = mailthem.Trim();
+            if (smail.StartsWith(";"))
+            {
+                smail = smail.Substring(1).Trim();
+            }
+            if (smail.EndsWith(";"))
+            {
+                smail = smail.Substring(0, smail.Length - 1).Trim();
+            }
+            string resulst = Convert.ToString(SqlHelper.ExecuteScalar(db.Database.Connection.ConnectionString, "spGetEmailYCSD", stt, msnx, loaiyc, username, smail));
+            smail = resulst.Trim();
+            if (smail.StartsWith(";"))
+            {
+                smail = smail.Substring(1).Trim();
+            }
+            if (smail.EndsWith(";"))
+            {
+                smail = smail.Substring(0, smail.Length - 1).Trim();
+            }
+            return smail;
         }
         public List<EmailViewModel> AutoCompleteMail()
         {
@@ -135,11 +154,11 @@ namespace Model.Combobox
             }
             return list;
         }
-        public void SendEmail(string address, string subject, string message,string link)
+        public void SendEmail(string address, string subject, string message, string link)
         {
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
-            string str =dt.Rows[0]["PASS_MAIL"].ToString();
+            string str = dt.Rows[0]["PASS_MAIL"].ToString();
             string password = "";
             const int _CODE_ = 354;
             for (int i = 0; i < str.Length; i++)
@@ -151,7 +170,7 @@ namespace Model.Combobox
             var loginInfo = new NetworkCredential(email, password);
             var msg = new MailMessage();
             var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
-            msg.From = new MailAddress(email);
+            msg.From = new MailAddress(email,"CMMS");
             var mail = address.Split(';');
             foreach (var item in mail)
             {

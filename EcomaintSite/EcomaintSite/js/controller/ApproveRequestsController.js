@@ -66,9 +66,10 @@
                                 { data: 'DeviceID' },
                                 { data: 'Description' },
                                 { data: 'Request' },
-                                { data: 'DateCreated' },
                                 { data: 'TypeOfMaintenanceName' },
-                                { data: 'Document' },
+                                { data: 'RequestNO' },
+                                { data: 'DateCreated' },
+                                { data: 'RequestedBy' },
                                 { data: 'PriorityName' },
                                 { data: 'IsApprovedRequest' }
                             ],
@@ -101,14 +102,16 @@
                                         return '<input type="checkbox" disabled  />';
                                     }
                                 },
+                                { 'width': '150px', 'targets': 0 },
                                 { 'width': '150px', 'targets': 1 },
                                 { 'width': '150px', 'targets': 2 },
                                 { 'width': '150px', 'targets': 3 },
                                 { 'width': '80px', 'targets': 4 },
                                 { 'width': '110px', 'targets': 5 },
-                                { 'width': '60px', 'targets': 6 },
-                                { 'width': '150px', 'targets': 7 },
-                                {'targets': 8,'visible':false }
+                                { 'width': '150px', 'targets': 6 },
+                                { 'width': '60px', 'targets': 7 },
+                                { 'width': '150px', 'targets': 8 },
+                                {'targets': 9,'visible':false }
                             ],
                             scrollY: 350,
                             scrollX: true,
@@ -123,19 +126,19 @@
 
                         $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw(false);
                         if ($('#cboStatus').val() == 'tabApproved') {
-                            $('#tbApproveUserRequest').DataTable().column(8).search('True').draw();
+                            $('#tbApproveUserRequest').DataTable().column(9).search('True').draw();
                         }
                         else if ($('#cboStatus').val() == 'tabNotApprove') {
-                            $('#tbApproveUserRequest').DataTable().column(8).search('False').draw();
+                            $('#tbApproveUserRequest').DataTable().column(9).search('False').draw();
                         }
                         else {
-                            $('#tbApproveUserRequest').DataTable().search('').columns(8).search('').draw();
+                            $('#tbApproveUserRequest').DataTable().columns(9).search('').draw();
                         }
                         Loading.fn.Hide();
                     });
                 },
                 Save: function () {
-                    var tmp = $('#dtTime').val()
+                    var tmp = $('#dtTime').val();
                     if (tmp === '') {
                         Alert.fn.Show(Messenger.msgChonNgayYC, Alert.Type.warning);
                         return false;
@@ -153,7 +156,7 @@
                         lstAsk[j].IsExecuteApproveRequested = $('#ckExecute').is(":checked") ? true : false;
                         lstAsk[j].PriorityID = $('#cboPriority').val();
                         lstAsk[j].EmailByApproveRequested = $('#txtMailTo').val();
-                        j++
+                        j++;
                     });
                     var stringData = JSON.stringify(lstAsk);
                     $.post(urlApproveRequests, { data: stringData }, function (data) {
@@ -317,13 +320,13 @@
                         vars.$btnNotApprove.prop("disabled", true);
                     }
                     if (status == 'tabApproved') {
-                        $('#tbApproveUserRequest').DataTable().column(8).search('True').draw();
+                        $('#tbApproveUserRequest').DataTable().column(9).search('True').draw();
                     }
                     else if (status == 'tabNotApprove') {
-                        $('#tbApproveUserRequest').DataTable().column(8).search('False').draw();
+                        $('#tbApproveUserRequest').DataTable().column(9).search('False').draw();
                     }
                     else {
-                        $('#tbApproveUserRequest').DataTable().search('').columns(8).search('').draw();
+                        $('#tbApproveUserRequest').DataTable().column(9).search('').draw();
                     }
                 },
                 DropdownValueChanged1: function () {

@@ -9,6 +9,7 @@ using Model.Interface;
 using System.Web.Mvc;
 using Microsoft.ApplicationBlocks.Data;
 using System.Data;
+using Biz.Lib.Helpers;
 
 namespace Model.Repository
 {
@@ -19,21 +20,29 @@ namespace Model.Repository
 
         public UserRequestDetailRepository(Model1 context) => db = context;
 
-        public IEnumerable<GetRequestInfomationObj> GetRequestInfomation(Nullable<int> ID, string username) => 
-           db.Database.SqlQuery<GetRequestInfomationObj>("GetRequestInfomation @ID,@username", new object[]
-           {
+        public IEnumerable<GetRequestInfomationObj> GetRequestInfomationbySTTVD(Nullable<int> STTVD, string username)
+        {
+            IEnumerable<GetRequestInfomationObj> resulst = db.Database.SqlQuery<GetRequestInfomationObj>("GetRequestInfomationbySTTVD @STTVD,@username", new object[]
+             {
+                new SqlParameter("@STTVD", STTVD),
+                new SqlParameter("@username", username)
+             }).ToList();
+            return resulst;
+        }
+        public IEnumerable<GetRequestInfomationObj> GetRequestInfomation(Nullable<int> ID, string username) =>
+       db.Database.SqlQuery<GetRequestInfomationObj>("GetRequestInfomation @ID,@username", new object[]
+       {
                 new SqlParameter("@ID", ID),
                 new SqlParameter("@username", username)
-           }).ToList();
-        public IEnumerable<UserRequestDetail> GetRequestDetailsByPlan(int planID) => 
-            db.UserRequestDetail.Where(x => x.PlanID == planID).Count() > 0 ? db.UserRequestDetail.Where(x => x.PlanID == planID): null;
-       
+       }).ToList();
+        public IEnumerable<UserRequestDetail> GetRequestDetailsByPlan(int planID) =>
+            db.UserRequestDetail.Where(x => x.PlanID == planID).Count() > 0 ? db.UserRequestDetail.Where(x => x.PlanID == planID) : null;
         public IEnumerable<ApprovedRequestObj> ApprovedRequest(string user, Nullable<int> option, Nullable<int> lang, byte[] image, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, string workSiteID, string typeOfDeviceID)
         {
             List<ApprovedRequestObj> list = null;
             try
             {
-                list =  db.Database.SqlQuery<ApprovedRequestObj>("ApprovedRequest @username, @option, @lang, @image, @fromDate, @toDate, @workSiteID, @typeOfDeviceID", new object[]
+                list = db.Database.SqlQuery<ApprovedRequestObj>("ApprovedRequest @username, @option, @lang, @image, @fromDate, @toDate, @workSiteID, @typeOfDeviceID", new object[]
                 {
                     new SqlParameter("@username", user),
                     new SqlParameter("@option", option),
@@ -60,9 +69,32 @@ namespace Model.Repository
         //    new SqlParameter("@workSiteID", workSiteID),
         //    new SqlParameter("@typeOfDeviceID", typeOfDeviceID)
         //}).ToList();
-
-
-
+        public string SoYeuCau(int stt)
+        {
+            string resulst = "";
+            try
+            {
+                resulst = Convert.ToString(SqlHelper.ExecuteScalar(DBUtils.BizConnectionString(), System.Data.CommandType.Text, "SELECT SO_YEU_CAU FROM dbo.YEU_CAU_NSD WHERE STT = " + stt + ""));
+            }
+            catch (Exception ex)
+            {
+                resulst = "";
+            }
+            return resulst;
+        }
+        public  string GetFullNAmeByUserName(string username)
+        {
+            string resulst = "";
+            try
+            {
+                resulst = Convert.ToString(SqlHelper.ExecuteScalar(DBUtils.BizConnectionString(), System.Data.CommandType.Text, "SELECT FULL_NAME FROM dbo.USERS WHERE USERNAME = '" + username + "'"));
+            }
+            catch (Exception ex)
+            {
+                resulst = "";
+            }
+            return resulst;
+        }
 
         public SelectList DanhSachNguyenNhan()
         {
@@ -80,7 +112,7 @@ namespace Model.Repository
         public SelectList DanhSachLoaiBaoTri()
         {
             DataTable tb = new DataTable();
-            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetLoaiYeuCauBaoTriAll",0));
+            tb.Load(SqlHelper.ExecuteReader(db.Database.Connection.ConnectionString, "GetLoaiYeuCauBaoTriAll", 0));
             var listItem = tb.AsEnumerable().Select(
                   x => new SelectListItem
                   {
@@ -120,7 +152,7 @@ namespace Model.Repository
             }
         }
         private bool disposed = false;
-        protected  void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (!this.disposed)
             {

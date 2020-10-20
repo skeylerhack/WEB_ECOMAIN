@@ -10,7 +10,7 @@
             var MainMenu = menu
             var menuID = 'mnuListUserRequest'
             var currentNamePage = 'UserRequestWeb'
-            var request="";
+            var request = "";
 
             // struct of Buttons floating for mobile
             var buttonFloat = [
@@ -67,7 +67,7 @@
                     return resulst;
                 }
                 else {
-                    return dsmail.substring(0, dsmail.lastIndexOf(";")) +';'+ resulst;
+                    return dsmail.substring(0, dsmail.lastIndexOf(";")) + ';' + resulst;
                 }
             }
             $scope.fn = {
@@ -112,8 +112,8 @@
                     $('.select2-container--classic').select2({ theme: "classic" });
                 },
                 CheckValidateControl: function () {
-                   if (request == $('#txtRequestNum').val()) return;
-                    if ($('#hfID').val() ==-1) {
+                    if (request == $('#txtRequestNum').val()) return;
+                    if ($('#hfID').val() == -1) {
                         var countRow = $('#hfCount').val();
                         if (countRow == 0) {
                             Alert.fn.Show(Messenger.msgDSMayRong, Alert.Type.warning);
@@ -218,17 +218,7 @@
                     if ($('#hfID').val() == "-1") {
                         $.post(urlSaveRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
                             if (data == "success") {
-                                window.location.href = urlRequest;
-                            }
-                            else {
-                                alert(data);
-                                Alert.fn.Show(Messenger.msgGhiKhongThanhCong , Alert.Type.error);
-                            }
-                        });
-                    }
-                    else {
-                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
-                            if (data == "success") {
+                                //Alert.fn.Show("Thêm yêu cầu thành công", Alert.Type.success, Messenger.msgInfo);
                                 window.location.href = urlRequest;
                             }
                             else {
@@ -236,7 +226,16 @@
                             }
                         });
                     }
-
+                    else {
+                        $.post(urlEditRequest, { request: stringData, requestInfo: stringData1, diadiem: $('#cboWorkSite').val() }, function (data) {
+                            if (data == "success") {
+                                    window.location.href = urlRequest;
+                            }
+                            else {
+                                Alert.fn.Show(Messenger.msgGhiKhongThanhCong, Alert.Type.error);
+                            }
+                        });
+                    }
                 },
                 CheckValidateControl1: function () {
                     var Device = $('#cboDevice').val();

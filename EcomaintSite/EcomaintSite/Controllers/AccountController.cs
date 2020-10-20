@@ -47,7 +47,8 @@ namespace EcomaintSite.Controllers
                 {
                     //lấy số lượng của user hiện tại
                     Commons.lic = userRepository.SoLuongLogin(Username) + 1;
-                    Commons.licCom = int.Parse(sArr[3]);
+                    //Commons.licCom = int.Parse(sArr[3]);
+                    Commons.licCom = 10;
                 }
                 catch (Exception ex)
                 {
@@ -134,7 +135,7 @@ namespace EcomaintSite.Controllers
                     }
                     if (d.Count > Commons.licCom)
                     {
-                        return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Vượt quá số lượng người dùng" });
+                        return RedirectToAction("Login", "Account", new { ReturnURL = ReturnURL, error = "Vượt quá số lượng người dùng "+ d.Count + "/" + Commons.licCom +" " });
                     }
                 }
             }
@@ -275,7 +276,7 @@ namespace EcomaintSite.Controllers
             webRepository.Delete(User.Identity.Name);
             Session.Abandon();
             //them vao de xoa cac nguoi dung co ten hien tai
-            //System.Web.HttpContext.Current.Application.Remove(System.Web.HttpContext.Current.User.Identity.Name);
+            System.Web.HttpContext.Current.Application.Remove(System.Web.HttpContext.Current.User.Identity.Name);
             return RedirectToAction("Login", "Account");
         }
         [HttpPost]

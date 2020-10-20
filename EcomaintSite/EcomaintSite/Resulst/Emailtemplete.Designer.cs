@@ -61,6 +61,27 @@ namespace EcomaintSite.Resulst {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;div style=&quot;font-family: &apos;Times New Roman&apos;;font-size:13pt&quot;&gt;
+        ///&lt;b style=&quot;text-align:center&quot;&gt;Yêu cầu bảo trì đã được duyệt&lt;/b&gt;
+        ///    &lt;p&gt;Số yêu cầu: {0}&lt;/p&gt;
+        ///    &lt;p&gt;User duyệt: {1}&lt;/p&gt;
+        ///    &lt;p&gt;Người duyệt: {2}&lt;/p&gt;
+        ///    &lt;p&gt;Ngày duyệt: {3}&lt;/p&gt;
+        ///    &lt;p&gt;Giờ duyệt: {4}&lt;/p&gt;
+        ///    &lt;p&gt;Nội dung duyệt: {5}&lt;/p&gt;
+        /// &lt;b style=&quot;text-align:center&quot;&gt;DUYỆT YÊU CẦU BẢO TRÌ&lt;/b&gt;&lt;/br&gt;
+        ///    &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; id=&quot;bodyTable&quot;&gt;
+        ///        &lt;tr&gt;
+        ///            &lt;th&gt;Ms Máy&lt;/th&gt;
+        ///             [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DUYET_YCNSD {
+            get {
+                return ResourceManager.GetString("DUYET_YCNSD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot; style=&quot;color: mediumblue; text-decoration:none&quot;&gt;===&gt;Web EcomaintSite&lt;===&lt;/a&gt;.
         /// </summary>
         internal static string LINK_DUYET_YEU_CAU {
@@ -91,18 +112,18 @@ namespace EcomaintSite.Resulst {
         /// <summary>
         ///   Looks up a localized string similar to &lt;div style=&quot;font-family: &apos;Times New Roman&apos;;font-size:13pt&quot;&gt;
         ///    &lt;p&gt;Số yêu cầu: {0}&lt;/p&gt;
-        ///    &lt;p&gt;Người yêu cầu: {1}&lt;/p&gt;
-        ///    &lt;p&gt;Ngày yêu cầu: {2}&lt;/p&gt;
-        ///    &lt;p&gt;Giờ yêu cầu: {3}&lt;/p&gt;
-        ///    &lt;p&gt;Ngày YC HT: {4}&lt;/p&gt;
+        ///    &lt;p&gt;User yêu cầu: {1}&lt;/p&gt;
+        ///    &lt;p&gt;Người yêu cầu: {2}&lt;/p&gt;
+        ///    &lt;p&gt;Ngày yêu cầu: {3}&lt;/p&gt;
+        ///    &lt;p&gt;Giờ yêu cầu: {4}&lt;/p&gt;
+        ///    &lt;p&gt;Ngày YC HT: {5}&lt;/p&gt;
         ///    &lt;b style=&quot;text-align:center&quot;&gt;YÊU CẦU BẢO TRÌ&lt;/b&gt;&lt;/br&gt;
         ///    &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; id=&quot;bodyTable&quot;&gt;
         ///        &lt;tr&gt;
         ///            &lt;th&gt;Ms Máy&lt;/th&gt;
         ///            &lt;th&gt;Tên Máy&lt;/th&gt;
         ///            &lt;th&gt;Mô tả&lt;/th&gt;
-        ///            &lt;th&gt;Yêu cầu&lt;/th&gt;
-        ///            &lt;th&gt;N [rest of string was truncated]&quot;;.
+        ///            &lt;th&gt;Y [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string YEU_CAU_NSD {
             get {

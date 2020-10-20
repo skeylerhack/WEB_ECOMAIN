@@ -80,7 +80,7 @@ namespace EcomaintSite.Controllers
             List<Model.Data.ViewModel.DiaDiemViewModel> lst = new List<Model.Data.ViewModel.DiaDiemViewModel>();
             lst = userRequestRepository.GetNhaXuong(User.Identity.Name, SessionVariable.TypeLanguage, 0).ToList();
             //ViewBag.cboWorkSite = new SelectList(workSiteRepository.GetWorkSiteByID(User.Identity.GetUserName(), SessionVariable.TypeLanguage.ToString()), "ID", "Name", WorkSiteID);
-            ViewBag.cboWorkSite = Combobox().GetCbbDiaDiem(User.Identity.Name, SessionVariable.TypeLanguage,1);
+            ViewBag.cboWorkSite = Combobox().GetCbbDiaDiem(User.Identity.Name, SessionVariable.TypeLanguage, 1);
             ViewBag.cboDevice = new SelectList(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID, "-1"), "ID", "Name", "-1");
             ViewBag.cbonguyennhan = userRequestDetailRepository.DanhSachNguyenNhan();
             ViewBag.cboyeucaubaotri = userRequestDetailRepository.DanhSachLoaiBaoTri();
@@ -101,7 +101,7 @@ namespace EcomaintSite.Controllers
             lst = deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), WorkSiteID, "-1").ToList();
             if (lst.Count == 0)
             {
-                return Json(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(),"-1", "-1").ToList(), JsonRequestBehavior.AllowGet);
+                return Json(deviceRepository.GetDeviceByRequest(User.Identity.GetUserName(), "-1", "-1").ToList(), JsonRequestBehavior.AllowGet);
             }
             else
             {
@@ -180,7 +180,7 @@ namespace EcomaintSite.Controllers
                 return View(lst);
             }
         }
-        private string sp ="" ;
+        private string sp = "";
         [Authorize]
         public JsonResult SaveRequest(string request, string requestInfo, string diadiem)
         {
@@ -204,11 +204,11 @@ namespace EcomaintSite.Controllers
                 string row = "";
                 foreach (var item in userRequestUnitOfWork.UserRequestDetailRepository.GetRequestInfomation(lstRequest[0].ID, User.Identity.Name).ToList())
                 {
-                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT, item.DateOccurred == null ?"" :Convert.ToDateTime(item.DateOccurred).ToString("dd/MM/yyyy"),item.HourOccurred == null ? "" : Convert.ToDateTime(item.HourOccurred).ToString("HH:mm tt"));
+                    row += string.Format(EcomaintSite.Resulst.Emailtemplete.ROW_YEU_CAU_NSD, item.DeviceID, item.DeviceName, item.Description, item.Request, item.TEN_NGUYEN_NHAN, item.TEN_UU_TIEN, item.TEN_LOAI_YEU_CAU_BT, item.DateOccurred == null ? "" : Convert.ToDateTime(item.DateOccurred).ToString("dd/MM/yyyy"), item.HourOccurred == null ? "" : Convert.ToDateTime(item.HourOccurred).ToString("HH:mm tt"));
                 }
-                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
+                string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].Username, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(lstRequest[0].ID, lstRequest[0].WorkSiteID, "1", User.Identity.GetUserName(), lstRequest[0].Email), "Yêu cầu bảo trì mới số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace EcomaintSite.Controllers
                 }
                 string result = string.Format(EcomaintSite.Resulst.Emailtemplete.YEU_CAU_NSD, lstRequest[0].RequestNO, lstRequest[0].RequestedBy, lstRequest[0].DateCreated.ToString("dd/MM/yyyy"), lstRequest[0].HourCreated.ToString("HH:mm tt"), Convert.ToDateTime(lstRequest[0].DateCompleted).ToString("dd/MM/yyyy"), row);
                 //láy danh sách
-                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(diadiem, User.Identity.GetUserName(), lstRequest[0].Email), "Sữa yêu cầu bảo trì số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
+                Combobox().SendEmail(Combobox().GetEmailByNhaXuong(lstRequest[0].ID, lstRequest[0].WorkSiteID,"1",User.Identity.GetUserName(), lstRequest[0].Email),"Sữa yêu cầu bảo trì số " + lstRequest[0].RequestNO.ToString(), result, Resulst.Emailtemplete.LINK_DUYET_YEU_CAU);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
