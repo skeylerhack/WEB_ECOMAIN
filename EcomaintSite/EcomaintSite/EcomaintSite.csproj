@@ -349,6 +349,7 @@
     <Compile Include="Controllers\PeriodicMaintenanceController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\PurchaseRequestController.cs" />
     <Compile Include="Controllers\ReceiptRequestController.cs" />
     <Compile Include="Controllers\UserRequestController.cs" />
     <Compile Include="Controllers\OrgUnitController.cs" />
@@ -419,6 +420,7 @@
     <Content Include="Views\Monitoring\_ThemGiamSatTinhTrang.cshtml" />
     <Content Include="Views\CheckInventory\Index.cshtml" />
     <Content Include="Views\About\Index - Copy.cshtml" />
+    <Content Include="Views\PurchaseRequest\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

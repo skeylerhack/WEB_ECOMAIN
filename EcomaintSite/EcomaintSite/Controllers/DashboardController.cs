@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Model.Interface;
-using Model.Repository;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EcomaintSite.Controllers
@@ -14,13 +10,11 @@ namespace EcomaintSite.Controllers
     {
         IUserRepository user;
         IChartRepository chart;
-
         public DashboardController(IUserRepository _user, IChartRepository _chart)
         {
             user = _user;
             chart = _chart;
         }
-
         [Authorize]
         public ActionResult Index()
         {

@@ -92,6 +92,7 @@
     <Compile Include="IRepository\IWorkOrderRepository.cs" />
     <Compile Include="IRepository\IWorkRepository.cs" />
     <Compile Include="IRepository\IWorkSiteRepository.cs" />
+    <Compile Include="IRepository\IPurchaseRequestRepository.cs" />
     <Compile Include="IUnitOfWork\IMasterPlanUnitOfWork.cs" />
     <Compile Include="IUnitOfWork\IMonitoringUnitOfWork.cs" />
     <Compile Include="IUnitOfWork\IUserRequestUnitOfWork.cs" />

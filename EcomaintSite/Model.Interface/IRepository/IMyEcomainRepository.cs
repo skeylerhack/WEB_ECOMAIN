@@ -14,6 +14,5 @@ namespace Model.Interface.IRepository
 
         IEnumerable<MyEcomainViewModel> GetMyEcomain(string username, int languages, string tngay, string dngay, string ms_nx,string may, int giaidoan);
 
-
     }
 }

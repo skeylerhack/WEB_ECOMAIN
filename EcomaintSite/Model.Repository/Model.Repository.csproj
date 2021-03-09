@@ -74,6 +74,7 @@
     <Compile Include="Repository\MonitoringOfQualitativeRepository.cs" />
     <Compile Include="Repository\MonitoringOfQuantitativeRepository.cs" />
     <Compile Include="Repository\MonitoringRepository.cs" />
+    <Compile Include="Repository\PurchaseRequestRepository.cs" />
     <Compile Include="Repository\OrgUnitRepository.cs" />
     <Compile Include="Repository\PeriodicMaintenanceRepository.cs" />
     <Compile Include="Repository\PreventiveMaintenanceOfSparePartRepository.cs" />
